@@ -20,6 +20,11 @@ public class NotesData
 {
     List<NotesBlock> score;   //譜面データ
 
+    public NotesData()
+    {
+        score = new List<NotesBlock>();
+    }
+
     //譜面データに通常ノートを追加
     public bool AddGeneralNote(GeneralNote g)
     {

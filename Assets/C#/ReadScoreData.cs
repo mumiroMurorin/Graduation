@@ -14,10 +14,10 @@ public class ReadScoreData : MonoBehaviour
     private int NOTE_POSITION_COLUMN;
     private int NOTE_ANGLE_COLUMN;
 
-    TextAsset csvFile = new TextAsset(); // CSVファイル
-    List<string[]> csvDatas = new List<string[]>(); // CSVの中身を入れるリスト;
+    TextAsset csvFile; // CSVファイル
+    List<string[]> csvDatas; // CSVの中身を入れるリスト;
 
-    private NotesData notesData = new NotesData();
+    private NotesData notesData;
 
     private bool isReadCSV;
     private bool isComplete;
@@ -37,8 +37,19 @@ public class ReadScoreData : MonoBehaviour
         }
     }
 
-    public ReadScoreData(string file_name)
+    /*public ReadScoreData(string file_name)
     {
+        string csv_name = "Score_" + file_name;
+        StartCoroutine(LoadScoreData(csv_name));
+    }*/
+
+    public void LoadScoreCSV(string file_name)
+    {
+        //初期化
+        csvFile = new TextAsset();
+        csvDatas = new List<string[]>();
+        notesData = new NotesData();
+
         string csv_name = "Score_" + file_name;
         StartCoroutine(LoadScoreData(csv_name));
     }

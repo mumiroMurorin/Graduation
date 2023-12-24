@@ -21,7 +21,11 @@ public class GameCtrl : MonoBehaviour
         //ファイル準備
         if (!isGettingReady) { SetFileTrigger(); }
         //ファイル準備完了？
-        else if (!isReadyComp && isScoreReadyComp) { isReadyComp = true; }
+        else if (!isReadyComp && isScoreReadyComp) 
+        { 
+            StartTrigger(); //仮                  
+            isReadyComp = true;
+        }
     }
 
     //初期化
@@ -45,11 +49,9 @@ public class GameCtrl : MonoBehaviour
     //ゲームスタートトリガー
     public void StartTrigger()
     {
-        if (!isPlayingGame && isReadyComp)
-        {
-            scoreCtrl.GameStart();
-            isPlayingGame = true;
-        }
+        scoreCtrl.GameStart();
+        isPlayingGame = true;
+
     }
 
     //譜面の準備完了

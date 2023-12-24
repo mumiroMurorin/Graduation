@@ -30,6 +30,7 @@ public class ScoreCtrl : MonoBehaviour
     void Start()
     {
         note_par = new GameObject("Note_par");
+        g_manager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -66,7 +67,9 @@ public class ScoreCtrl : MonoBehaviour
     //譜面CSVの読み込み
     public void ReadStart()
     {
-        readScore = new ReadScoreData(csvfile_name);
+        //readScore = new ReadScoreData(csvfile_name);
+        readScore = this.gameObject.AddComponent<ReadScoreData>();
+        readScore.LoadScoreCSV(csvfile_name);
     }
 
     //ゲーム開始トリガー
@@ -135,7 +138,7 @@ public class ScoreCtrl : MonoBehaviour
     private GameObject GenerateGeneralNote(Vector3 born_pos, float angle)
     {
         GameObject obj = Instantiate(generalNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.AddComponent<Note>().Init(g_manager.speed);
+        obj.GetComponent<Note>().Init(g_manager.speed);
         return obj;
     }
 
