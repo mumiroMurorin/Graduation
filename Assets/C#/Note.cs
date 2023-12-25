@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] MeshRenderer m_rend;
-    [SerializeField] AudioClip break_se;
+    [SerializeField] private GameObject se_obj;
+    [SerializeField] private GameObject effect_obj;
 
     private float speed = 1.0f;
 
     void Start()
     {
-        m_rend = GetComponentInChildren<MeshRenderer>();
+        
     }
 
     void Update()
@@ -37,16 +36,10 @@ public class Note : MonoBehaviour
     }
 
     //子オブジェクトがジャッジ基準を満たしたとき
-    public void GetNoteJudgeFlag()
+    public void GetNoteJudgeFlag(Vector3 sword_angle)
     {
-        audioSource.PlayOneShot(break_se);
-        StartCoroutine(DestroyObject());
-    }
-
-    private IEnumerator DestroyObject()
-    {
-        m_rend.enabled = false;
-        yield return new WaitForSeconds(2);
-        this.gameObject.SetActive(false);
+        Instantiate(se_obj, this.gameObject.gameObject.transform.position, Quaternion.identity);
+        //Instantiate(effect_obj, this.gameObject.gameObject.transform.position, Quaternion.Euler(sword_angle + effect_obj.transform.eulerAngles));
+        Destroy(this.gameObject);
     }
 }

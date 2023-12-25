@@ -5,6 +5,7 @@ using UnityEngine;
 public class GeneralNoteObject : MonoBehaviour
 {
     [SerializeField] Note note;
+    private bool isSlashStart;
 
     void Start()
     {
@@ -22,7 +23,16 @@ public class GeneralNoteObject : MonoBehaviour
     {
         if (other.transform.CompareTag("Sword"))
         {
-            note.GetNoteJudgeFlag();
+            isSlashStart = true;
+            
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.CompareTag("Sword") && isSlashStart)
+        {
+            note.GetNoteJudgeFlag(other.gameObject.transform.eulerAngles);
         }
     }
 }
