@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class ReadScoreData : MonoBehaviour
 {
+    //「KIND」列にある文字の定数化
     const string GENERAL_NOTE = "g";
 
     private int NOTE_TIME_COLUMN;
@@ -80,7 +81,7 @@ public class ReadScoreData : MonoBehaviour
         }
     }
 
-    //CSVデータ→ノーツデータ
+    //CSVデータ→ノーツデータ(新ノーツ追加時はここを弄る)
     private void CSVDataToNotesData()
     {
         string[] str;
@@ -89,6 +90,7 @@ public class ReadScoreData : MonoBehaviour
             str = csvDatas[i];
             if (str[0] == "" || str[0] == null) { break; }
 
+            //新ノーツ追加時はここに分岐を追加
             switch (str[NOTE_KIND_COLUMN])
             {
                 case GENERAL_NOTE:

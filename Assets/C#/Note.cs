@@ -35,11 +35,12 @@ public class Note : MonoBehaviour
         this.gameObject.transform.position += -Vector3.forward * Time.fixedDeltaTime * speed;
     }
 
-    //子オブジェクトがジャッジ基準を満たしたとき
-    public void GetNoteJudgeFlag(Vector3 sword_angle)
+    //ノートの斬撃判定
+    public void GetNoteJudgeFlag()
     {
+        //音声の再生(SEオブジェクトの複製)
         Instantiate(se_obj, this.gameObject.gameObject.transform.position, Quaternion.identity);
-        //Instantiate(effect_obj, this.gameObject.gameObject.transform.position, Quaternion.Euler(sword_angle + effect_obj.transform.eulerAngles));
+        //このオブジェクトを抹消
         Destroy(this.gameObject);
     }
 }

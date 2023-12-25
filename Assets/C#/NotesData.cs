@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//通常ノートのクラス(新ノーツ追加時は参考にするといいよ)
 public class GeneralNote
 {
     public float time;
@@ -10,10 +11,14 @@ public class GeneralNote
     public GameObject obj;
 }
 
+//各種ノートのリストをここに格納(ややこしいので分からんかったら聞いて)
 public class NotesBlock
 {
     public float time;
+    //通常ノートのリスト
     public List<GeneralNote> general_list;
+    //以下に新規ノートのリストを宣言
+
 }
 
 public class NotesData 

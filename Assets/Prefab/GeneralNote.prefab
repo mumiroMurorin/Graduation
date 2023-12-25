@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80ff34a68988864a993a5b25f8fa141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  judge_magni: 1.5
   note: {fileID: 1951687657098191563}
 --- !u!1 &6840150049720174718
 GameObject:
