@@ -45,13 +45,12 @@ public class GameCtrl : MonoBehaviour
         isGettingReady = true;
     }
 
-    //ゲームスタートトリガー
+    //ゲームスタートトリガー(ボタンかなにか)
     public void StartTrigger()
     {
         if (!isReadyComp) { return; }
         scoreCtrl.GameStart();
         isPlayingGame = true;
-
     }
 
     //譜面の準備完了
