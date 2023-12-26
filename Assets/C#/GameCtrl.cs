@@ -23,7 +23,6 @@ public class GameCtrl : MonoBehaviour
         //ファイル準備完了？
         else if (!isReadyComp && isScoreReadyComp) 
         { 
-            StartTrigger(); //仮                  
             isReadyComp = true;
         }
     }
@@ -49,6 +48,7 @@ public class GameCtrl : MonoBehaviour
     //ゲームスタートトリガー
     public void StartTrigger()
     {
+        if (!isReadyComp) { return; }
         scoreCtrl.GameStart();
         isPlayingGame = true;
 
