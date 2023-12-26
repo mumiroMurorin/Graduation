@@ -11,12 +11,14 @@ public class SoundCtrl : MonoBehaviour
     [SerializeField] private float fadeOutSeconds = 1.0f;
 
     private AudioSource audioSource;
+    private AudioClip music;
     private bool isfadeOut;
+    private bool isLoadComp;
     private float fadeDeltaTime;
 
     void Start()
     {
-        
+        audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -34,10 +36,13 @@ public class SoundCtrl : MonoBehaviour
         }
     }
 
-    //楽曲のセット
-    public void SetMusic(AudioClip clip)
+    //初期化
+    public void Init()
     {
-        audioSource.clip = clip;
+        music = null;
+        isLoadComp = false;
+        isfadeOut = false;
+        fadeDeltaTime = 0;
     }
 
     //ゲームスタート(楽曲の再生)
@@ -53,9 +58,37 @@ public class SoundCtrl : MonoBehaviour
         isfadeOut = true;
     }
 
-    //譜面CSVの読み込み
-    //private IEnumerator LoadMusic(string file_name)
-    //{
-        
-    //}
+    //ロード開始(セッター)
+    public void ReadStart(string file_name)
+    {
+        StartCoroutine(LoadMusic(file_name + "_music"));
+    }
+
+    //楽曲の読み込み
+    private IEnumerator LoadMusic(string file_name)
+    {
+        //CSVデータの読み込み
+        Addressables.LoadAssetAsync<AudioClip>(file_name).Completed += op =>
+        {
+            music = Instantiate(op.Result);
+            //一旦リリースをデクリメントするが、良くないと思われる
+            //Addressables.Release(op);
+        };
+
+        do
+        {
+            yield return null;
+        } while (music == null);
+
+        audioSource.clip = music;
+        isLoadComp = true;
+    }
+
+    //-----------------ゲッター-----------------
+
+    //準備完了か返す
+    public bool IsReturnLoadComp()
+    {
+        return isLoadComp;
+    }
 }

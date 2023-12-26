@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ScoreCtrl : MonoBehaviour
 {
-    [Header("譜面名(仮)")]
-    [SerializeField] private string csvfile_name;
-
     [Header("譜面生成場所")]
     [SerializeField] private GameObject generate_pnt;
     [Header("ノート判定場所")]
@@ -39,8 +36,8 @@ public class ScoreCtrl : MonoBehaviour
         if(readScore && readScore.IsReturnScoreCompleted() && !isGenerateComp)
         { 
             SetScoreData();
+            //isGenetrateCompは以下の関数でtrueになる
             GenerateNoteInAdvance();
-            gameCtrl.ScoreReadyComp();
         }
     }
 
@@ -65,11 +62,11 @@ public class ScoreCtrl : MonoBehaviour
     }
 
     //譜面CSVの読み込み
-    public void ReadStart()
+    public void ReadStart(string file_name)
     {
         //readScore = new ReadScoreData(csvfile_name);
         readScore = this.gameObject.AddComponent<ReadScoreData>();
-        readScore.LoadScoreCSV(csvfile_name);
+        readScore.LoadScoreCSV(file_name);
     }
 
     //ゲーム開始トリガー

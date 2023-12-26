@@ -51,7 +51,7 @@ public class ReadScoreData : MonoBehaviour
         csvDatas = new List<string[]>();
         notesData = new NotesData();
 
-        string csv_name = "Score_" + file_name;
+        string csv_name = file_name + "_score";
         StartCoroutine(LoadScoreData(csv_name));
     }
 

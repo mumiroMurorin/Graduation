@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class GameCtrl : MonoBehaviour
 {
+    [Header("ファイル名(仮)")]
+    [SerializeField] private string file_name;
+
     [SerializeField] private ScoreCtrl scoreCtrl;
+    [SerializeField] private SoundCtrl soundCtrl;
 
     private bool isGettingReady;
-    private bool isScoreReadyComp;
-    private bool isReadyComp;
     private bool isPlayingGame;
+
+    //準備系
+    private bool isReadyComp;
+
 
     void Start()
     {
@@ -21,7 +27,7 @@ public class GameCtrl : MonoBehaviour
         //ファイル準備
         if (!isGettingReady) { SetFileTrigger(); }
         //ファイル準備完了？
-        else if (!isReadyComp && isScoreReadyComp) 
+        else if (!isReadyComp && scoreCtrl.IsReturnScoreReady() && soundCtrl.IsReturnLoadComp()) 
         { 
             isReadyComp = true;
         }
@@ -40,7 +46,10 @@ public class GameCtrl : MonoBehaviour
     {
         //譜面系のファイルセット
         scoreCtrl.Init();
-        scoreCtrl.ReadStart();
+        scoreCtrl.ReadStart(file_name);
+        //音声系のファイルセット
+        soundCtrl.Init();
+        soundCtrl.ReadStart(file_name);
 
         isGettingReady = true;
     }
@@ -49,13 +58,8 @@ public class GameCtrl : MonoBehaviour
     public void StartTrigger()
     {
         if (!isReadyComp) { return; }
-        scoreCtrl.GameStart();
+        scoreCtrl.GameStart();  //譜面開始
+        soundCtrl.PlayMusic();  //楽曲再生
         isPlayingGame = true;
-    }
-
-    //譜面の準備完了
-    public void ScoreReadyComp()
-    {
-        isScoreReadyComp = true;
     }
 }

@@ -18,7 +18,12 @@ MonoBehaviour:
   m_GUID: b716e643dfad4d741b489011f062c710
   m_SerializeEntries:
   - m_GUID: 292a31c0cb92cb34d95dbb0f3f7276e2
-    m_Address: Score_try
+    m_Address: try_score
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b760132253961704fbfc671d18bbaac6
+    m_Address: try_music
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
