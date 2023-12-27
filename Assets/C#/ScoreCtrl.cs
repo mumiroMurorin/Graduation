@@ -13,6 +13,7 @@ public class ScoreCtrl : MonoBehaviour
 
     [SerializeField] private GameCtrl gameCtrl;
 
+    private ScoreCtrl scoreCtrl;
     private ReadScoreData readScore;
     private GameManager g_manager;
     private List<NotesBlock> score_data;    //譜面データ
@@ -21,11 +22,20 @@ public class ScoreCtrl : MonoBehaviour
     private Vector3 judge_pos;              //ノート判定pos
     private bool isGenerateComp;            //譜面生成官僚？
     private bool isPlaying;                 //プレイ中？
+    private int max_combo_num;              //全ノーツ数
     private float note_generate_time;       //ノート生成手前時間
     private float game_time;                //経過時間
 
+    private float score;
+    private int combo;
+    private int p_critical_num;
+    private int critical_num;
+    private int hit_num;
+    private int miss_num;
+
     void Start()
     {
+        scoreCtrl = this.gameObject.GetComponent<ScoreCtrl>();
         note_par = new GameObject("Note_par");
         g_manager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -39,16 +49,18 @@ public class ScoreCtrl : MonoBehaviour
             //isGenetrateCompは以下の関数でtrueになる
             GenerateNoteInAdvance();
         }
+        else if (isPlaying)
+        {
+            CheckScoreFinish();                 //譜面終了のチェック
+        }
     }
 
     private void FixedUpdate()
     {
         if (isPlaying)
         {
-            //経過時間の加算
-            game_time += Time.fixedDeltaTime;
-            //ノートのアクティブ化
-            SetActiveNote();
+            game_time += Time.fixedDeltaTime;   //経過時間の加算
+            SetActiveNote();                    //ノートのアクティブ化
         }
     }
 
@@ -58,7 +70,18 @@ public class ScoreCtrl : MonoBehaviour
         isPlaying = false;
         generate_pos = generate_pnt.transform.position;
         judge_pos = judge_pnt.transform.position;
-        note_generate_time = Mathf.Abs(generate_pos.z - generate_pos.z) / g_manager.speed;
+        note_generate_time = Mathf.Abs(generate_pos.z - judge_pos.z) / g_manager.speed;
+    }
+
+    //判定の初期化
+    private void JudgementInit()
+    {
+        p_critical_num = 0;
+        critical_num = 0;
+        hit_num = 0;
+        miss_num = 0;
+        score = 0;
+        combo = 0;
     }
 
     //譜面CSVの読み込み
@@ -78,7 +101,8 @@ public class ScoreCtrl : MonoBehaviour
     //譜面ファイルを代入
     private void SetScoreData()
     {
-        score_data = readScore.ReturnScoreData(); 
+        score_data = readScore.ReturnScoreData();
+        max_combo_num = readScore.ReturnNoteNum();
     }
 
     //譜面クラスからノートを生成
@@ -135,14 +159,33 @@ public class ScoreCtrl : MonoBehaviour
     private GameObject GenerateGeneralNote(Vector3 born_pos, float angle)
     {
         GameObject obj = Instantiate(generalNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl);
         return obj;
+    }
+
+    //譜面終了の判定
+    private void CheckScoreFinish()
+    {
+        if(p_critical_num + critical_num + hit_num + miss_num == max_combo_num)
+        {
+            isPlaying = false;
+            Debug.Log("譜面終了");
+        }
     }
 
     //-------------------ゲッター-------------------
 
+    //譜面の準備が完了したか返す
     public bool IsReturnScoreReady()
     {
         return isGenerateComp;
+    }
+
+    //-------------------セッター-------------------
+
+    //判定をノーツから得る(※一旦全部p_critical)
+    public void SetNoteJudge()
+    {
+        p_critical_num++;
     }
 }

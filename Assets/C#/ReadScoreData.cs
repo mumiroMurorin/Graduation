@@ -22,6 +22,7 @@ public class ReadScoreData : MonoBehaviour
 
     private bool isReadCSV;
     private bool isComplete;
+    private int note_num;
 
     void Start()
     {
@@ -85,11 +86,13 @@ public class ReadScoreData : MonoBehaviour
     private void CSVDataToNotesData()
     {
         string[] str;
+        note_num = 0;
         for (int i = 1; i < csvDatas.Count; i++)
         {
             str = csvDatas[i];
             if (str[0] == "" || str[0] == null) { break; }
 
+            note_num++;
             //新ノーツ追加時はここに分岐を追加
             switch (str[NOTE_KIND_COLUMN])
             {
@@ -175,6 +178,12 @@ public class ReadScoreData : MonoBehaviour
     public List<NotesBlock> ReturnScoreData()
     {
         return notesData.ReturnScoreData();
+    }
+
+    //最大コンボ数(ノート数)を返す
+    public int ReturnNoteNum()
+    {
+        return note_num;
     }
 
     //譜面の書き込みが完了したか返す

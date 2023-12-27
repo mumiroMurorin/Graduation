@@ -7,6 +7,8 @@ public class Note : MonoBehaviour
     [SerializeField] private GameObject se_obj;
     [SerializeField] private GameObject effect_obj;
 
+    private ScoreCtrl scoreCtrl;
+
     private float speed = 1.0f;
 
     void Start()
@@ -16,7 +18,13 @@ public class Note : MonoBehaviour
 
     void Update()
     {
-        
+        //仮消滅判定
+        if (this.gameObject.transform.position.z < -2) {
+            //ScoreCtrlに判定を渡す
+            scoreCtrl.SetNoteJudge();
+            //このオブジェクトを抹消
+            Destroy(this.gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -24,9 +32,10 @@ public class Note : MonoBehaviour
         MoveObject();
     }
 
-    public void Init(float s)
+    public void Init(float s, ScoreCtrl s_ctrl)
     {
         speed = s;
+        scoreCtrl = s_ctrl;
     }
 
     //ノートを動かす(一旦真っすぐ)
@@ -40,6 +49,8 @@ public class Note : MonoBehaviour
     {
         //音声の再生(SEオブジェクトの複製)
         Instantiate(se_obj, this.gameObject.gameObject.transform.position, Quaternion.identity);
+        //ScoreCtrlに判定を渡す
+        scoreCtrl.SetNoteJudge();
         //このオブジェクトを抹消
         Destroy(this.gameObject);
     }
