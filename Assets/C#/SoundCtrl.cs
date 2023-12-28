@@ -81,6 +81,7 @@ public class SoundCtrl : MonoBehaviour
         } while (music == null);
 
         audioSource.clip = music;
+        music.LoadAudioData();
         isLoadComp = true;
     }
 

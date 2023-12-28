@@ -255,8 +255,8 @@ MonoBehaviour:
   do_event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 863865151702435835}
-        m_TargetAssemblyTypeName: Box, Assembly-CSharp
+      - m_Target: {fileID: 348894872821919433}
+        m_TargetAssemblyTypeName: ActionBox, Assembly-CSharp
         m_MethodName: GetNoteJudgeFlag
         m_Mode: 1
         m_Arguments:
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6840150049720174719}
-  - component: {fileID: 863865151702435835}
+  - component: {fileID: 348894872821919433}
   m_Layer: 0
   m_Name: ActionBox
   m_TagString: Untagged
@@ -302,7 +302,7 @@ Transform:
   - {fileID: 7484820898317887929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &863865151702435835
+--- !u!114 &348894872821919433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

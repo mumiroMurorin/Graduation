@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Box : MonoBehaviour
+public class ActionBox : MonoBehaviour
 {
     [SerializeField] private GameObject se_obj;
     [SerializeField] private GameObject effect_obj;
