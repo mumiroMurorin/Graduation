@@ -7,6 +7,8 @@ public class GameCtrl : MonoBehaviour
     [Header("ファイル名(仮)")]
     [SerializeField] private string file_name;
 
+    [Header("楽曲スタートアクションボックス")]
+    [SerializeField] private GameObject musicStart_box;
     [SerializeField] private ScoreCtrl scoreCtrl;
     [SerializeField] private SoundCtrl soundCtrl;
     [SerializeField] private UICtrl uiCtrl;
@@ -42,8 +44,11 @@ public class GameCtrl : MonoBehaviour
         else if (!isReadyComp && isDataGettingReady && scoreCtrl.IsReturnScoreReady() && soundCtrl.IsReturnLoadComp())
         { isReadyComp = true; }
         //楽曲プレイ
-        if (!isPlayingGame && isReadyComp && isGameStartTrigger)
+        else if (!isPlayingGame && isReadyComp && isGameStartTrigger)
         { StartStep(); }
+        //楽曲終了
+        else if(isPlayingGame && !scoreCtrl.IsReturnPlaying()) 
+        { FinishGameStep(); }
     }
 
     //初期化
@@ -82,6 +87,10 @@ public class GameCtrl : MonoBehaviour
         scoreCtrl.Init_Start();
         //楽曲の初期化
         soundCtrl.Init_Start();
+        //UIの初期化
+        uiCtrl.Init_Start();
+
+        musicStart_box.SetActive(true);
 
         isDataGettingReady = true;
         isPlayingGame = false;
@@ -95,7 +104,9 @@ public class GameCtrl : MonoBehaviour
         if (!isReadyComp) { return; }
         scoreCtrl.GameStart();  //譜面開始
         soundCtrl.PlayMusic();  //楽曲再生
-        
+
+        musicStart_box.SetActive(false);
+
         isPlayingGame = true;
         isGameStartTrigger = false;
     }
@@ -103,6 +114,7 @@ public class GameCtrl : MonoBehaviour
     //楽曲(ゲーム)終了処理
     private void FinishGameStep()
     {
+        isPlayingGame = false;
         soundCtrl.StopMusic();      //楽曲停止(フェードアウト)
         uiCtrl.AdventResultUI();    //リザルトUI出現
     }

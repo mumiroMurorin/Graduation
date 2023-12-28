@@ -200,6 +200,12 @@ public class ScoreCtrl : MonoBehaviour
         return isGenerateComp;
     }
 
+    //譜面が再生中か返す
+    public bool IsReturnPlaying()
+    {
+        return isPlaying;
+    }
+
     //-------------------セッター-------------------
 
     //判定をノーツから得る(※一旦全部p_critical)

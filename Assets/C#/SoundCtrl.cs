@@ -32,7 +32,7 @@ public class SoundCtrl : MonoBehaviour
                 fadeDeltaTime = fadeOutSeconds;
                 isfadeOut = false;
             }
-            audioSource.volume = (float)(1 - fadeDeltaTime / fadeOutSeconds);
+            audioSource.volume = (float)(1 - fadeDeltaTime / fadeOutSeconds); //仮
         }
     }
 
@@ -42,18 +42,19 @@ public class SoundCtrl : MonoBehaviour
         music = null;
         isLoadComp = false;
         isfadeOut = false;
-        fadeDeltaTime = 0;
     }
 
     //ゲームリスタート
     public void Init_Start()
     {
         audioSource.Stop();
+        fadeDeltaTime = 0;
     }
 
     //ゲームスタート(楽曲の再生)
     public void PlayMusic()
     {
+        audioSource.volume = 1;//仮
         isfadeOut = false;
         audioSource.Play();
     }
