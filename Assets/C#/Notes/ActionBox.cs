@@ -5,12 +5,16 @@ using UnityEngine.Events;
 
 public class ActionBox : MonoBehaviour
 {
-    [SerializeField] private GameObject se_obj;
-    [SerializeField] private GameObject effect_obj;
+    [Header("斬撃時壊すかどうか")]
+    [SerializeField] private bool isDestroy;
+    [Header("復活時間")]
+    [SerializeField] private float revival_time;
+
     [Header("実行イベント")]
     [SerializeField] private UnityEvent do_event;
 
-    private float speed = 1.0f;
+    [SerializeField] private GameObject se_obj;
+    [SerializeField] private GameObject effect_obj;
 
     void Start()
     {
@@ -22,7 +26,13 @@ public class ActionBox : MonoBehaviour
 
     }
 
-    //ノートの斬撃判定
+    //アクションボックスの復活処理
+    public void RevivalActionBox()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    //アクションボックスの斬撃判定
     public void GetNoteJudgeFlag()
     {
         //音声の再生(SEオブジェクトの複製)
@@ -30,6 +40,11 @@ public class ActionBox : MonoBehaviour
         //イベント実行
         do_event.Invoke();
         //このオブジェクトを抹消
-        Destroy(this.gameObject);
+        if (isDestroy) { Destroy(this.gameObject); }
+        else
+        {
+            this.gameObject.SetActive(false);   //仮
+            Invoke("RevivalActionBox", revival_time);
+        }
     }
 }
