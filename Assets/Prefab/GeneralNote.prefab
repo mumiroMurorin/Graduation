@@ -262,7 +262,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9fefd5ae7e4e284b83c14e31d8351eb, type: 2}
+  - {fileID: 2100000, guid: 2e501b641f5503e4d9442eb5c3f96f74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -317,8 +317,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80ff34a68988864a993a5b25f8fa141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  do_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1951687657098191563}
+        m_TargetAssemblyTypeName: Note, Assembly-CSharp
+        m_MethodName: GetNoteJudgeFlag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   judge_magni: 2
-  note: {fileID: 1951687657098191563}
 --- !u!1 &6840150049720174718
 GameObject:
   m_ObjectHideFlags: 0
