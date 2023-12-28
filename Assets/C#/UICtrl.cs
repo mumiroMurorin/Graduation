@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class UICtrl : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    //ƒŠƒUƒ‹ƒg‰æ–Ê‚ÌoŒ»
+    public void AdventResultUI()
+    {
+
     }
 }

@@ -45,6 +45,12 @@ public class SoundCtrl : MonoBehaviour
         fadeDeltaTime = 0;
     }
 
+    //ゲームリスタート
+    public void Init_Start()
+    {
+        audioSource.Stop();
+    }
+
     //ゲームスタート(楽曲の再生)
     public void PlayMusic()
     {

@@ -20,9 +20,11 @@ public class ScoreCtrl : MonoBehaviour
     private GameObject note_par;            //ノート親
     private Vector3 generate_pos;           //ノート出現pos
     private Vector3 judge_pos;              //ノート判定pos
+    private bool isReadDataComp;            //譜面読み込み官僚？
     private bool isGenerateComp;            //譜面生成官僚？
     private bool isPlaying;                 //プレイ中？
     private int max_combo_num;              //全ノーツ数
+    private int scoreData_index;            //譜面データのインデックス
     private float note_generate_time;       //ノート生成手前時間
     private float game_time;                //経過時間
 
@@ -42,16 +44,16 @@ public class ScoreCtrl : MonoBehaviour
 
     void Update()
     {
-        //譜面の読み込みと先行生成
-        if(readScore && readScore.IsReturnScoreCompleted() && !isGenerateComp)
+        //譜面の読み込み
+        if(readScore && readScore.IsReturnScoreCompleted() && !isReadDataComp)
         { 
             SetScoreData();
-            //isGenetrateCompは以下の関数でtrueになる
-            GenerateNoteInAdvance();
+            isReadDataComp = true;
         }
         else if (isPlaying)
         {
-            CheckScoreFinish();                 //譜面終了のチェック
+            //譜面終了のチェック
+            CheckScoreFinish();
         }
     }
 
@@ -64,24 +66,31 @@ public class ScoreCtrl : MonoBehaviour
         }
     }
 
-    //初期化
+    //スタート時の初期化
     public void Init()
     {
-        isPlaying = false;
         generate_pos = generate_pnt.transform.position;
         judge_pos = judge_pnt.transform.position;
-        note_generate_time = Mathf.Abs(generate_pos.z - judge_pos.z) / g_manager.speed;
     }
 
-    //判定の初期化
-    private void JudgementInit()
+    //スタート、リスタート時の初期化
+    public void Init_Start()
     {
+        //各種変数の初期化
+        isPlaying = false;
+        scoreData_index = 0;
+        game_time = 0;
+        note_generate_time = Mathf.Abs(generate_pos.z - judge_pos.z) / g_manager.speed;
+
         p_critical_num = 0;
         critical_num = 0;
         hit_num = 0;
         miss_num = 0;
         score = 0;
         combo = 0;
+        
+        //譜面の事前生成
+        GenerateNoteInAdvance();
     }
 
     //譜面CSVの読み込み
@@ -106,6 +115,7 @@ public class ScoreCtrl : MonoBehaviour
     }
 
     //譜面クラスからノートを生成
+    //(特殊ノーツ出現処理はここに追記)
     public void GenerateNoteInAdvance()
     {
         //全てのノーツを事前生成
@@ -123,10 +133,11 @@ public class ScoreCtrl : MonoBehaviour
     }
 
     //ゲーム開始後、時間が来たらノートを有効にする
+    //(特殊ノーツ出現処理はここに追記)
     private void SetActiveNote()
     {
         //譜面生成終了
-        if (score_data.Count == 0) { return; }
+        if (scoreData_index == score_data.Count) { return; }
 
         //DOPath使うならこの関数
         //note.transform.DOPath(markerPositionArray, time, PathType.Linear)
@@ -135,16 +146,18 @@ public class ScoreCtrl : MonoBehaviour
         //float time = Mathf.Abs(START_GROUND_Z - END_GROUND_Z) / speed;
 
         //データ上の時間を超過する限り繰り返す
-        while (score_data.Count != 0 && IsReturnOverNextTime(score_data[0].time))
+        while (scoreData_index < score_data.Count && 
+            IsReturnOverNextTime(score_data[scoreData_index].time))
         {
             //通常ノーツの生成
-            foreach (GeneralNote g in score_data[0].general_list)
+            foreach (GeneralNote g in score_data[scoreData_index].general_list)
             {
                 //g.obj.transform.position += ReturnLittleDistance(g.time);
                 g.obj.SetActive(true);
             }
 
-            score_data.RemoveAt(0);
+            //以下特殊ノーツの追加
+            scoreData_index++;
         }
     }
 
@@ -174,6 +187,12 @@ public class ScoreCtrl : MonoBehaviour
     }
 
     //-------------------ゲッター-------------------
+
+    //譜面ファイル読み込みが完了したか返す
+    public bool IsReturnReadDataComp()
+    {
+        return isReadDataComp;
+    }
 
     //譜面の準備が完了したか返す
     public bool IsReturnScoreReady()
