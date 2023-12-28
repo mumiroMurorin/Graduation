@@ -47,7 +47,7 @@ public class GameCtrl : MonoBehaviour
         else if (!isPlayingGame && isReadyComp && isGameStartTrigger)
         { StartStep(); }
         //äyã»èIóπ
-        else if(isPlayingGame && !scoreCtrl.IsReturnPlaying()) 
+        else if(isPlayingGame && !scoreCtrl.IsReturnPlaying())
         { FinishGameStep(); }
     }
 
