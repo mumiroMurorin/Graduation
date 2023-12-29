@@ -210,11 +210,11 @@ public class ScoreCtrl : MonoBehaviour
     //-------------------セッター-------------------
 
     //判定をノーツから得る(※一旦全部p_critical)
-    public void SetNoteJudge()
+    public void SetNoteJudge(Vector3 pos)
     {
         p_critical_num++;
         combo++;
         uiCtrl.ChangeCombo(combo);
-        uiCtrl.AdventJudgeUI(0, new Vector3(0, 1, 1.5f));
+        uiCtrl.AdventJudgeUI(0, pos);
     }
 }
