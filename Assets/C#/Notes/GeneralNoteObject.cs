@@ -31,6 +31,24 @@ public class GeneralNoteObject : MonoBehaviour
             //且つ設定した剣力よりも大きな剣力だったとき
             if (other.GetComponent<Sword>().ReturnMagni() >= judge_magni )
             { do_event.Invoke(); }
+            //コントローラを震わせる
+            StartCoroutine(VibrationController(other.name.Contains("Right")));
+        }
+    }
+
+    //コントローラを震わせる
+    private IEnumerator VibrationController(bool isRight)
+    {
+        if (isRight) {
+            OVRInput.SetControllerVibration(0f, 1f, OVRInput.Controller.RTouch);
+            yield return new WaitForSeconds(0.3f);
+            OVRInput.SetControllerVibration(0f, 0f, OVRInput.Controller.RTouch);
+        }
+        else
+        {
+            OVRInput.SetControllerVibration(0f, 1f, OVRInput.Controller.LTouch);
+            yield return new WaitForSeconds(0.3f);
+            OVRInput.SetControllerVibration(0f, 0f, OVRInput.Controller.LTouch);
         }
     }
 

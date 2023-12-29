@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Common;
 
 public class ScoreCtrl : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ScoreCtrl : MonoBehaviour
     [SerializeField] private GameObject generate_pnt;
     [Header("ノート判定場所")]
     [SerializeField] private GameObject judge_pnt;
+    [Header("ミス表示場所")]
+    [SerializeField] private GameObject miss_pnt;
     [Header("通常ノート")]
     [SerializeField] private GameObject generalNote_obj;
 
@@ -21,6 +24,7 @@ public class ScoreCtrl : MonoBehaviour
     private GameObject note_par;            //ノート親
     private Vector3 generate_pos;           //ノート出現pos
     private Vector3 judge_pos;              //ノート判定pos
+    private Vector3 miss_pos;               //miss判定表示pos
     private bool isReadDataComp;            //譜面読み込み官僚？
     private bool isGenerateComp;            //譜面生成官僚？
     private bool isPlaying;                 //プレイ中？
@@ -31,10 +35,7 @@ public class ScoreCtrl : MonoBehaviour
 
     private float score;
     private int combo;
-    private int p_critical_num;
-    private int critical_num;
-    private int hit_num;
-    private int miss_num;
+    private int[] judges_num;
 
     void Start()
     {
@@ -72,6 +73,7 @@ public class ScoreCtrl : MonoBehaviour
     {
         generate_pos = generate_pnt.transform.position;
         judge_pos = judge_pnt.transform.position;
+        miss_pos = miss_pnt.transform.position;
     }
 
     //スタート、リスタート時の初期化
@@ -83,10 +85,7 @@ public class ScoreCtrl : MonoBehaviour
         game_time = 0;
         note_generate_time = Mathf.Abs(generate_pos.z - judge_pos.z) / g_manager.speed;
 
-        p_critical_num = 0;
-        critical_num = 0;
-        hit_num = 0;
-        miss_num = 0;
+        judges_num = new int[4];
         score = 0;
         combo = 0;
         
@@ -180,7 +179,8 @@ public class ScoreCtrl : MonoBehaviour
     //譜面終了の判定
     private void CheckScoreFinish()
     {
-        if(p_critical_num + critical_num + hit_num + miss_num == max_combo_num)
+        //ここの記述迷いどころさん
+        if(judges_num[0] + judges_num[1] + judges_num[2] + judges_num[3] == max_combo_num)
         {
             isPlaying = false;
             Debug.Log("譜面終了");
@@ -210,11 +210,28 @@ public class ScoreCtrl : MonoBehaviour
     //-------------------セッター-------------------
 
     //判定をノーツから得る(※一旦全部p_critical)
-    public void SetNoteJudge(Vector3 pos)
+    public void SetNoteJudge(int judgement_num, Vector3 pos)
     {
-        p_critical_num++;
-        combo++;
+        //判定別分岐
+        switch (judgement_num)
+        {
+            case GrovalConst.P_CRITICAL_NUMBER: //P_Critical
+                combo++;
+                break;
+            case GrovalConst.CRITICAL_NUMBER: //Critical
+                combo++;
+                break;
+            case GrovalConst.HIT_NUMBER: //Hit
+                combo++;
+                break;
+            case GrovalConst.MISS_NUMBER: //Miss
+                combo = 0;
+                pos = miss_pos;
+                break;
+        }
+
+        judges_num[judgement_num]++;
         uiCtrl.ChangeCombo(combo);
-        uiCtrl.AdventJudgeUI(0, pos);
+        uiCtrl.AdventJudgeUI(judgement_num, pos);
     }
 }

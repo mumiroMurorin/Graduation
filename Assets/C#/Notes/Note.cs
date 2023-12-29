@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Common;
 
 public class Note : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Note : MonoBehaviour
         //仮消滅判定
         if (this.gameObject.transform.position.z < -2) {
             //ScoreCtrlに判定を渡す
-            scoreCtrl.SetNoteJudge(this.gameObject.transform.position);
+            scoreCtrl.SetNoteJudge(GrovalConst.MISS_NUMBER, this.gameObject.transform.position);
             //このオブジェクトを抹消
             Destroy(this.gameObject);
         }
@@ -50,7 +51,7 @@ public class Note : MonoBehaviour
         //音声の再生(SEオブジェクトの複製)
         Instantiate(se_obj, this.gameObject.gameObject.transform.position, Quaternion.identity);
         //ScoreCtrlに判定を渡す
-        scoreCtrl.SetNoteJudge(this.gameObject.transform.position);
+        scoreCtrl.SetNoteJudge(GrovalConst.P_CRITICAL_NUMBER, this.gameObject.transform.position);
         //このオブジェクトを抹消
         Destroy(this.gameObject);
     }
