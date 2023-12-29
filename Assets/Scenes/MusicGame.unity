@@ -272,6 +272,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   result_obj: {fileID: 1008230429}
   comboCtrl: {fileID: 1533998515}
+  judge_par: {fileID: 1861701856}
+  judge_obj_ori:
+  - {fileID: 1679578850862789988, guid: 2e381a4861a3c044a8a07e27768820dd, type: 3}
+  - {fileID: 1679578850862789988, guid: 7577d411814632d43b03c1d7d3801ded, type: 3}
+  - {fileID: 1679578850862789988, guid: 86b81ced5865041478693d9982f67971, type: 3}
+  - {fileID: 1679578850862789988, guid: b764a336eaed99149b7e2e9e4c616998, type: 3}
 --- !u!1001 &110531376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1197,6 +1203,7 @@ Transform:
   - {fileID: 1113345153}
   - {fileID: 1008230430}
   - {fileID: 1533998514}
+  - {fileID: 1861701857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &427760276
@@ -3966,6 +3973,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836975779}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 410484551}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1861701856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861701857}
+  m_Layer: 0
+  m_Name: Judge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1861701857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861701856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}

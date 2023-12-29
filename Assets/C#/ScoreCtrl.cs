@@ -215,5 +215,6 @@ public class ScoreCtrl : MonoBehaviour
         p_critical_num++;
         combo++;
         uiCtrl.ChangeCombo(combo);
+        uiCtrl.AdventJudgeUI(0, new Vector3(0, 1, 1.5f));
     }
 }

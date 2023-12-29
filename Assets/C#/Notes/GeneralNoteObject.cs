@@ -29,7 +29,7 @@ public class GeneralNoteObject : MonoBehaviour
         if (other.transform.CompareTag("Sword"))
         {
             //Š‚Âİ’è‚µ‚½Œ•—Í‚æ‚è‚à‘å‚«‚ÈŒ•—Í‚¾‚Á‚½‚Æ‚«
-            if (other.GetComponent<Sword>().ReturnMagni() >= judge_magni ) 
+            if (other.GetComponent<Sword>().ReturnMagni() >= judge_magni )
             { do_event.Invoke(); }
         }
     }
