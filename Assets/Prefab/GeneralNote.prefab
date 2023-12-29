@@ -332,6 +332,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  vibe_right_obj: {fileID: 2346831692973031090, guid: 4ac3a0b6235e0c8418a507340502446d, type: 3}
+  vibe_left_obj: {fileID: 2346831692973031090, guid: bdd9ec6d47a4c2f45adad9a1328d8229, type: 3}
   judge_magni: 2
 --- !u!1 &6840150049720174718
 GameObject:
