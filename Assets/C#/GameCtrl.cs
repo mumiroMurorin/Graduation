@@ -8,7 +8,7 @@ public class GameCtrl : MonoBehaviour
     [SerializeField] private string file_name;
 
     [Header("楽曲スタートアクションボックス")]
-    [SerializeField] private GameObject musicStart_box;
+    [SerializeField] private ActionBox musicStart_actionbox;
     [SerializeField] private ScoreCtrl scoreCtrl;
     [SerializeField] private SoundCtrl soundCtrl;
     [SerializeField] private UICtrl uiCtrl;
@@ -90,7 +90,7 @@ public class GameCtrl : MonoBehaviour
         //UIの初期化
         uiCtrl.Init_Start();
 
-        musicStart_box.SetActive(true);
+        musicStart_actionbox.SetActiveBox(true);
 
         isDataGettingReady = true;
         isPlayingGame = false;
@@ -106,7 +106,7 @@ public class GameCtrl : MonoBehaviour
         soundCtrl.PlayMusic();  //楽曲再生
         uiCtrl.GameStart();     //色々表示
 
-        musicStart_box.SetActive(false);
+        musicStart_actionbox.SetActiveBox(false);
 
         isPlayingGame = true;
         isGameStartTrigger = false;

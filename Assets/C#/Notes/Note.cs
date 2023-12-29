@@ -5,16 +5,20 @@ using Common;
 
 public class Note : MonoBehaviour
 {
-    [SerializeField] private GameObject se_obj;
     [SerializeField] private GameObject effect_obj;
+    [SerializeField] private GameObject box_obj;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
 
     private ScoreCtrl scoreCtrl;
-
     private float speed = 1.0f;
+    private bool isMoving = true;
+    private bool isFinishVibration;
 
     void Start()
     {
-        
+        //重いかな
+        audioClip.LoadAudioData();
     }
 
     void Update()
@@ -30,7 +34,10 @@ public class Note : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveObject();
+        if (isMoving) { MoveObject(); }
+        //このオブジェクトを抹消
+        else if (isFinishVibration && !audioSource.isPlaying) 
+        { Destroy(this.gameObject); }
     }
 
     public void Init(float s, ScoreCtrl s_ctrl)
@@ -46,13 +53,25 @@ public class Note : MonoBehaviour
     }
 
     //ノートの斬撃判定
-    public void GetNoteJudgeFlag()
+    public void GetNoteJudgeFlag(bool isRight)
     {
-        //音声の再生(SEオブジェクトの複製)
-        Instantiate(se_obj, this.gameObject.gameObject.transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(audioClip);
+        //コントローラの振動
+        StartCoroutine(Vibration(isRight));
         //ScoreCtrlに判定を渡す
         scoreCtrl.SetNoteJudge(GrovalConst.P_CRITICAL_NUMBER, this.gameObject.transform.position);
-        //このオブジェクトを抹消
-        Destroy(this.gameObject);
+        //ノーツボックスの非表示
+        box_obj.SetActive(false);
+        isMoving = false;
+    }
+
+    //振動コルーチン
+    private IEnumerator Vibration(bool isRight)
+    {
+        //バイブレーションの実行処理
+        IEnumerator coroutine = OculusController.VibrationController(isRight);
+        //終了待ち
+        yield return StartCoroutine(coroutine);
+        isFinishVibration = true;
     }
 }

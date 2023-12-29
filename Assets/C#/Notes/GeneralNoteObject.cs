@@ -6,14 +6,10 @@ using Common;
 
 public class GeneralNoteObject : MonoBehaviour
 {
-    [Header("実行イベント")]
-    [SerializeField] private UnityEvent do_event;
-
-    [Header("右ばいぶれーしょん")]
-    [SerializeField] private GameObject vibe_right_obj;
-
-    [Header("左ばいぶれーしょん")]
-    [SerializeField] private GameObject vibe_left_obj;
+    [Header("実行イベント(右コントローラ)")]
+    [SerializeField] private UnityEvent right_event;
+    [Header("実行イベント(左コントローラ)")]
+    [SerializeField] private UnityEvent left_event;
 
     [Header("斬撃判定となる剣の力(距離)")]
     [SerializeField] private float judge_magni;
@@ -38,9 +34,8 @@ public class GeneralNoteObject : MonoBehaviour
             //且つ設定した剣力よりも大きな剣力だったとき
             if (other.GetComponent<Sword>().ReturnMagni() >= judge_magni )
             {
-                if (other.name.Contains("Right")){ Instantiate(vibe_right_obj); }
-                else { Instantiate(vibe_left_obj);}
-                do_event.Invoke();
+                if (other.name.Contains("Right")){ right_event.Invoke(); }
+                else { left_event.Invoke(); }
             }
         }
     }

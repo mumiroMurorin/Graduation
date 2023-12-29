@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1233,7 +1233,7 @@ Transform:
   m_Children:
   - {fileID: 1631625112}
   - {fileID: 1566355400}
-  - {fileID: 1113345153}
+  - {fileID: 2034271682}
   - {fileID: 1008230430}
   - {fileID: 1948374575}
   - {fileID: 1533998514}
@@ -2625,7 +2625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file_name: try
-  musicStart_box: {fileID: 1113345152}
+  musicStart_actionbox: {fileID: 2034271683}
   scoreCtrl: {fileID: 1354284293}
   soundCtrl: {fileID: 736298366}
   uiCtrl: {fileID: 99741685}
@@ -2843,38 +2843,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5735518925287580080, guid: 2730700d4f5b2ff469d28ad4512a0fa1, type: 3}
   m_PrefabInstance: {fileID: 1077683249}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1113345152
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1113345153}
-  m_Layer: 0
-  m_Name: GameStartObjects
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1113345153
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113345152}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2034271682}
-  m_Father: {fileID: 410484551}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205889370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,7 +3286,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1113345153}
+    m_TransformParent: {fileID: 410484551}
     m_Modifications:
     - target: {fileID: 348894872821919433, guid: 22a5b79124fa35b4b87fbce2c480551b, type: 3}
       propertyPath: revival_time
@@ -4326,6 +4294,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6840150049720174719, guid: 22a5b79124fa35b4b87fbce2c480551b, type: 3}
   m_PrefabInstance: {fileID: 1474236032}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2034271683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 348894872821919433, guid: 22a5b79124fa35b4b87fbce2c480551b, type: 3}
+  m_PrefabInstance: {fileID: 1474236032}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2042248543
 GameObject:
   m_ObjectHideFlags: 0
