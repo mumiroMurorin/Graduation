@@ -104,6 +104,7 @@ public class GameCtrl : MonoBehaviour
         if (!isReadyComp) { return; }
         scoreCtrl.GameStart();  //譜面開始
         soundCtrl.PlayMusic();  //楽曲再生
+        uiCtrl.GameStart();     //色々表示
 
         musicStart_box.SetActive(false);
 

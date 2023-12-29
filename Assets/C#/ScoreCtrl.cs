@@ -12,6 +12,7 @@ public class ScoreCtrl : MonoBehaviour
     [SerializeField] private GameObject generalNote_obj;
 
     [SerializeField] private GameCtrl gameCtrl;
+    [SerializeField] private UICtrl uiCtrl;
 
     private ScoreCtrl scoreCtrl;
     private ReadScoreData readScore;
@@ -212,5 +213,7 @@ public class ScoreCtrl : MonoBehaviour
     public void SetNoteJudge()
     {
         p_critical_num++;
+        combo++;
+        uiCtrl.ChangeCombo(combo);
     }
 }

@@ -19,7 +19,7 @@ public class Sword : MonoBehaviour
         
         //力(距離)を計算して代入
         magni = ReturnMagnitude(pos_past, pos_now) / Time.fixedDeltaTime;
-        Debug.Log("剣力: " + magni);
+        //Debug.Log("剣力: " + magni);
 
         //剣の現在位置を過去のポジションとして登録
         pos_past = this.gameObject.transform.position;
