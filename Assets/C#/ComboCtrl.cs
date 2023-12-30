@@ -8,6 +8,9 @@ public class ComboCtrl : MonoBehaviour
     [Header("コンボ親")]
     [SerializeField] private GameObject combo_par;
 
+    [Header("「COMBO」")]
+    [SerializeField] private GameObject combo_char_obj;
+
     [Header("0～9まで")]
     [SerializeField] private GameObject[] number_obj;
 
@@ -39,7 +42,7 @@ public class ComboCtrl : MonoBehaviour
                 number_obj_array[i, j].SetActive(false);
             }
         }
-        
+        ChangeCombo(0);
     }
 
     void Update()
@@ -55,10 +58,12 @@ public class ComboCtrl : MonoBehaviour
         //コンボ0の時は非表示
         if (combo == 0) {
             combo_par.SetActive(false);
+            combo_char_obj.SetActive(false);
             return; 
         }
         combo_par.SetActive(true);
-       
+        combo_char_obj.SetActive(true);
+
         //エラー処理
         if (combo > 9999 || combo < 0) { 
             Debug.LogWarning("コンボ数が0～9999ではありません: " + combo); 
