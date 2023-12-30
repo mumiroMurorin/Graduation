@@ -16,20 +16,27 @@ public class ActionBox : MonoBehaviour
 
     [SerializeField] private GameObject box_obj;
     [SerializeField] private GameObject effect_obj;
+    [SerializeField] private GameObject broken_obj;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
+    private bool isFinishVibration;
     private bool isForceSetActive = true;
 
     void Start()
     {
         //重いかな
         audioClip.LoadAudioData();
+        box_obj.SetActive(true);
+        broken_obj.SetActive(false);
+        effect_obj.SetActive(false);
     }
 
     void Update()
     {
-
+        //このオブジェクトを抹消
+        if (isDestroy && isFinishVibration && !audioSource.isPlaying && !effect_obj)
+        { Destroy(this.gameObject); }
     }
 
     //アクションボックスの復活処理
@@ -47,11 +54,14 @@ public class ActionBox : MonoBehaviour
         StartCoroutine(Vibration(isRight));
         //イベント実行
         do_event.Invoke();
-        //このオブジェクトを抹消 ※仮
-        if (isDestroy) { Destroy(this.gameObject); }
-        else
+        //分割ノートの複製
+        Instantiate(broken_obj, this.gameObject.transform.position, Quaternion.identity, this.gameObject.transform).SetActive(true);
+        //エフェクトの表示
+        Instantiate(effect_obj, this.gameObject.transform.position, Quaternion.identity, this.gameObject.transform).SetActive(true);
+
+        if (!isDestroy)
         {
-            box_obj.SetActive(false);   //仮
+            box_obj.SetActive(false);
             Invoke("RevivalActionBox", revival_time);
         }
     }
@@ -70,5 +80,6 @@ public class ActionBox : MonoBehaviour
         IEnumerator coroutine = OculusController.VibrationController(isRight);
         //終了待ち
         yield return StartCoroutine(coroutine);
+        isFinishVibration = true;
     }
 }

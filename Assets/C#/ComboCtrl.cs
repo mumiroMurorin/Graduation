@@ -14,11 +14,22 @@ public class ComboCtrl : MonoBehaviour
     [Header("文字間隔")]
     [SerializeField] private float char_distance;
 
+    [Header("エフェクト")]
+    [SerializeField] private ParticleSystem particle;
+
+    private Animator animator;
     private GameObject[,] number_obj_array = new GameObject[MAX_DIGIT, 10];
     private GameObject[] activeNum_array = new GameObject[MAX_DIGIT];
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+        //仮置きされているオブジェクトを非表示
+        foreach (Transform child in combo_par.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+
         //それぞれの桁の数字生成
         for (int i = 0; i < MAX_DIGIT; i++) 
         {
@@ -39,8 +50,17 @@ public class ComboCtrl : MonoBehaviour
     //引数のコンボ数に変更
     public void ChangeCombo(int combo)
     {
+        particle.Stop();
+
+        //コンボ0の時は非表示
+        if (combo == 0) {
+            combo_par.SetActive(false);
+            return; 
+        }
+        combo_par.SetActive(true);
+       
         //エラー処理
-        if(combo > 9999 || combo < 0) { 
+        if (combo > 9999 || combo < 0) { 
             Debug.LogWarning("コンボ数が0～9999ではありません: " + combo); 
             return; 
         }
@@ -52,6 +72,10 @@ public class ComboCtrl : MonoBehaviour
         //現状最大4桁
         for (int i = 0; i < ((digit < MAX_DIGIT + 1) ? digit : MAX_DIGIT); i++) 
         { GenerateComboObj(combo, digit, i); }
+
+        //アニメーションとエフェクト
+        animator.SetTrigger("Add");
+        particle.Play();
     }
 
     //(n+1)桁目のオブジェクトを生成

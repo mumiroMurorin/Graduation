@@ -40,7 +40,7 @@ public class Note : MonoBehaviour
     {
         if (isMoving) { MoveObject(); }
         //このオブジェクトを抹消
-        else if (isFinishVibration && !audioSource.isPlaying) 
+        else if (isFinishVibration && !audioSource.isPlaying && !effect_obj) 
         { Destroy(this.gameObject); }
     }
 
