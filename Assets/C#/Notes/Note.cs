@@ -7,6 +7,7 @@ public class Note : MonoBehaviour
 {
     [SerializeField] private GameObject effect_obj;
     [SerializeField] private GameObject box_obj;
+    [SerializeField] private GameObject broken_obj;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
@@ -19,6 +20,8 @@ public class Note : MonoBehaviour
     {
         //重いかな
         audioClip.LoadAudioData();
+        box_obj.SetActive(true);
+        broken_obj.SetActive(false);
     }
 
     void Update()
@@ -60,8 +63,10 @@ public class Note : MonoBehaviour
         StartCoroutine(Vibration(isRight));
         //ScoreCtrlに判定を渡す
         scoreCtrl.SetNoteJudge(GrovalConst.P_CRITICAL_NUMBER, this.gameObject.transform.position);
-        //ノーツボックスの非表示
+        //ノーツボックスの非アクティブ
         box_obj.SetActive(false);
+        //分割ノートのアクティブ
+        broken_obj.SetActive(true);
         isMoving = false;
     }
 
