@@ -22,6 +22,7 @@ public class Note : MonoBehaviour
         audioClip.LoadAudioData();
         box_obj.SetActive(true);
         broken_obj.SetActive(false);
+        effect_obj.SetActive(false);
     }
 
     void Update()
@@ -67,6 +68,8 @@ public class Note : MonoBehaviour
         box_obj.SetActive(false);
         //分割ノートのアクティブ
         broken_obj.SetActive(true);
+        //エフェクトの表示
+        effect_obj.SetActive(true);
         isMoving = false;
     }
 
