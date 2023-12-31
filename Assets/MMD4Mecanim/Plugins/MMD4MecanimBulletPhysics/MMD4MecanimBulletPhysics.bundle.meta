@@ -12,6 +12,12 @@ PluginImporter:
   validateReferences: 1
   platformData:
   - first:
+      : Editor
+    second:
+      enabled: 0
+      settings:
+        OS: OSX
+  - first:
       Any: 
     second:
       enabled: 0

@@ -1,20 +1,105 @@
 fileFormatVersion: 2
 guid: 237a2ace0fe23084c9cdd0d1311ed775
-timeCreated: 1467888323
-licenseType: Pro
 PluginImporter:
-  serializedVersion: 1
+  externalObjects: {}
+  serializedVersion: 2
   iconMap: {}
   executionOrder:
     MMD4MecanimBulletPhysics: 10001
+  defineConstraints: []
   isPreloaded: 0
   isOverridable: 0
+  isExplicitlyReferenced: 0
+  validateReferences: 1
   platformData:
-    Android:
+  - first:
+      : 
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      : Editor
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+        OS: AnyOS
+  - first:
+      : Linux
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      : LinuxUniversal
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      : N3DS
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      : OSXIntel
+    second:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+  - first:
+      : OSXIntel64
+    second:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+  - first:
+      : PSM
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      : PSP2
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      : SamsungTV
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+        STV_MODEL: STANDARD_15
+  - first:
+      : Tizen
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      : WiiU
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      : data
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Android: Android
+    second:
       enabled: 1
       settings:
         CPU: ARMv7
-    Any:
+  - first:
+      Any: 
+    second:
       enabled: 0
       settings:
         Exclude Android: 1
@@ -33,78 +118,107 @@ PluginImporter:
         Exclude WindowsStoreApps: 0
         Exclude iOS: 1
         Exclude tvOS: 1
-    Editor:
+  - first:
+      Editor: Editor
+    second:
       enabled: 1
       settings:
         CPU: AnyCPU
         DefaultValueInitialized: true
         OS: AnyOS
-    Linux:
+  - first:
+      EmbeddedLinux: EmbeddedLinux
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    Linux64:
+  - first:
+      GameCoreScarlett: GameCoreScarlett
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    LinuxUniversal:
+  - first:
+      GameCoreXboxOne: GameCoreXboxOne
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    N3DS:
+  - first:
+      LinuxHeadlessSimulation: CloudRendering
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    OSXIntel:
+  - first:
+      Nintendo Switch: Switch
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      PS4: PS4
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      PS5: PS5
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      QNX: QNX
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      Stadia: Stadia
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      Standalone: Linux64
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      Standalone: OSXUniversal
+    second:
       enabled: 1
       settings:
         CPU: AnyCPU
-    OSXIntel64:
+  - first:
+      Standalone: Win
+    second:
       enabled: 1
       settings:
         CPU: AnyCPU
-    OSXUniversal:
+  - first:
+      Standalone: Win64
+    second:
       enabled: 1
       settings:
         CPU: AnyCPU
-    PS4:
+  - first:
+      VisionOS: VisionOS
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    PSM:
+  - first:
+      WebGL: WebGL
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    PSP2:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-    SamsungTV:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-        STV_MODEL: STANDARD_15
-    Tizen:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-    WebGL:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-    WiiU:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
-    Win:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-    Win64:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-    WindowsStoreApps:
+  - first:
+      Windows Store Apps: WindowsStoreApps
+    second:
       enabled: 1
       settings:
         CPU: AnyCPU
@@ -112,20 +226,23 @@ PluginImporter:
         PlaceholderPath: 
         SDK: AnySDK
         ScriptingBackend: AnyScriptingBackend
-    XboxOne:
+  - first:
+      XboxOne: XboxOne
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    data:
-      enabled: 0
-      settings: {}
-    iOS:
+  - first:
+      iPhone: iOS
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
         CompileFlags: 
         FrameworkDependencies: 
-    tvOS:
+  - first:
+      tvOS: tvOS
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
