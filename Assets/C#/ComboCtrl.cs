@@ -32,6 +32,7 @@ public class ComboCtrl : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
+        combo_char_obj.transform.SetParent(combo_par.transform);
 
         //‚»‚ê‚¼‚ê‚ÌŒ…‚Ì”š¶¬
         for (int i = 0; i < MAX_DIGIT; i++) 
