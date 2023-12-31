@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1399,7 +1399,6 @@ Transform:
   - {fileID: 1948374575}
   - {fileID: 1533998514}
   - {fileID: 1861701857}
-  - {fileID: 1268720459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &427760276
@@ -3078,80 +3077,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254360808}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1268720458
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 410484551}
-    m_Modifications:
-    - target: {fileID: 179375438273926543, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_Name
-      value: "\u3086\u306A\u306F\u3089\u5F0F\u53EF\u4E0D Ver1.01"
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.253
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2.741
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
---- !u!4 &1268720459 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 663882570262318901, guid: 50c1b0f4b483de640ab39ba06292e066, type: 3}
-  m_PrefabInstance: {fileID: 1268720458}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1354284291
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,7 +3566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &1566355398
 MeshRenderer:
   m_ObjectHideFlags: 0
