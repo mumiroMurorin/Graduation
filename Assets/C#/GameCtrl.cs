@@ -11,6 +11,7 @@ public class GameCtrl : MonoBehaviour
     [SerializeField] private ActionBox musicStart_actionbox;
     [SerializeField] private ScoreCtrl scoreCtrl;
     [SerializeField] private SoundCtrl soundCtrl;
+    [SerializeField] private DirectingCtrl directingCtrl;
     [SerializeField] private UICtrl uiCtrl;
 
     //ステップ系
@@ -41,13 +42,14 @@ public class GameCtrl : MonoBehaviour
         else if(isFileGettingReady && scoreCtrl.IsReturnReadDataComp() && isDataPreparationTrigger)
         { SetDataStep(); }
         //ファイル準備完了？
-        else if (!isReadyComp && isDataGettingReady && scoreCtrl.IsReturnScoreReady() && soundCtrl.IsReturnLoadComp())
+        else if (!isReadyComp && isDataGettingReady && scoreCtrl.IsReturnScoreReady() && soundCtrl.IsReturnLoadComp()
+            && directingCtrl.IsReturnLoadComp())
         { isReadyComp = true; }
         //楽曲プレイ
         else if (!isPlayingGame && isReadyComp && isGameStartTrigger)
         { StartStep(); }
         //楽曲終了
-        else if(isPlayingGame && !scoreCtrl.IsReturnPlaying())
+        else if(isPlayingGame && !scoreCtrl.IsReturnPlaying() && !directingCtrl.IsReturnPlaying())
         { FinishGameStep(); }
     }
 
@@ -71,6 +73,9 @@ public class GameCtrl : MonoBehaviour
         //音声系のファイルセット
         soundCtrl.Init();
         soundCtrl.ReadStart(file_name);
+        //演出系のファイルセット
+        directingCtrl.Init();
+        directingCtrl.ReadStart(file_name);
 
         isFileGettingReady = true;
         isDataGettingReady = false;
@@ -87,6 +92,8 @@ public class GameCtrl : MonoBehaviour
         scoreCtrl.Init_Start();
         //楽曲の初期化
         soundCtrl.Init_Start();
+        //演出の初期化
+        directingCtrl.Init_Start();
         //UIの初期化
         uiCtrl.Init_Start();
 
@@ -104,6 +111,7 @@ public class GameCtrl : MonoBehaviour
         if (!isReadyComp) { return; }
         scoreCtrl.GameStart();  //譜面開始
         soundCtrl.PlayMusic();  //楽曲再生
+        directingCtrl.PlayDirecting(); //演出再生
         uiCtrl.GameStart();     //色々表示
 
         musicStart_actionbox.SetActiveBox(false);
