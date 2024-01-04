@@ -6,6 +6,8 @@ using TMPro;
 
 public class UICtrl : MonoBehaviour
 {
+    [Header("作業中？")]
+    [SerializeField] private bool isConstruction = false;
     [Header("リザルトオブジェクト")]
     [SerializeField] private GameObject result_obj;
     [SerializeField] private ComboCtrl comboCtrl;
@@ -38,10 +40,13 @@ public class UICtrl : MonoBehaviour
             judge_obj[i].SetActive(false);
         }
 
-        musicTopic_num = 0;
-        topicThumbneil_image = topicBlock_obj.transform.Find("Thumbneil").GetComponent<Image>();
-        topicTitle_tmp = topicBlock_obj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
-        topicComposer_tmp = topicBlock_obj.transform.Find("Composer").GetComponent<TextMeshProUGUI>();
+        if (isConstruction)
+        {
+            musicTopic_num = 0;
+            topicThumbneil_image = topicBlock_obj.transform.Find("Thumbneil").GetComponent<Image>();
+            topicTitle_tmp = topicBlock_obj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
+            topicComposer_tmp = topicBlock_obj.transform.Find("Composer").GetComponent<TextMeshProUGUI>();
+        }
     }
 
     void Update()
@@ -84,12 +89,15 @@ public class UICtrl : MonoBehaviour
     //楽曲トピックの追加
     public void AddMusicTopic(MusicData md)
     {
-        topicTitle_tmp.text = md.title;
-        topicComposer_tmp.text = md.composer;
-        topicThumbneil_image.sprite = md.thumbneil;
-        GameObject g = Instantiate(topicBlock_obj, topicContent_obj.transform);
-        g.GetComponent<RectTransform>().anchoredPosition =
-            new Vector3(musicTopic_num * topic_interval, 0, 0);
-        musicTopic_num++;
+        if (isConstruction)
+        {
+            topicTitle_tmp.text = md.title;
+            topicComposer_tmp.text = md.composer;
+            topicThumbneil_image.sprite = md.thumbneil;
+            GameObject g = Instantiate(topicBlock_obj, topicContent_obj.transform);
+            g.GetComponent<RectTransform>().anchoredPosition =
+                new Vector3(musicTopic_num * topic_interval, 0, 0);
+            musicTopic_num++;
+        }
     }
 }
