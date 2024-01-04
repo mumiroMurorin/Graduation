@@ -98,15 +98,10 @@ public class UICtrl : MonoBehaviour
 
     //--------------ボタン系--------------
 
-    //楽曲トピックのクリック
-    public void PushMusicTopic(int index)
-    {
-
-    }
-
     //楽曲プレイボタン
     public void PushPlayButton()
     {
-        gameCtrl.SetPlayMusicData(selectTopic_num);
+        gameCtrl.SetDataTrigger();
+        gameCtrl.SetFileTrigger();
     }
 }

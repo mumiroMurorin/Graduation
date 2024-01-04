@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6222640936133494676}
   - component: {fileID: 3732726903528162136}
+  - component: {fileID: 223431452533704393}
   m_Layer: 5
   m_Name: TopicBlock
   m_TagString: Untagged
@@ -53,22 +54,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 3
+  - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: GameCtrl, Assembly-CSharp
-          m_MethodName: OutputLog
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: "\u304A\u308F\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042\u3042"
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+--- !u!114 &223431452533704393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140727195360409546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9cc63a7cf9ddd4bb2711d0c7b48f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2521226187766322240
 GameObject:
   m_ObjectHideFlags: 0

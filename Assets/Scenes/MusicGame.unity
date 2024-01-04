@@ -385,7 +385,7 @@ MonoBehaviour:
   topic_interval: 0
   topicContent_obj: {fileID: 470473839}
   topicBlock_obj: {fileID: 140727195360409546, guid: be559ddefa7926f4db0ab05fc02c2652, type: 3}
-  topicThumbneil_image: {fileID: 0}
+  gameCtrl: {fileID: 0}
 --- !u!1001 &110531376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2823,7 +2823,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 830017710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 99741685}
+        m_TargetAssemblyTypeName: UICtrl, Assembly-CSharp
+        m_MethodName: PushPlayButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &830017710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3901,9 +3913,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 960718373}
-  - {fileID: 2111666367}
   - {fileID: 1304853237}
   - {fileID: 231504671}
+  - {fileID: 2111666367}
   - {fileID: 307842121}
   m_Father: {fileID: 410484551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26460,12 +26472,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 140727195360409546, guid: be559ddefa7926f4db0ab05fc02c2652, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3732726903528162136, guid: be559ddefa7926f4db0ab05fc02c2652, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1032284867}
     - target: {fileID: 6222640936133494676, guid: be559ddefa7926f4db0ab05fc02c2652, type: 3}
       propertyPath: m_Pivot.x
       value: 0
