@@ -1721,7 +1721,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6840150049720174718, guid: 8b5727b1a2c730044afa35f2240c8dd1, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 659466424}
     - targetCorrespondingSourceObject: {fileID: 6840150049383253533, guid: 8b5727b1a2c730044afa35f2240c8dd1, type: 3}
       insertIndex: -1
@@ -1965,7 +1965,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6840150049720174718, guid: a47e1ad4585cff74fb939e1eb7dcba5b, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 699279926}
     - targetCorrespondingSourceObject: {fileID: 6840150049383253533, guid: a47e1ad4585cff74fb939e1eb7dcba5b, type: 3}
       insertIndex: -1
@@ -2983,11 +2983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c01ec28cd3eab74fab048e717e4d443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicData_name: 
+  musicData_name: _MusicData
   musicStart_actionbox: {fileID: 2034271683}
   scoreCtrl: {fileID: 1354284293}
   soundCtrl: {fileID: 736298366}
-  directingCtrl: {fileID: 867743827}
+  directingCtrl: {fileID: 0}
   uiCtrl: {fileID: 99741685}
 --- !u!4 &1032284868
 Transform:
@@ -3313,7 +3313,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6840150049720174718, guid: 31b8d68af948ceb488c7e42a99e078e4, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 1661034854}
     - targetCorrespondingSourceObject: {fileID: 6840150049383253533, guid: 31b8d68af948ceb488c7e42a99e078e4, type: 3}
       insertIndex: -1
@@ -4430,7 +4430,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6840150049720174718, guid: f59e2533bc618d04ca9757b7d9eee9d6, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 1803449077}
     - targetCorrespondingSourceObject: {fileID: 6840150049383253533, guid: f59e2533bc618d04ca9757b7d9eee9d6, type: 3}
       insertIndex: -1
