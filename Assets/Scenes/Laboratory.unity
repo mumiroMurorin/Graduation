@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62eb27aff1dd2df4e8d3ddb485e3c4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isConstruction: 0
   result_obj: {fileID: 1008230429}
   comboCtrl: {fileID: 1533998515}
   judge_par: {fileID: 1861701856}
@@ -2069,6 +2070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 1
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -2206,6 +2208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 1
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -2983,11 +2986,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c01ec28cd3eab74fab048e717e4d443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isConstruction: 0
   musicData_name: _MusicData
   musicStart_actionbox: {fileID: 2034271683}
   scoreCtrl: {fileID: 1354284293}
   soundCtrl: {fileID: 736298366}
-  directingCtrl: {fileID: 0}
+  directingCtrl: {fileID: 867743827}
   uiCtrl: {fileID: 99741685}
 --- !u!4 &1032284868
 Transform:
@@ -3208,6 +3212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 1
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -4222,6 +4227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 1
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -4458,6 +4464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 1
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -5165,6 +5172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 1
   isDestroy: 0
   revival_time: 2
   do_event:

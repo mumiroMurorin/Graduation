@@ -12,6 +12,9 @@ public class GameCtrl : MonoBehaviour
     const int COMPOSER_COLUMN = 1;
     const int FILENAME_COLUMN = 2;
 
+    [Header("çÏã∆íÜÅH")]
+    [SerializeField] private bool isConstruction = false;
+
     [Header("MusicDatañº")]
     [SerializeField] private string musicData_name;
 
@@ -44,8 +47,12 @@ public class GameCtrl : MonoBehaviour
     {
         StartCoroutine(LoadGameData(musicData_name));
 
-        //SetFileTrigger();   //âº
-        //SetDataTrigger();   //âº
+        if (!isConstruction)
+        {
+            musicFile_name = "try";
+            SetFileTrigger();   //âº
+            SetDataTrigger();   //âº
+        }
     }
 
     void Update()
