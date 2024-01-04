@@ -65,7 +65,7 @@ public class EscapeNote : MonoBehaviour
         //コントローラの振動
         StartCoroutine(Vibration(isRight));
         //ScoreCtrlに判定を渡す
-        scoreCtrl.SetNoteJudge(GrovalConst.P_CRITICAL_NUMBER, this.gameObject.transform.position);
+        scoreCtrl.SetNoteJudge(GrovalConst.MISS_NUMBER, this.gameObject.transform.position);//GrovalConst.P_MISS_NUMBERにすればいい
         //ノーツボックスの非アクティブ
         box_obj.SetActive(false);
         //分割ノートのアクティブ

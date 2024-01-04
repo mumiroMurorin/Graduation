@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 6840150049383253529}
   - component: {fileID: 6840150049383253528}
   - component: {fileID: 6840150049383253531}
-  - component: {fileID: 5873477889471204268}
+  - component: {fileID: 8810797945058053966}
   m_Layer: 0
   m_Name: Note
   m_TagString: Untagged
@@ -826,7 +826,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5873477889471204268
+--- !u!114 &8810797945058053966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6840150049383253533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586c8a0a3b9ec6f43a81979ed33f8088, type: 3}
+  m_Script: {fileID: 11500000, guid: 27e01b514f2542a48b0ba33798f9c819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   right_event:
@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 0
   isDestroy: 0
   revival_time: 0
   do_event:

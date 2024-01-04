@@ -35,7 +35,7 @@ public class ButtonLNoteObject : MonoBehaviour
         if (other.transform.CompareTag("Sword"))
         {
             if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger)){
-                right_event.Invoke();
+                left_event.Invoke();
                 Debug.Log("Lƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚Ä‚¢‚Ü‚·");
             }
         }

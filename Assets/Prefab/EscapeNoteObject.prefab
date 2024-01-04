@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 6840150049383253529}
   - component: {fileID: 6840150049383253528}
   - component: {fileID: 6840150049383253531}
-  - component: {fileID: 5873477889471204268}
+  - component: {fileID: 7323067267419865996}
   m_Layer: 0
   m_Name: Note
   m_TagString: Untagged
@@ -783,7 +783,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e8b8de175fe7a414e9cc93818811d8c0, type: 2}
+  - {fileID: 2100000, guid: b80b25c8f396f7a41bcb9d182502dbf3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -826,7 +826,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5873477889471204268
+--- !u!114 &7323067267419865996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -835,13 +835,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6840150049383253533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586c8a0a3b9ec6f43a81979ed33f8088, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b92ee7be0bcd2942bc64b13dd8ae611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   right_event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2187690714005174725}
+      - m_Target: {fileID: 1533967376012700400}
         m_TargetAssemblyTypeName: ActionBox, Assembly-CSharp
         m_MethodName: GetNoteJudgeFlag
         m_Mode: 6
@@ -856,7 +856,7 @@ MonoBehaviour:
   left_event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2187690714005174725}
+      - m_Target: {fileID: 1533967376012700400}
         m_TargetAssemblyTypeName: ActionBox, Assembly-CSharp
         m_MethodName: GetNoteJudgeFlag
         m_Mode: 6
@@ -878,10 +878,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6840150049720174719}
-  - component: {fileID: 2187690714005174725}
+  - component: {fileID: 1533967376012700400}
   - component: {fileID: 2209131056873070851}
   m_Layer: 0
-  m_Name: ButtonBNoteObject
+  m_Name: EscapeNoteObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,7 +897,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 8, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6840150049383253530}
@@ -905,7 +905,7 @@ Transform:
   - {fileID: 7378144538015159380}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &2187690714005174725
+--- !u!114 &1533967376012700400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -35,7 +35,7 @@ public class ButtonYNoteObject : MonoBehaviour
         if (other.transform.CompareTag("Sword"))
         {
             if (OVRInput.Get(OVRInput.Button.Four)){
-                right_event.Invoke();
+                left_event.Invoke();
                 Debug.Log("Yƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚Ä‚¢‚Ü‚·");
             }
         }

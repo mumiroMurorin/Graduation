@@ -29,14 +29,10 @@ public class EscapeNoteObject : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //入ってきたオブジェクトのタグが「Sword」だったとき
-        if (other.transform.CompareTag("Sword"))
+        if (other.transform.CompareTag("MainCamera"))
         {
-            //且つ設定した剣力よりも大きな剣力だったとき
-            if (other.GetComponent<Sword>().ReturnMagni() >= judge_magni )
-            {
-                if (other.name.Contains("Right")){ right_event.Invoke(); }
-                else { left_event.Invoke(); }
-            }
+            right_event.Invoke();
+            left_event.Invoke();
         }
     }
 
