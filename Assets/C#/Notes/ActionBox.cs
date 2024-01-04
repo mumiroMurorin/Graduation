@@ -6,6 +6,8 @@ using Common;
 
 public class ActionBox : MonoBehaviour
 {
+    [Header("破片を表示する？")]
+    [SerializeField] private bool isAdventFlag = true;
     [Header("斬撃時壊すかどうか")]
     [SerializeField] private bool isDestroy;
     [Header("復活時間")]
@@ -55,7 +57,10 @@ public class ActionBox : MonoBehaviour
         //イベント実行
         do_event.Invoke();
         //分割ノートの複製
-        Instantiate(broken_obj, this.gameObject.transform.position, Quaternion.identity, this.gameObject.transform).SetActive(true);
+        if (isAdventFlag)
+        {
+            Instantiate(broken_obj, this.gameObject.transform.position, Quaternion.identity, this.gameObject.transform).SetActive(true);
+        }
         //エフェクトの表示
         Instantiate(effect_obj, this.gameObject.transform.position, Quaternion.identity, this.gameObject.transform).SetActive(true);
 
