@@ -1401,6 +1401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b379b95fcfb41840a572612022c258c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 1
   effect_obj: {fileID: 5231268110919317193}
   box_obj: {fileID: 6840150049383253533}
   broken_obj: {fileID: 8903736766090609323}

@@ -5,6 +5,8 @@ using Common;
 
 public class Note : MonoBehaviour
 {
+    [Header("破片を表示する？")]
+    [SerializeField] private bool isAdventFlag = true;
     [SerializeField] private GameObject effect_obj;
     [SerializeField] private GameObject box_obj;
     [SerializeField] private GameObject broken_obj;
@@ -67,7 +69,7 @@ public class Note : MonoBehaviour
         //ノーツボックスの非アクティブ
         box_obj.SetActive(false);
         //分割ノートのアクティブ
-        broken_obj.SetActive(true);
+        if (isAdventFlag) { broken_obj.SetActive(true); }
         //エフェクトの表示
         effect_obj.SetActive(true);
         isMoving = false;
