@@ -1,12 +1,7 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefab/EscapeNoteObject.prefab.meta
-guid: da566365a2672174e923b7af41c7ce41
-PrefabImporter:
-========
 guid: 808504077f48b5a4a928c1ad6297e95c
 folderAsset: yes
 DefaultImporter:
->>>>>>>> fe53ff01cd5ccd2b936f6307062b9be1a1618b8a:Assets/ImportAssets/Editor.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
