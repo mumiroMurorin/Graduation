@@ -209,6 +209,12 @@ public class GameCtrl : MonoBehaviour
         isLoadGameData = true;
     }
 
+    //ログ出力
+    public void OutputLog(string str)
+    {
+        Debug.Log(str);
+    }
+
     //--------------------トリガー系--------------------
 
     //ファイル読み込みトリガー
