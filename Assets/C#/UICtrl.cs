@@ -23,12 +23,12 @@ public class UICtrl : MonoBehaviour
     [SerializeField] private GameObject topicContent_obj;
     [Header("トピックブロック")]
     [SerializeField] private GameObject topicBlock_obj;
-    public Image topicThumbneil_image;
-    private TextMeshProUGUI topicTitle_tmp;
-    private TextMeshProUGUI topicComposer_tmp;
+
+    [SerializeField] private GameCtrl gameCtrl;
 
     private GameObject[] judge_obj;
-    private int musicTopic_num;
+    private int musicTopic_maxnum;
+    private int selectTopic_num;
 
     void Start()
     {
@@ -42,10 +42,7 @@ public class UICtrl : MonoBehaviour
 
         if (isConstruction)
         {
-            musicTopic_num = 0;
-            topicThumbneil_image = topicBlock_obj.transform.Find("Thumbneil").GetComponent<Image>();
-            topicTitle_tmp = topicBlock_obj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
-            topicComposer_tmp = topicBlock_obj.transform.Find("Composer").GetComponent<TextMeshProUGUI>();
+            musicTopic_maxnum = 0;
         }
     }
 
@@ -87,18 +84,29 @@ public class UICtrl : MonoBehaviour
     }
 
     //楽曲トピックの追加
-    public void AddMusicTopic(MusicData md)
+    public void AddMusicTopic(MusicData md, int num)
     {
         if (isConstruction)
         {
-            topicTitle_tmp.text = md.title;
-            topicComposer_tmp.text = md.composer;
-            topicThumbneil_image.sprite = md.thumbneil;
-            Debug.Log(" md.thumbneil: " + md.thumbneil);
             GameObject g = Instantiate(topicBlock_obj, topicContent_obj.transform);
             g.GetComponent<RectTransform>().anchoredPosition =
-                new Vector3(musicTopic_num * topic_interval, 0, 0);
-            musicTopic_num++;
+                new Vector3(musicTopic_maxnum * topic_interval, 0, 0);
+            g.GetComponent<MusicTopic>().Init(md, num);
+            musicTopic_maxnum++;
         }
+    }
+
+    //--------------ボタン系--------------
+
+    //楽曲トピックのクリック
+    public void PushMusicTopic(int index)
+    {
+
+    }
+
+    //楽曲プレイボタン
+    public void PushPlayButton()
+    {
+        gameCtrl.SetPlayMusicData(selectTopic_num);
     }
 }

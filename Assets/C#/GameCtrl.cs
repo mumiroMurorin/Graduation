@@ -58,7 +58,7 @@ public class GameCtrl : MonoBehaviour
     void Update()
     {
         //ファイル準備
-        if (isLoadGameData && isFileLoadTrigger) 
+        if (isLoadGameData && isFileLoadTrigger)
         { SetFileStep(); }
         //データ準備(プレイ準備)
         else if(isFileGettingReady && scoreCtrl.IsReturnReadDataComp() && isDataPreparationTrigger)
@@ -85,7 +85,7 @@ public class GameCtrl : MonoBehaviour
     }
 
     //楽曲決定(初選曲)時処理
-    //(楽曲、譜面、演出他の準備トリガー)
+    //(楽曲、譜面、演出他の準備)
     private void SetFileStep()
     {
         Init();
@@ -127,7 +127,7 @@ public class GameCtrl : MonoBehaviour
         isDataPreparationTrigger = false;
     }
 
-    //楽曲(ゲーム)スタートトリガー(ボタンかなにか)
+    //楽曲(ゲーム)スタート
     private void StartStep()
     {
         if (!isReadyComp) { return; }
@@ -201,9 +201,9 @@ public class GameCtrl : MonoBehaviour
         }
 
         //一旦ここに配置
-        foreach (MusicData md in musicDataList)
+        for(int i = 0; i < musicDataList.Count; i++)
         {
-            uiCtrl.AddMusicTopic(md);
+            uiCtrl.AddMusicTopic(musicDataList[i], i);
         }
 
         isLoadGameData = true;
@@ -215,7 +215,7 @@ public class GameCtrl : MonoBehaviour
         Debug.Log(str);
     }
 
-    //--------------------トリガー系--------------------
+    //--------------------トリガー、セット系--------------------
 
     //ファイル読み込みトリガー
     public void SetFileTrigger()
@@ -233,5 +233,11 @@ public class GameCtrl : MonoBehaviour
     public void PlayGameTrigger()
     {
         isGameStartTrigger = true;
+    }
+
+    //プレイ楽曲インデックスのセット
+    public void SetPlayMusicData(int index)
+    {
+        musicFile_name = musicDataList[index].file_name;
     }
 }
