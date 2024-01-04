@@ -35,8 +35,8 @@ public class ButtonANoteObject : MonoBehaviour
         if (other.transform.CompareTag("Sword"))
         {
             if (OVRInput.Get(OVRInput.Button.One)){
-                right_event.Invoke();
                 Debug.Log("Aƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚Ä‚¢‚Ü‚·");
+                right_event.Invoke();
             }
         }
     }

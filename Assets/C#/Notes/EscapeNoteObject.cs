@@ -25,10 +25,10 @@ public class EscapeNoteObject : MonoBehaviour
         
     }
 
-    //剣が触れたとき、判定開始
+    //判定開始
     private void OnTriggerEnter(Collider other)
     {
-        //入ってきたオブジェクトのタグが「Sword」だったとき
+        //入ってきたオブジェクトのタグが「MainCamera」だったとき
         if (other.transform.CompareTag("MainCamera"))
         {
             right_event.Invoke();

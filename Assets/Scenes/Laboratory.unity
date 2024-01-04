@@ -1972,11 +1972,11 @@ PrefabInstance:
     - target: {fileID: 8810797945058053966, guid: a47e1ad4585cff74fb939e1eb7dcba5b, type: 3}
       propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 699279926}
     - target: {fileID: 8810797945058053966, guid: a47e1ad4585cff74fb939e1eb7dcba5b, type: 3}
       propertyPath: right_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 699279926}
     m_RemovedComponents:
     - {fileID: 5873477889471204268, guid: a47e1ad4585cff74fb939e1eb7dcba5b, type: 3}
     - {fileID: 2187690714005174725, guid: a47e1ad4585cff74fb939e1eb7dcba5b, type: 3}
@@ -2088,7 +2088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAdventFlag: 1
+  isAdventFlag: 0
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -2226,7 +2226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAdventFlag: 1
+  isAdventFlag: 0
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -3112,6 +3112,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 470009186604455292, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470009186604455292, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 470009186604455292, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
       propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1163168170}
@@ -3119,6 +3127,26 @@ PrefabInstance:
       propertyPath: right_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1163168170}
+    - target: {fileID: 470009186604455292, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 470009186604455292, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GetNoteJudgeFlag
+      objectReference: {fileID: 0}
+    - target: {fileID: 470009186604455292, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ActionBox, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 470009186604455292, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
+      propertyPath: right_event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 470009186604455292, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2187690714005174725, guid: 4d93c7e702c534e4bb4ea88f6f6b6dac, type: 3}
       propertyPath: audioSource
       value: 
@@ -3230,7 +3258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAdventFlag: 1
+  isAdventFlag: 0
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -4176,7 +4204,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4266,7 +4294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAdventFlag: 1
+  isAdventFlag: 0
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -4503,7 +4531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAdventFlag: 1
+  isAdventFlag: 0
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -4919,6 +4947,18 @@ PrefabInstance:
       propertyPath: do_event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6840150049383253531, guid: 395bd9caba818f94aaada6a7a0f9bded, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840150049383253531, guid: 395bd9caba818f94aaada6a7a0f9bded, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840150049383253531, guid: 395bd9caba818f94aaada6a7a0f9bded, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6840150049720174718, guid: 395bd9caba818f94aaada6a7a0f9bded, type: 3}
       propertyPath: m_Name
       value: EscapeNoteObject
@@ -4964,6 +5004,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7323067267419865996, guid: 395bd9caba818f94aaada6a7a0f9bded, type: 3}
+      propertyPath: judge_magni
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323067267419865996, guid: 395bd9caba818f94aaada6a7a0f9bded, type: 3}
       propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1916218616}
@@ -5001,7 +5045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAdventFlag: 1
+  isAdventFlag: 0
   isDestroy: 0
   revival_time: 2
   do_event:
@@ -5270,6 +5314,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5873477889471204268, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873477889471204268, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873477889471204268, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
       propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1989988617}
@@ -5277,6 +5329,26 @@ PrefabInstance:
       propertyPath: right_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1989988617}
+    - target: {fileID: 5873477889471204268, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873477889471204268, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GetNoteJudgeFlag
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873477889471204268, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ActionBox, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873477889471204268, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
+      propertyPath: right_event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873477889471204268, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
+      propertyPath: left_event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6840150049720174718, guid: e93e3ebe5c0017644a32d10e07f01980, type: 3}
       propertyPath: m_Name
       value: ButtonNoteObjectB
@@ -5352,7 +5424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAdventFlag: 1
+  isAdventFlag: 0
   isDestroy: 0
   revival_time: 2
   do_event:
