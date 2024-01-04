@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Common;
 
-public class ButtonNoteObject : MonoBehaviour
+public class ButtonBNoteObject : MonoBehaviour
 {
     [Header("実行イベント(右コントローラ)")]
     [SerializeField] private UnityEvent right_event;
@@ -22,9 +22,9 @@ public class ButtonNoteObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.Get(OVRInput.Button.One))
+        if (OVRInput.Get(OVRInput.Button.Two))
         {
-            Debug.Log("updateでAボタンを押しています");
+            Debug.Log("updateでBボタンを押しています");
         }
     }
 
@@ -34,9 +34,9 @@ public class ButtonNoteObject : MonoBehaviour
         //入ってきたオブジェクトのタグが「Sword」だったとき
         if (other.transform.CompareTag("Sword"))
         {
-            if (OVRInput.Get(OVRInput.Button.One)){
+            if (OVRInput.Get(OVRInput.Button.Two)){
                 right_event.Invoke();
-                Debug.Log("Aボタンを押しています");
+                Debug.Log("Bボタンを押しています");
             }
         }
     }
