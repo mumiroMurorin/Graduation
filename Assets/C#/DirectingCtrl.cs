@@ -11,7 +11,7 @@ public class DirectingCtrl : MonoBehaviour
     private GameObject directing_obj;
     private PlayableDirector director;
     private bool isLoadComp;
-    public bool isPlaying;
+    private bool isPlaying;
 
     void Start()
     {

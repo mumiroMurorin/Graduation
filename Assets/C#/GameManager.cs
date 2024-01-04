@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 楽曲データ
+/// </summary>
+public class MusicData
+{
+    public string file_name;
+    public string title;
+    public string composer;
+    public Sprite thumbneil;
+}
+
 namespace Common
 {
     /// <summary>
@@ -27,11 +38,9 @@ namespace Common
         {
             if (isRight)
             {
-                Debug.Log("今: " + Time.time);
                 OVRInput.SetControllerVibration(0f, 1f, OVRInput.Controller.RTouch);
                 yield return new WaitForSeconds(GrovalConst.SWORD_VIBRATION_TIME);
                 OVRInput.SetControllerVibration(0f, 0f, OVRInput.Controller.RTouch);
-                Debug.Log("あと: " + Time.time);
             }
             else
             {
