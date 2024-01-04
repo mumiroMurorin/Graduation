@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class UICtrl : MonoBehaviour
 {
@@ -13,7 +15,18 @@ public class UICtrl : MonoBehaviour
     [Header("上から判定4つ")]
     [SerializeField] private GameObject[] judge_obj_ori;
 
+    [Header("トピック間隔")]
+    [SerializeField] private float topic_interval;
+    [Header("トピック親(Content)")]
+    [SerializeField] private GameObject topicContent_obj;
+    [Header("トピックブロック")]
+    [SerializeField] private GameObject topicBlock_obj;
+    private Image topicThumbneil_image;
+    private TextMeshProUGUI topicTitle_tmp;
+    private TextMeshProUGUI topicComposer_tmp;
+
     private GameObject[] judge_obj;
+    private int musicTopic_num;
 
     void Start()
     {
@@ -24,6 +37,11 @@ public class UICtrl : MonoBehaviour
             judge_obj[i] = Instantiate(judge_obj_ori[i], judge_par.transform);
             judge_obj[i].SetActive(false);
         }
+
+        musicTopic_num = 0;
+        topicThumbneil_image = topicBlock_obj.transform.Find("Thumbneil").GetComponent<Image>();
+        topicTitle_tmp = topicBlock_obj.transform.Find("Title").GetComponent<TextMeshProUGUI>();
+        topicComposer_tmp = topicBlock_obj.transform.Find("Composer").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -61,5 +79,17 @@ public class UICtrl : MonoBehaviour
     public void AdventResultUI()
     {
         result_obj.SetActive(true);//仮
+    }
+
+    //楽曲トピックの追加
+    public void AddMusicTopic(MusicData md)
+    {
+        topicTitle_tmp.text = md.title;
+        topicComposer_tmp.text = md.composer;
+        topicThumbneil_image.sprite = md.thumbneil;
+        GameObject g = Instantiate(topicBlock_obj, topicContent_obj.transform);
+        g.GetComponent<RectTransform>().anchoredPosition =
+            new Vector3(musicTopic_num * topic_interval, 0, 0);
+        musicTopic_num++;
     }
 }

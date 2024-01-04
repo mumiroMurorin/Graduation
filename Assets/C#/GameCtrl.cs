@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.IO;
 using UnityEngine;
+using Common;
 
 public class GameCtrl : MonoBehaviour
 {
-    [Header("ファイル名(仮)")]
-    [SerializeField] private string file_name;
+    const int TITLE_COLUMN = 0;
+    const int COMPOSER_COLUMN = 1;
+    const int FILENAME_COLUMN = 2;
+
+    [Header("MusicData名")]
+    [SerializeField] private string musicData_name;
 
     [Header("楽曲スタートアクションボックス")]
     [SerializeField] private ActionBox musicStart_actionbox;
@@ -14,7 +22,12 @@ public class GameCtrl : MonoBehaviour
     [SerializeField] private DirectingCtrl directingCtrl;
     [SerializeField] private UICtrl uiCtrl;
 
+    private List<MusicData> musicDataList;
+
+    private string musicFile_name;
+
     //ステップ系
+    private bool isLoadGameData;
     private bool isFileGettingReady;
     private bool isDataGettingReady;
     private bool isPlayingGame;
@@ -29,14 +42,16 @@ public class GameCtrl : MonoBehaviour
 
     void Start()
     {
-        SetFileTrigger();   //仮
-        SetDataTrigger();   //仮
+        StartCoroutine(LoadGameData(musicData_name));
+
+        //SetFileTrigger();   //仮
+        //SetDataTrigger();   //仮
     }
 
     void Update()
     {
         //ファイル準備
-        if (isFileLoadTrigger) 
+        if (isLoadGameData && isFileLoadTrigger) 
         { SetFileStep(); }
         //データ準備(プレイ準備)
         else if(isFileGettingReady && scoreCtrl.IsReturnReadDataComp() && isDataPreparationTrigger)
@@ -69,13 +84,13 @@ public class GameCtrl : MonoBehaviour
         Init();
         //譜面系のファイルセット
         scoreCtrl.Init();
-        scoreCtrl.ReadStart(file_name);
+        scoreCtrl.ReadStart(musicFile_name);
         //音声系のファイルセット
         soundCtrl.Init();
-        soundCtrl.ReadStart(file_name);
+        soundCtrl.ReadStart(musicFile_name);
         //演出系のファイルセット
         directingCtrl.Init();
-        directingCtrl.ReadStart(file_name);
+        directingCtrl.ReadStart(musicFile_name);
 
         isFileGettingReady = true;
         isDataGettingReady = false;
@@ -126,6 +141,64 @@ public class GameCtrl : MonoBehaviour
         isPlayingGame = false;
         soundCtrl.StopMusic();      //楽曲停止(フェードアウト)
         uiCtrl.AdventResultUI();    //リザルトUI出現
+    }
+
+    //楽曲データの読み込み
+    private IEnumerator LoadGameData(string file_name)
+    {
+        TextAsset csvFile; // CSVファイル
+        List<string[]> csvDatas = new List<string[]>(); // CSVの中身を入れるリスト
+        Sprite sprite = null;
+
+        //CSVデータの読み込み
+        Addressables.LoadAssetAsync<TextAsset>(file_name).Completed += op =>
+        {
+            csvFile = op.Result;
+            StringReader reader = new StringReader(csvFile.text);
+            while (reader.Peek() != -1)
+            {
+                string line = reader.ReadLine();
+                csvDatas.Add(line.Split(','));
+            }
+            Addressables.Release(op);
+        };
+
+        do
+        {
+            yield return null;
+        } while (csvDatas.Count == 0);
+
+        //MusicDataListの作成
+        musicDataList = new List<MusicData>();
+        for(int i = 1;i < csvDatas.Count; i++)
+        {
+            musicDataList.Add(new MusicData
+            { title = csvDatas[i][TITLE_COLUMN], composer = csvDatas[i][COMPOSER_COLUMN], 
+                file_name = csvDatas[i][FILENAME_COLUMN], thumbneil = sprite });
+        }
+
+        //スプライト(サムネ)の読み込み
+        foreach (MusicData md in musicDataList)
+        {
+            Addressables.LoadAssetAsync<Sprite>(md.file_name + "_thumbneil").Completed += op =>
+            {
+                sprite = Instantiate(op.Result);
+                //Addressables.Release(op);
+            };
+
+            do
+            {
+                yield return null;
+            } while (sprite == null);
+        }
+
+        //一旦ここに配置
+        foreach (MusicData md in musicDataList)
+        {
+            uiCtrl.AddMusicTopic(md);
+        }
+
+        isLoadGameData = true;
     }
 
     //--------------------トリガー系--------------------
