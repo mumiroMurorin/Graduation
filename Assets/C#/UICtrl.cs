@@ -23,7 +23,7 @@ public class UICtrl : MonoBehaviour
     [SerializeField] private GameObject topicContent_obj;
     [Header("トピックブロック")]
     [SerializeField] private GameObject topicBlock_obj;
-    private Image topicThumbneil_image;
+    public Image topicThumbneil_image;
     private TextMeshProUGUI topicTitle_tmp;
     private TextMeshProUGUI topicComposer_tmp;
 
@@ -94,6 +94,7 @@ public class UICtrl : MonoBehaviour
             topicTitle_tmp.text = md.title;
             topicComposer_tmp.text = md.composer;
             topicThumbneil_image.sprite = md.thumbneil;
+            Debug.Log(" md.thumbneil: " + md.thumbneil);
             GameObject g = Instantiate(topicBlock_obj, topicContent_obj.transform);
             g.GetComponent<RectTransform>().anchoredPosition =
                 new Vector3(musicTopic_num * topic_interval, 0, 0);

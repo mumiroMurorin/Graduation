@@ -155,7 +155,6 @@ public class GameCtrl : MonoBehaviour
     {
         TextAsset csvFile; // CSVファイル
         List<string[]> csvDatas = new List<string[]>(); // CSVの中身を入れるリスト
-        Sprite sprite = null;
 
         //CSVデータの読み込み
         Addressables.LoadAssetAsync<TextAsset>(file_name).Completed += op =>
@@ -180,14 +179,15 @@ public class GameCtrl : MonoBehaviour
         for(int i = 1;i < csvDatas.Count; i++)
         {
             musicDataList.Add(new MusicData
-            { title = csvDatas[i][TITLE_COLUMN], composer = csvDatas[i][COMPOSER_COLUMN], 
-                file_name = csvDatas[i][FILENAME_COLUMN], thumbneil = sprite });
-        }
+            {
+                title = csvDatas[i][TITLE_COLUMN],
+                composer = csvDatas[i][COMPOSER_COLUMN],
+                file_name = csvDatas[i][FILENAME_COLUMN]
+            });
 
-        //スプライト(サムネ)の読み込み
-        foreach (MusicData md in musicDataList)
-        {
-            Addressables.LoadAssetAsync<Sprite>(md.file_name + "_thumbneil").Completed += op =>
+            //スプライト(サムネ)の読み込み
+            Sprite sprite = null;
+            Addressables.LoadAssetAsync<Sprite>(musicDataList[i - 1].file_name + "_thumbneil").Completed += op =>
             {
                 sprite = Instantiate(op.Result);
                 //Addressables.Release(op);
@@ -197,6 +197,7 @@ public class GameCtrl : MonoBehaviour
             {
                 yield return null;
             } while (sprite == null);
+            musicDataList[i - 1].thumbneil = sprite;
         }
 
         //一旦ここに配置
