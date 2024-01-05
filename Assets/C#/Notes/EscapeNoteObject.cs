@@ -28,8 +28,8 @@ public class EscapeNoteObject : MonoBehaviour
     //判定開始
     private void OnTriggerEnter(Collider other)
     {
-        //入ってきたオブジェクトのタグが「MainCamera」だったとき
-        if (other.transform.CompareTag("MainCamera"))
+        //入ってきたオブジェクトのタグが「Head」だったとき
+        if (other.transform.CompareTag("Head"))
         {
             right_event.Invoke();
             left_event.Invoke();
