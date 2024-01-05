@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -385,7 +385,7 @@ MonoBehaviour:
   topic_interval: 0
   topicContent_obj: {fileID: 470473839}
   topicBlock_obj: {fileID: 140727195360409546, guid: be559ddefa7926f4db0ab05fc02c2652, type: 3}
-  gameCtrl: {fileID: 0}
+  gameCtrl: {fileID: 1032284867}
 --- !u!1001 &110531376
 PrefabInstance:
   m_ObjectHideFlags: 0
