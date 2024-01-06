@@ -198,6 +198,21 @@ public class GameCtrl : MonoBehaviour
                 yield return null;
             } while (sprite == null);
             musicDataList[i - 1].thumbneil = sprite;
+
+            //スプライト(サムネ)の読み込み
+            AudioClip ac = null;
+            Addressables.LoadAssetAsync<AudioClip>(musicDataList[i - 1].file_name + "_preview").Completed += op =>
+            {
+                ac = Instantiate(op.Result);
+                //Addressables.Release(op);
+            };
+
+            do
+            {
+                yield return null;
+            } while (ac == null);
+            musicDataList[i - 1].preview = ac;
+            musicDataList[i - 1].preview.LoadAudioData();
         }
 
         //一旦ここに配置
@@ -239,5 +254,8 @@ public class GameCtrl : MonoBehaviour
     public void SetPlayMusicData(int index)
     {
         musicFile_name = musicDataList[index].file_name;
+        //UIのセット
+        uiCtrl.SelectMusicTopic(musicDataList[index]);
+        soundCtrl.PlayPreview(musicDataList[index].preview);
     }
 }

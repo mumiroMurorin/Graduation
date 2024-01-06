@@ -11,6 +11,7 @@ public class MusicData
     public string title;
     public string composer;
     public Sprite thumbneil;
+    public AudioClip preview;
 }
 
 namespace Common

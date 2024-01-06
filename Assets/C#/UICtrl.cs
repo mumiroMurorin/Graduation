@@ -23,6 +23,8 @@ public class UICtrl : MonoBehaviour
     [SerializeField] private GameObject topicContent_obj;
     [Header("トピックブロック")]
     [SerializeField] private GameObject topicBlock_obj;
+    [Header("トピックモニタ(Image)")]
+    [SerializeField] private Image topicMonitor_ima;
 
     [SerializeField] private GameCtrl gameCtrl;
 
@@ -94,6 +96,12 @@ public class UICtrl : MonoBehaviour
             g.GetComponent<MusicTopic>().Init(md, num);
             musicTopic_maxnum++;
         }
+    }
+
+    //楽曲トピックの選択
+    public void SelectMusicTopic(MusicData md)
+    {
+        topicMonitor_ima.sprite = md.thumbneil;
     }
 
     //--------------ボタン系--------------

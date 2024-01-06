@@ -34,4 +34,9 @@ public class MusicTopic : MonoBehaviour
         trigger.triggers.Add(entry);
     }
 
+    //トピック選択
+    public void SelectTopic()
+    {
+
+    }
 }
