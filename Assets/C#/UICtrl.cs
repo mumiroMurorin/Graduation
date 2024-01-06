@@ -26,6 +26,16 @@ public class UICtrl : MonoBehaviour
     [Header("トピックモニタ(Image)")]
     [SerializeField] private Image[] topicMonitor_ima;
 
+    [Header("以下リザルト")]
+    [SerializeField] private TextMeshProUGUI result_title;
+    [SerializeField] private TextMeshProUGUI result_composer;
+    [SerializeField] private TextMeshProUGUI result_pcritical_num;
+    [SerializeField] private TextMeshProUGUI result_critical_num;
+    [SerializeField] private TextMeshProUGUI result_hit_num;
+    [SerializeField] private TextMeshProUGUI result_miss_num;
+    [SerializeField] private TextMeshProUGUI result_score;
+    [SerializeField] private TextMeshProUGUI result_rank;
+
     [SerializeField] private GameCtrl gameCtrl;
 
     private GameObject[] judge_obj;
@@ -77,6 +87,19 @@ public class UICtrl : MonoBehaviour
     {
         GameObject g = Instantiate(judge_obj[judgement_num], pos, Quaternion.identity, judge_par.transform);
         g.SetActive(true);
+    }
+
+    //リザルトのセット
+    public void SetResult(MusicData md, ResultData rd)
+    {
+        result_title.text = md.title;
+        result_composer.text = md.composer;
+        result_score.text = rd.score.ToString();
+        result_rank.text = rd.rank;
+        result_pcritical_num.text = rd.p_cri_num.ToString();
+        result_critical_num.text = rd.cri_num.ToString();
+        result_hit_num.text = rd.hit_num.ToString();
+        result_miss_num.text = rd.miss_num.ToString();
     }
 
     //リザルト画面の出現

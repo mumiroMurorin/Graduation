@@ -213,6 +213,19 @@ public class ScoreCtrl : MonoBehaviour
         return isPlaying;
     }
 
+    //リザルトを返す
+    public ResultData ReturnResult()
+    {
+        return new ResultData
+        {
+            score = (int)score,
+            p_cri_num = judges_num[0],
+            cri_num = judges_num[1],
+            hit_num = judges_num[2],
+            miss_num = judges_num[3],
+        };
+    }
+
     //-------------------セッター-------------------
 
     //判定をノーツから得る(※一旦全部p_critical)

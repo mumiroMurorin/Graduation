@@ -32,6 +32,7 @@ public class GameCtrl : MonoBehaviour
     [SerializeField] private UICtrl uiCtrl;
 
     private List<MusicData> musicDataList;
+    private int now_playing_index;
 
     private string musicFile_name;
 
@@ -154,6 +155,7 @@ public class GameCtrl : MonoBehaviour
     {
         isPlayingGame = false;
         soundCtrl.StopMusic();      //楽曲停止(フェードアウト)
+        uiCtrl.SetResult(musicDataList[now_playing_index], scoreCtrl.ReturnResult());
         uiCtrl.AdventResultUI();    //リザルトUI出現
     }
 
@@ -274,6 +276,7 @@ public class GameCtrl : MonoBehaviour
     //プレイ楽曲インデックスのセット
     public void SetPlayMusicData(int index)
     {
+        now_playing_index = index;
         musicFile_name = musicDataList[index].file_name;
         //UIのセット
         uiCtrl.SelectMusicTopic(musicDataList[index]);

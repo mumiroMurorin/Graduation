@@ -14,6 +14,19 @@ public class MusicData
     public AudioClip preview;
 }
 
+/// <summary>
+/// リザルトデータ
+/// </summary>
+public class ResultData
+{
+    public int score;
+    public string rank;
+    public int p_cri_num;
+    public int cri_num;
+    public int hit_num;
+    public int miss_num;
+}
+
 namespace Common
 {
     /// <summary>
