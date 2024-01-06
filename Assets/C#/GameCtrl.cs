@@ -52,6 +52,7 @@ public class GameCtrl : MonoBehaviour
     void Start()
     {
         StartCoroutine(LoadGameData(musicData_name));
+        TransitionSelectTrigger();//仮
 
         if (!isConstruction)
         {
@@ -238,7 +239,14 @@ public class GameCtrl : MonoBehaviour
 
     //--------------------トリガー、セット系--------------------
 
-    //ゲームセレクトトリガー
+    //セレクトシーン遷移トリガー
+    public void TransitionSelectTrigger()
+    {
+        gameScene_obj.SetActive(false);
+        selectScene_obj.SetActive(true);
+    }
+
+    //ゲームシーン遷移トリガー
     public void TransitionGameTrigger()
     {
         gameScene_obj.SetActive(true);
