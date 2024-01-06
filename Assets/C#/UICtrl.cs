@@ -24,7 +24,7 @@ public class UICtrl : MonoBehaviour
     [Header("トピックブロック")]
     [SerializeField] private GameObject topicBlock_obj;
     [Header("トピックモニタ(Image)")]
-    [SerializeField] private Image topicMonitor_ima;
+    [SerializeField] private Image[] topicMonitor_ima;
 
     [SerializeField] private GameCtrl gameCtrl;
 
@@ -101,7 +101,10 @@ public class UICtrl : MonoBehaviour
     //楽曲トピックの選択
     public void SelectMusicTopic(MusicData md)
     {
-        topicMonitor_ima.sprite = md.thumbneil;
+        for(int i = 0; i < topicMonitor_ima.Length; i++)
+        {
+            topicMonitor_ima[i].sprite = md.thumbneil;
+        }
     }
 
     //--------------ボタン系--------------
@@ -109,6 +112,7 @@ public class UICtrl : MonoBehaviour
     //楽曲プレイボタン
     public void PushPlayButton()
     {
+        gameCtrl.TransitionGameTrigger();
         gameCtrl.SetDataTrigger();
         gameCtrl.SetFileTrigger();
     }

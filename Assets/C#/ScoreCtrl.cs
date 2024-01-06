@@ -127,6 +127,10 @@ public class ScoreCtrl : MonoBehaviour
                 g.obj = GenerateGeneralNote(generate_pos + g.pos, g.angle);
                 g.obj.SetActive(false);
             }
+
+            //以下特殊ノーツの追加
+
+
         }
 
         isGenerateComp = true;
@@ -157,6 +161,8 @@ public class ScoreCtrl : MonoBehaviour
             }
 
             //以下特殊ノーツの追加
+
+
             scoreData_index++;
         }
     }

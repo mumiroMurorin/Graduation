@@ -18,6 +18,12 @@ public class GameCtrl : MonoBehaviour
     [Header("MusicData名")]
     [SerializeField] private string musicData_name;
 
+    [Header("セレクトシーン(GameObject)")]
+    [SerializeField] private GameObject selectScene_obj;
+
+    [Header("ゲームシーン(GameObject)")]
+    [SerializeField] private GameObject gameScene_obj;
+
     [Header("楽曲スタートアクションボックス")]
     [SerializeField] private ActionBox musicStart_actionbox;
     [SerializeField] private ScoreCtrl scoreCtrl;
@@ -231,6 +237,13 @@ public class GameCtrl : MonoBehaviour
     }
 
     //--------------------トリガー、セット系--------------------
+
+    //ゲームセレクトトリガー
+    public void TransitionGameTrigger()
+    {
+        gameScene_obj.SetActive(true);
+        selectScene_obj.SetActive(false);
+    }
 
     //ファイル読み込みトリガー
     public void SetFileTrigger()
