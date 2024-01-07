@@ -3485,6 +3485,7 @@ Transform:
   - {fileID: 1127193345}
   - {fileID: 1249291926}
   - {fileID: 1918424372}
+  - {fileID: 1867034379}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413979231
@@ -6202,6 +6203,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  sword_effect_magni: 5
+  judge_correct_effect_magni: 5
+  judgeUI_magni: 5
 --- !u!1 &826674122
 GameObject:
   m_ObjectHideFlags: 0
@@ -7750,7 +7754,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1249291926}
+    m_TransformParent: {fileID: 1867034379}
     m_Modifications:
     - target: {fileID: 348894872821919433, guid: 22a5b79124fa35b4b87fbce2c480551b, type: 3}
       propertyPath: revival_time
@@ -9246,9 +9250,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2034271682}
-  - {fileID: 990069552}
-  - {fileID: 1497060155}
   - {fileID: 1008230430}
   - {fileID: 1533998514}
   - {fileID: 1861701857}
@@ -10032,7 +10033,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1249291926}
+    m_TransformParent: {fileID: 1867034379}
     m_Modifications:
     - target: {fileID: 348894872821919433, guid: 22a5b79124fa35b4b87fbce2c480551b, type: 3}
       propertyPath: revival_time
@@ -10322,7 +10323,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1249291926}
+    m_TransformParent: {fileID: 1867034379}
     m_Modifications:
     - target: {fileID: 348894872821919433, guid: 22a5b79124fa35b4b87fbce2c480551b, type: 3}
       propertyPath: revival_time
@@ -12756,6 +12757,40 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1249291926}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1867034378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867034379}
+  m_Layer: 0
+  m_Name: ActionBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1867034379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867034378}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2034271682}
+  - {fileID: 990069552}
+  - {fileID: 1497060155}
+  m_Father: {fileID: 410484551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883585623
 GameObject:

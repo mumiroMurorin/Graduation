@@ -14,17 +14,6 @@ public class GeneralNoteObject : MonoBehaviour
     [Header("aŒ‚”»’è‚Æ‚È‚éŒ•‚Ì—Í(‹——£)")]
     [SerializeField] private float judge_magni;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //Œ•‚ªG‚ê‚½‚Æ‚«A”»’èŠJn
     private void OnTriggerEnter(Collider other)
     {

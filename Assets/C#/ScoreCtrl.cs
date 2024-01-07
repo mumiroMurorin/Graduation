@@ -5,6 +5,7 @@ using Common;
 
 public class ScoreCtrl : MonoBehaviour
 {
+    private const int MAX_SCORE = 1000000;
     [Header("ïàñ ê∂ê¨èÍèä")]
     [SerializeField] private GameObject generate_pnt;
     [Header("ÉmÅ[ÉgîªíËèÍèä")]
@@ -36,6 +37,7 @@ public class ScoreCtrl : MonoBehaviour
     private float score;
     private int combo;
     private int[] judges_num;
+    private float[] add_score;
 
     void Start()
     {
@@ -84,6 +86,10 @@ public class ScoreCtrl : MonoBehaviour
         scoreData_index = 0;
         game_time = 0;
         note_generate_time = Mathf.Abs(generate_pos.z - judge_pos.z) / g_manager.speed;
+        add_score[0] = (float)MAX_SCORE / max_combo_num;
+        add_score[1] = (float)MAX_SCORE / max_combo_num * 0.9f;
+        add_score[2] = (float)MAX_SCORE / max_combo_num * 0.5f;
+        add_score[3] = 0;
 
         judges_num = new int[4];
         score = 0;
@@ -178,7 +184,7 @@ public class ScoreCtrl : MonoBehaviour
     private GameObject GenerateGeneralNote(Vector3 born_pos, float angle)
     {
         GameObject obj = Instantiate(generalNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
         return obj;
     }
 
@@ -250,6 +256,7 @@ public class ScoreCtrl : MonoBehaviour
         }
 
         judges_num[judgement_num]++;
+        score += add_score[judgement_num];
         uiCtrl.ChangeCombo(combo);
         uiCtrl.AdventJudgeUI(judgement_num, pos);
     }

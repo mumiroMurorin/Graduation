@@ -46,10 +46,12 @@ public class Note : MonoBehaviour
         { Destroy(this.gameObject); }
     }
 
-    public void Init(float s, ScoreCtrl s_ctrl)
+    public void Init(float s, ScoreCtrl s_ctrl, float effect_magni)
     {
         speed = s;
         scoreCtrl = s_ctrl;
+        Vector3 size_ori = effect_obj.transform.localScale;
+        effect_obj.transform.localScale = new Vector3(size_ori.x * effect_magni, size_ori.y * effect_magni, size_ori.z * effect_magni);
     }
 
     //ÉmÅ[ÉgÇìÆÇ©Ç∑(àÍíUê^Ç¡Ç∑ÇÆ)
@@ -84,4 +86,7 @@ public class Note : MonoBehaviour
         yield return StartCoroutine(coroutine);
         isFinishVibration = true;
     }
+
+    //îªíË
+
 }

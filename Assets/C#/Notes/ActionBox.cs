@@ -29,7 +29,7 @@ public class ActionBox : MonoBehaviour
     {
         //èdÇ¢Ç©Ç»
         audioClip.LoadAudioData();
-        box_obj.SetActive(true);
+        //box_obj.SetActive(true);
         broken_obj.SetActive(false);
         effect_obj.SetActive(false);
     }

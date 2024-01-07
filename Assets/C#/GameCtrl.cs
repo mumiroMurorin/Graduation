@@ -58,13 +58,17 @@ public class GameCtrl : MonoBehaviour
     void Start()
     {
         StartCoroutine(LoadGameData(musicData_name));
-        TransitionSelectTrigger();//仮
+       
 
         if (!isConstruction)
         {
             musicFile_name = "try";
             SetFileTrigger();   //仮
             SetDataTrigger();   //仮
+        }
+        else
+        {
+            TransitionSelectTrigger();//仮
         }
     }
 
@@ -132,9 +136,7 @@ public class GameCtrl : MonoBehaviour
         //UIの初期化
         uiCtrl.Init_Start();
 
-        musicStart_actionbox.SetActiveBox(true);
-        reStart_actionbox.SetActiveBox(false);
-        back_actionbox.SetActiveBox(false);
+        SetActiveActionBox(true, false, false);
 
         isDataGettingReady = true;
         isPlayingGame = false;
@@ -151,9 +153,7 @@ public class GameCtrl : MonoBehaviour
         directingCtrl.PlayDirecting(); //演出再生
         uiCtrl.GameStart();     //色々表示
 
-        musicStart_actionbox.SetActiveBox(false);
-        //reStart_actionbox.SetActiveBox(false);
-        //back_actionbox.SetActiveBox(false);
+        SetActiveActionBox(false, false, false);
 
         isPlayingGame = true;
         isGameStartTrigger = false;
@@ -167,9 +167,7 @@ public class GameCtrl : MonoBehaviour
         uiCtrl.SetResult(musicDataList[now_playing_index], scoreCtrl.ReturnResult());
         uiCtrl.AdventResultUI();    //リザルトUI出現
 
-        //musicStart_actionbox.SetActiveBox(false);
-        reStart_actionbox.SetActiveBox(true);
-        back_actionbox.SetActiveBox(true);
+        SetActiveActionBox(false, true, true);
     }
 
     //楽曲データの読み込み
@@ -246,6 +244,19 @@ public class GameCtrl : MonoBehaviour
         isLoadGameData = true;
     }
 
+    /// <summary>
+    /// アクションボックスのアクティブ関係
+    /// </summary>
+    /// <param name="isStart"></param>
+    /// <param name="isRestart"></param>
+    /// <param name="isBack"></param>
+    private void SetActiveActionBox(bool isStart, bool isRestart, bool isBack)
+    {
+        musicStart_actionbox.SetActiveBox(isStart);
+        reStart_actionbox.SetActiveBox(isRestart);
+        back_actionbox.SetActiveBox(isBack);
+    }
+
     //ログ出力
     public void OutputLog(string str)
     {
@@ -259,6 +270,7 @@ public class GameCtrl : MonoBehaviour
     {
         gameScene_obj.SetActive(false);
         selectScene_obj.SetActive(true);
+        SetActiveActionBox(false, false, false);
     }
 
     //ゲームシーン遷移トリガー

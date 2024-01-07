@@ -38,6 +38,7 @@ public class UICtrl : MonoBehaviour
 
     [SerializeField] private GameCtrl gameCtrl;
 
+    private GameManager gameManager;
     private GameObject[] judge_obj;
     private int musicTopic_maxnum;
     private int selectTopic_num;
@@ -45,6 +46,7 @@ public class UICtrl : MonoBehaviour
     void Start()
     {
         //‰¼
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         judge_obj = new GameObject[4];
         for(int i = 0;i < 4; i++)
         {
@@ -86,6 +88,7 @@ public class UICtrl : MonoBehaviour
     public void AdventJudgeUI(int judgement_num, Vector3 pos)
     {
         GameObject g = Instantiate(judge_obj[judgement_num], pos, Quaternion.identity, judge_par.transform);
+        g.transform.localScale = new Vector3(gameManager.judgeUI_magni, gameManager.judgeUI_magni, gameManager.judgeUI_magni);
         g.SetActive(true);
     }
 

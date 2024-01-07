@@ -70,6 +70,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public float speed;
+    public float sword_effect_magni;
+    public float judge_correct_effect_magni;
+    public float judgeUI_magni;
 
     private void Awake()
     {
