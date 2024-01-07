@@ -26,6 +26,11 @@ public class GameCtrl : MonoBehaviour
 
     [Header("楽曲スタートアクションボックス")]
     [SerializeField] private ActionBox musicStart_actionbox;
+    [Header("リスタートアクションボックス")]
+    [SerializeField] private ActionBox reStart_actionbox;
+    [Header("バックアクションボックス")]
+    [SerializeField] private ActionBox back_actionbox;
+
     [SerializeField] private ScoreCtrl scoreCtrl;
     [SerializeField] private SoundCtrl soundCtrl;
     [SerializeField] private DirectingCtrl directingCtrl;
@@ -105,7 +110,7 @@ public class GameCtrl : MonoBehaviour
         soundCtrl.ReadStart(musicFile_name);
         //演出系のファイルセット
         directingCtrl.Init();
-        directingCtrl.ReadStart(musicFile_name);
+        directingCtrl.ReadStart(musicFile_name, gameScene_obj.transform);
 
         isFileGettingReady = true;
         isDataGettingReady = false;
@@ -128,6 +133,8 @@ public class GameCtrl : MonoBehaviour
         uiCtrl.Init_Start();
 
         musicStart_actionbox.SetActiveBox(true);
+        reStart_actionbox.SetActiveBox(false);
+        back_actionbox.SetActiveBox(false);
 
         isDataGettingReady = true;
         isPlayingGame = false;
@@ -145,6 +152,8 @@ public class GameCtrl : MonoBehaviour
         uiCtrl.GameStart();     //色々表示
 
         musicStart_actionbox.SetActiveBox(false);
+        //reStart_actionbox.SetActiveBox(false);
+        //back_actionbox.SetActiveBox(false);
 
         isPlayingGame = true;
         isGameStartTrigger = false;
@@ -157,6 +166,10 @@ public class GameCtrl : MonoBehaviour
         soundCtrl.StopMusic();      //楽曲停止(フェードアウト)
         uiCtrl.SetResult(musicDataList[now_playing_index], scoreCtrl.ReturnResult());
         uiCtrl.AdventResultUI();    //リザルトUI出現
+
+        //musicStart_actionbox.SetActiveBox(false);
+        reStart_actionbox.SetActiveBox(true);
+        back_actionbox.SetActiveBox(true);
     }
 
     //楽曲データの読み込み

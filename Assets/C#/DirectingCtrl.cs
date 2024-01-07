@@ -46,18 +46,18 @@ public class DirectingCtrl : MonoBehaviour
     }
 
     //ロード開始(セッター)
-    public void ReadStart(string file_name)
+    public void ReadStart(string file_name, Transform par)
     {
-        StartCoroutine(LoadDirecting(file_name + "_directing"));
+        StartCoroutine(LoadDirecting(file_name + "_directing", par));
     }
 
     //演出オブジェクトの読み込み
-    private IEnumerator LoadDirecting(string file_name)
+    private IEnumerator LoadDirecting(string file_name, Transform par)
     {
         //TimeLineデータの読み込み
         Addressables.LoadAssetAsync<GameObject>(file_name).Completed += op =>
         {
-            directing_obj = Instantiate(op.Result);
+            directing_obj = Instantiate(op.Result, par);
             //一旦リリースをデクリメントするが、良くないと思われる
             //Addressables.Release(op);
         };
