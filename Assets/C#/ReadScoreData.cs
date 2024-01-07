@@ -9,6 +9,12 @@ public class ReadScoreData : MonoBehaviour
 {
     //「KIND」列にある文字の定数化
     const string GENERAL_NOTE = "g";
+    const string BUTTONA_NOTE = "a";
+    const string BUTTONB_NOTE = "b";
+    const string BUTTONX_NOTE = "x";
+    const string BUTTONY_NOTE = "y";
+    const string BUTTONL_NOTE = "l";
+    const string BUTTONR_NOTE = "r";
 
     private int NOTE_TIME_COLUMN;
     private int NOTE_KIND_COLUMN;
@@ -100,6 +106,30 @@ public class ReadScoreData : MonoBehaviour
                     GeneralNote g = ConvertGeneralNote(str);
                     notesData.AddGeneralNote(g);
                     break;
+                case BUTTONA_NOTE:
+                    ButtonANote a = ConvertButtonANote(str);
+                    notesData.AddButtonANote(a);
+                    break;
+                case BUTTONB_NOTE:
+                    ButtonBNote b = ConvertButtonBNote(str);
+                    notesData.AddButtonBNote(b);
+                    break;
+                case BUTTONX_NOTE:
+                    ButtonXNote x = ConvertButtonXNote(str);
+                    notesData.AddButtonXNote(x);
+                    break;
+                case BUTTONY_NOTE:
+                    ButtonYNote y = ConvertButtonYNote(str);
+                    notesData.AddButtonYNote(y);
+                    break;
+                case BUTTONL_NOTE:
+                    ButtonLNote l = ConvertButtonLNote(str);
+                    notesData.AddButtonLNote(l);
+                    break;
+                case BUTTONR_NOTE:
+                    ButtonRNote r = ConvertButtonRNote(str);
+                    notesData.AddButtonRNote(r);
+                    break;
                 default:
                     Debug.LogError("知らないやつだ:" + str[NOTE_KIND_COLUMN]);
                     break;
@@ -128,6 +158,138 @@ public class ReadScoreData : MonoBehaviour
         g.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
 
         return g;
+    }
+    private ButtonANote ConvertButtonANote(string[] str)
+    {
+        ButtonANote a = new ButtonANote();
+
+        //timeをfloatに変換
+        if (!float.TryParse(str[NOTE_TIME_COLUMN], out a.time))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_TIME_COLUMN]);
+            return null;
+        }
+
+        //angleをfloatに変換
+        if (!float.TryParse(str[NOTE_ANGLE_COLUMN], out a.angle))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_ANGLE_COLUMN]);
+            return null;
+        }
+
+        a.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
+
+        return a;
+    }
+    private ButtonBNote ConvertButtonBNote(string[] str)
+    {
+        ButtonBNote b = new ButtonBNote();
+
+        //timeをfloatに変換
+        if (!float.TryParse(str[NOTE_TIME_COLUMN], out b.time))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_TIME_COLUMN]);
+            return null;
+        }
+
+        //angleをfloatに変換
+        if (!float.TryParse(str[NOTE_ANGLE_COLUMN], out b.angle))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_ANGLE_COLUMN]);
+            return null;
+        }
+
+        b.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
+
+        return b;
+    }
+    private ButtonXNote ConvertButtonXNote(string[] str)
+    {
+        ButtonXNote x = new ButtonXNote();
+
+        //timeをfloatに変換
+        if (!float.TryParse(str[NOTE_TIME_COLUMN], out x.time))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_TIME_COLUMN]);
+            return null;
+        }
+
+        //angleをfloatに変換
+        if (!float.TryParse(str[NOTE_ANGLE_COLUMN], out x.angle))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_ANGLE_COLUMN]);
+            return null;
+        }
+
+        x.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
+
+        return x;
+    }
+    private ButtonYNote ConvertButtonYNote(string[] str)
+    {
+        ButtonYNote y = new ButtonYNote();
+
+        //timeをfloatに変換
+        if (!float.TryParse(str[NOTE_TIME_COLUMN], out y.time))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_TIME_COLUMN]);
+            return null;
+        }
+
+        //angleをfloatに変換
+        if (!float.TryParse(str[NOTE_ANGLE_COLUMN], out y.angle))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_ANGLE_COLUMN]);
+            return null;
+        }
+
+        y.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
+
+        return y;
+    }
+    private ButtonLNote ConvertButtonLNote(string[] str)
+    {
+        ButtonLNote l = new ButtonLNote();
+
+        //timeをfloatに変換
+        if (!float.TryParse(str[NOTE_TIME_COLUMN], out l.time))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_TIME_COLUMN]);
+            return null;
+        }
+
+        //angleをfloatに変換
+        if (!float.TryParse(str[NOTE_ANGLE_COLUMN], out l.angle))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_ANGLE_COLUMN]);
+            return null;
+        }
+
+        l.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
+
+        return l;
+    }
+    private ButtonRNote ConvertButtonRNote(string[] str)
+    {
+        ButtonRNote r = new ButtonRNote();
+
+        //timeをfloatに変換
+        if (!float.TryParse(str[NOTE_TIME_COLUMN], out r.time))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_TIME_COLUMN]);
+            return null;
+        }
+
+        //angleをfloatに変換
+        if (!float.TryParse(str[NOTE_ANGLE_COLUMN], out r.angle))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_ANGLE_COLUMN]);
+            return null;
+        }
+
+        r.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
+
+        return r;
     }
 
     //string「(0:0:0)」をVector3に変換
