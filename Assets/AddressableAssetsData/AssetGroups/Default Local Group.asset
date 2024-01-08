@@ -23,12 +23,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b79b9c214c374546a411c062ac68aeb
-    m_Address: try_preview
+    m_Address: marshall_preview
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88382e362c526de4f8aeb8d50a3793fc
-    m_Address: try_directing
+    m_Address: marshall_directing
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -38,11 +38,21 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 45695ddedd882a54488eeefc3db21c7c
+    m_Address: marshall_thumbneil
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82f9ced339f70614b844c756c6958789
+    m_Address: marshall_music
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8de7479a355b9d54c8056b66886a4d4a
     m_Address: try_thumbneil
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4eae0cf648386c940806907b5f5f5a7f
+  - m_GUID: c03794e22581bd640af20cd407569406
     m_Address: try_music
     m_ReadOnly: 0
     m_SerializedLabels: []
