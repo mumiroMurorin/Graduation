@@ -70,6 +70,15 @@ public class UICtrl : MonoBehaviour
     {
         result_obj.SetActive(false);//かり
         comboCtrl.Init_Start();
+
+        //判定の大きさセット
+        for(int i = 0; i < judge_obj_ori.Length; i++)
+        {
+            Transform tra = judge_obj_ori[i].transform.Find("Image");
+            tra.localScale =
+                new Vector3(gameManager.judgeUI_magni * tra.localScale.x, 
+                gameManager.judgeUI_magni * tra.localScale.y, gameManager.judgeUI_magni * tra.localScale.z);
+        }
     }
 
     //楽曲開始
@@ -88,7 +97,7 @@ public class UICtrl : MonoBehaviour
     public void AdventJudgeUI(int judgement_num, Vector3 pos)
     {
         GameObject g = Instantiate(judge_obj[judgement_num], pos, Quaternion.identity, judge_par.transform);
-        g.transform.localScale = new Vector3(gameManager.judgeUI_magni, gameManager.judgeUI_magni, gameManager.judgeUI_magni);
+        //g.transform.localScale = new Vector3(gameManager.judgeUI_magni, gameManager.judgeUI_magni, gameManager.judgeUI_magni);
         g.SetActive(true);
     }
 

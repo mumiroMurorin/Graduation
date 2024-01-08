@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5042,7 +5042,7 @@ MonoBehaviour:
   m_text: SSS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7324b0a35ce5e8049ae2563da71004a8, type: 2}
-  m_sharedMaterial: {fileID: -419076604204602125, guid: 7324b0a35ce5e8049ae2563da71004a8, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 4488624aba8a03e409a9a9c7341936bb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9506,6 +9506,13 @@ MonoBehaviour:
   judge_pnt: {fileID: 1836975779}
   miss_pnt: {fileID: 240892818}
   generalNote_obj: {fileID: 6840150049720174718, guid: 5a64012223cc3594c9ea76224b1a4c6c, type: 3}
+  border_D: 0
+  border_C: 0
+  border_B: 0
+  border_A: 0
+  border_S: 0
+  border_SS: 0
+  border_MAX: 0
   gameCtrl: {fileID: 1032284867}
   uiCtrl: {fileID: 99741685}
 --- !u!1 &1358565684

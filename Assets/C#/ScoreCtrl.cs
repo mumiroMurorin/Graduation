@@ -15,6 +15,21 @@ public class ScoreCtrl : MonoBehaviour
     [Header("通常ノート")]
     [SerializeField] private GameObject generalNote_obj;
 
+    [Header("Dボーダー")]
+    [SerializeField] private int border_D;
+    [Header("Cボーダー")]
+    [SerializeField] private int border_C;
+    [Header("Bボーダー")]
+    [SerializeField] private int border_B;
+    [Header("Aボーダー")]
+    [SerializeField] private int border_A;
+    [Header("Sボーダー")]
+    [SerializeField] private int border_S;
+    [Header("SSボーダー")]
+    [SerializeField] private int border_SS;
+    [Header("MAXボーダー")]
+    [SerializeField] private int border_MAX;
+
     [SerializeField] private GameCtrl gameCtrl;
     [SerializeField] private UICtrl uiCtrl;
 
@@ -229,7 +244,21 @@ public class ScoreCtrl : MonoBehaviour
             cri_num = judges_num[1],
             hit_num = judges_num[2],
             miss_num = judges_num[3],
+            rank = ReturnScoreToRank((int)score)
         };
+    }
+
+    //スコアからランクを返す
+    public string ReturnScoreToRank(int score)
+    {
+        if(score >= border_MAX) { return "MAX"; }
+        if(score >= border_SS) { return "SS"; }
+        if(score >= border_S) { return "S"; }
+        if(score >= border_A) { return "A"; }
+        if(score >= border_B) { return "B"; }
+        if(score >= border_C) { return "C"; }
+        if(score >= border_D) { return "D"; }
+        return "E";
     }
 
     //-------------------セッター-------------------
