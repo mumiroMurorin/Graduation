@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -610,8 +610,9 @@ MonoBehaviour:
   result_hit_num: {fileID: 1412596514}
   result_miss_num: {fileID: 123972689}
   result_score: {fileID: 503810163}
-  result_rank: {fileID: 304436369}
+  result_rank: {fileID: 597705617}
   gameCtrl: {fileID: 1032284867}
+  tmp_obj: {fileID: 0}
 --- !u!1 &110512450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2475,7 +2476,7 @@ Transform:
   m_GameObject: {fileID: 312654838}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: -2, z: 8}
+  m_LocalPosition: {x: -5, y: -2, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3143,9 +3144,9 @@ RectTransform:
   m_Father: {fileID: 2021380621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &393882486
 MonoBehaviour:
@@ -6202,7 +6203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b127abc34e2adc4482779db2db39c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 12
   sword_effect_magni: 5
   judge_correct_effect_magni: 5
   judgeUI_magni: 5
@@ -6831,7 +6832,7 @@ RectTransform:
   m_Father: {fileID: 2143421827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.17857143, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8189,6 +8190,7 @@ MonoBehaviour:
   musicStart_actionbox: {fileID: 2034271683}
   reStart_actionbox: {fileID: 990069553}
   back_actionbox: {fileID: 1511457187}
+  g_manager: {fileID: 815667662}
   scoreCtrl: {fileID: 1354284293}
   soundCtrl: {fileID: 736298366}
   directingCtrl: {fileID: 545908909}
@@ -8852,7 +8854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1127193345
 Transform:
   m_ObjectHideFlags: 0
@@ -9236,7 +9238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1249291926
 Transform:
   m_ObjectHideFlags: 0
@@ -9507,12 +9509,12 @@ MonoBehaviour:
   miss_pnt: {fileID: 240892818}
   generalNote_obj: {fileID: 6840150049720174718, guid: 5a64012223cc3594c9ea76224b1a4c6c, type: 3}
   border_D: 0
-  border_C: 0
-  border_B: 0
-  border_A: 0
-  border_S: 0
-  border_SS: 0
-  border_MAX: 0
+  border_C: 750000
+  border_B: 900000
+  border_A: 950000
+  border_S: 975000
+  border_SS: 990000
+  border_MAX: 1000000
   gameCtrl: {fileID: 1032284867}
   uiCtrl: {fileID: 99741685}
 --- !u!1 &1358565684
@@ -9836,7 +9838,7 @@ Transform:
   m_GameObject: {fileID: 1432333422}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: -2, z: 8}
+  m_LocalPosition: {x: 5, y: -2, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34566,10 +34568,6 @@ PrefabInstance:
     - target: {fileID: 140727195360409546, guid: be559ddefa7926f4db0ab05fc02c2652, type: 3}
       propertyPath: m_Name
       value: TopicBlock
-      objectReference: {fileID: 0}
-    - target: {fileID: 140727195360409546, guid: be559ddefa7926f4db0ab05fc02c2652, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6222640936133494676, guid: be559ddefa7926f4db0ab05fc02c2652, type: 3}
       propertyPath: m_Pivot.x

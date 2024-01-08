@@ -54,6 +54,9 @@ public class SoundCtrl : MonoBehaviour
     //プレビューの再生
     public void PlayPreview(AudioClip preview)
     {
+        fadeDeltaTime = 0;
+        audioSource.volume = 1;//仮
+        audioSource.loop = true;
         audioSource.clip = preview;
         audioSource.Play();
     }
@@ -61,6 +64,7 @@ public class SoundCtrl : MonoBehaviour
     //ゲームスタート(楽曲の再生)
     public void PlayMusic()
     {
+        audioSource.loop = false;
         audioSource.volume = 1;//仮
         isfadeOut = false;
         audioSource.Play();

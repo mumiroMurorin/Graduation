@@ -7,6 +7,9 @@ using TMPro;
 
 public class MusicTopic : MonoBehaviour
 {
+    [Header("洗濯時背景")]
+    [SerializeField] private GameObject selectBack;
+
     private Image thumbneil_image;
     private TextMeshProUGUI title_tmp;
     private TextMeshProUGUI composer_tmp;
@@ -24,6 +27,8 @@ public class MusicTopic : MonoBehaviour
         thumbneil_image.sprite = md.thumbneil;
         title_tmp.text = md.title;
         composer_tmp.text = md.composer;
+        selectBack.SetActive(false);
+        this.gameObject.SetActive(true);
 
         GameCtrl gameCtrl = GameObject.Find("GameCtrl").GetComponent<GameCtrl>();
         EventTrigger.Entry entry = new EventTrigger.Entry
@@ -37,6 +42,6 @@ public class MusicTopic : MonoBehaviour
     //トピック選択
     public void SelectTopic()
     {
-
+        selectBack.SetActive(true);
     }
 }

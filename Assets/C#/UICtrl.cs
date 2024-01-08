@@ -40,18 +40,22 @@ public class UICtrl : MonoBehaviour
 
     private GameManager gameManager;
     private GameObject[] judge_obj;
+    private Vector3[] judgeUI_ori_size;
     private int musicTopic_maxnum;
-    private int selectTopic_num;
+
+    public GameObject tmp_obj;
 
     void Start()
     {
         //‰¼
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        judge_obj = new GameObject[4];
-        for(int i = 0;i < 4; i++)
+        judge_obj = new GameObject[judge_obj_ori.Length];
+        judgeUI_ori_size = new Vector3[judge_obj_ori.Length];
+        for (int i = 0; i < judge_obj.Length; i++)
         {
             judge_obj[i] = Instantiate(judge_obj_ori[i], judge_par.transform);
             judge_obj[i].SetActive(false);
+            judgeUI_ori_size[i] = judge_obj[i].transform.Find("Canvas/Image").gameObject.GetComponent<RectTransform>().localScale;
         }
 
         if (isConstruction)
@@ -72,12 +76,13 @@ public class UICtrl : MonoBehaviour
         comboCtrl.Init_Start();
 
         //”»’è‚Ì‘å‚«‚³ƒZƒbƒg
-        for(int i = 0; i < judge_obj_ori.Length; i++)
+        for(int i = 0; i < judge_obj.Length; i++)
         {
-            Transform tra = judge_obj_ori[i].transform.Find("Image");
-            tra.localScale =
-                new Vector3(gameManager.judgeUI_magni * tra.localScale.x, 
-                gameManager.judgeUI_magni * tra.localScale.y, gameManager.judgeUI_magni * tra.localScale.z);
+            RectTransform rt = judge_obj[i].transform.Find("Canvas/Image").gameObject.GetComponent<RectTransform>();
+            rt.localScale =
+                new Vector3(gameManager.judgeUI_magni * judgeUI_ori_size[i].x, 
+                gameManager.judgeUI_magni * judgeUI_ori_size[i].y, gameManager.judgeUI_magni * judgeUI_ori_size[i].z);
+            Debug.Log(rt.localScale + ", " + gameManager.judgeUI_magni);
         }
     }
 

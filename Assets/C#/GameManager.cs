@@ -7,11 +7,17 @@ using UnityEngine;
 /// </summary>
 public class MusicData
 {
+    //楽曲情報
     public string file_name;
     public string title;
     public string composer;
     public Sprite thumbneil;
     public AudioClip preview;
+
+    //オプション
+    public float sword_effect_magni;
+    public float judge_correct_effect_magni;
+    public float judgeUI_magni;
 }
 
 /// <summary>

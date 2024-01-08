@@ -101,10 +101,14 @@ public class ScoreCtrl : MonoBehaviour
         scoreData_index = 0;
         game_time = 0;
         note_generate_time = Mathf.Abs(generate_pos.z - judge_pos.z) / g_manager.speed;
-        add_score[0] = (float)MAX_SCORE / max_combo_num;
-        add_score[1] = (float)MAX_SCORE / max_combo_num * 0.9f;
-        add_score[2] = (float)MAX_SCORE / max_combo_num * 0.5f;
-        add_score[3] = 0;
+
+        add_score = new float[4]
+        {
+            (float)MAX_SCORE / max_combo_num,
+            (float)MAX_SCORE / max_combo_num * 0.9f,
+            (float)MAX_SCORE / max_combo_num * 0.5f,
+            0
+        };
 
         judges_num = new int[4];
         score = 0;

@@ -54,6 +54,8 @@ public class DirectingCtrl : MonoBehaviour
     //演出オブジェクトの読み込み
     private IEnumerator LoadDirecting(string file_name, Transform par)
     {
+        if (directing_obj) { Destroy(directing_obj); }
+
         //TimeLineデータの読み込み
         Addressables.LoadAssetAsync<GameObject>(file_name).Completed += op =>
         {

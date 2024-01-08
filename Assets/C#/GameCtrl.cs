@@ -11,6 +11,9 @@ public class GameCtrl : MonoBehaviour
     const int TITLE_COLUMN = 0;
     const int COMPOSER_COLUMN = 1;
     const int FILENAME_COLUMN = 2;
+    const int SLASH_COLUMN = 4;
+    const int BLOKEN_COLUMN = 5;
+    const int JUDGE_COLUMN = 6;
 
     [Header("作業中？")]
     [SerializeField] private bool isConstruction = false;
@@ -31,6 +34,7 @@ public class GameCtrl : MonoBehaviour
     [Header("バックアクションボックス")]
     [SerializeField] private ActionBox back_actionbox;
 
+    [SerializeField] private GameManager g_manager;
     [SerializeField] private ScoreCtrl scoreCtrl;
     [SerializeField] private SoundCtrl soundCtrl;
     [SerializeField] private DirectingCtrl directingCtrl;
@@ -51,6 +55,7 @@ public class GameCtrl : MonoBehaviour
     private bool isFileLoadTrigger;
     private bool isDataPreparationTrigger;
     private bool isGameStartTrigger;
+    private bool isBackSelectSceneTrigger;
 
     //準備系
     private bool isReadyComp;
@@ -116,6 +121,11 @@ public class GameCtrl : MonoBehaviour
         directingCtrl.Init();
         directingCtrl.ReadStart(musicFile_name, gameScene_obj.transform);
 
+        //設定の設定
+        g_manager.sword_effect_magni = musicDataList[now_playing_index].sword_effect_magni;
+        g_manager.judge_correct_effect_magni = musicDataList[now_playing_index].judge_correct_effect_magni;
+        g_manager.judgeUI_magni = musicDataList[now_playing_index].judgeUI_magni;
+
         isFileGettingReady = true;
         isDataGettingReady = false;
         isPlayingGame = false;
@@ -170,6 +180,12 @@ public class GameCtrl : MonoBehaviour
         SetActiveActionBox(false, true, true);
     }
 
+    //セレクトに戻る処理
+    private void BackSelectScene()
+    {
+        SetActiveActionBox(false, false, false);
+    }
+
     //楽曲データの読み込み
     private IEnumerator LoadGameData(string file_name)
     {
@@ -202,7 +218,10 @@ public class GameCtrl : MonoBehaviour
             {
                 title = csvDatas[i][TITLE_COLUMN],
                 composer = csvDatas[i][COMPOSER_COLUMN],
-                file_name = csvDatas[i][FILENAME_COLUMN]
+                file_name = csvDatas[i][FILENAME_COLUMN],
+                sword_effect_magni = float.Parse(csvDatas[i][SLASH_COLUMN]),
+                judge_correct_effect_magni = float.Parse(csvDatas[i][BLOKEN_COLUMN]),
+                judgeUI_magni = float.Parse(csvDatas[i][JUDGE_COLUMN])
             });
 
             //スプライト(サムネ)の読み込み
@@ -236,6 +255,7 @@ public class GameCtrl : MonoBehaviour
         }
 
         //一旦ここに配置
+        //トピック追加
         for(int i = 0; i < musicDataList.Count; i++)
         {
             uiCtrl.AddMusicTopic(musicDataList[i], i);
@@ -270,7 +290,7 @@ public class GameCtrl : MonoBehaviour
     {
         gameScene_obj.SetActive(false);
         selectScene_obj.SetActive(true);
-        SetActiveActionBox(false, false, false);
+        BackSelectScene();
     }
 
     //ゲームシーン遷移トリガー
