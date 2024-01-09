@@ -14,6 +14,13 @@ public class ScoreCtrl : MonoBehaviour
     [SerializeField] private GameObject miss_pnt;
     [Header("通常ノート")]
     [SerializeField] private GameObject generalNote_obj;
+    [Header("特殊ノート")]
+    [SerializeField] private GameObject buttonANote_obj;
+    [SerializeField] private GameObject buttonBNote_obj;
+    [SerializeField] private GameObject buttonXNote_obj;
+    [SerializeField] private GameObject buttonYNote_obj;
+    [SerializeField] private GameObject buttonLNote_obj;
+    [SerializeField] private GameObject buttonRNote_obj;
 
     [Header("Dボーダー")]
     [SerializeField] private int border_D;
@@ -161,7 +168,41 @@ public class ScoreCtrl : MonoBehaviour
             }
 
             //以下特殊ノーツの追加
+            foreach (ButtonANote a in score_data[i].buttonA_list)
+            {
+                a.obj = GenerateButtonANote(generate_pos + a.pos, a.angle);
+                a.obj.SetActive(false);
+            }
 
+            foreach (ButtonBNote b in score_data[i].buttonB_list)
+            {
+                b.obj = GenerateButtonBNote(generate_pos + b.pos, b.angle);
+                b.obj.SetActive(false);
+            }
+
+            foreach (ButtonXNote x in score_data[i].buttonX_list)
+            {
+                x.obj = GenerateButtonXNote(generate_pos + x.pos, x.angle);
+                x.obj.SetActive(false);
+            }
+
+            foreach (ButtonYNote y in score_data[i].buttonY_list)
+            {
+                y.obj = GenerateButtonYNote(generate_pos + y.pos, y.angle);
+                y.obj.SetActive(false);
+            }
+
+            foreach (ButtonRNote r in score_data[i].buttonR_list)
+            {
+                r.obj = GenerateButtonRNote(generate_pos + r.pos, r.angle);
+                r.obj.SetActive(false);
+            }
+
+            foreach (ButtonLNote l in score_data[i].buttonL_list)
+            {
+                l.obj = GenerateButtonLNote(generate_pos + l.pos, l.angle);
+                l.obj.SetActive(false);
+            }
 
         }
 
@@ -193,7 +234,41 @@ public class ScoreCtrl : MonoBehaviour
             }
 
             //以下特殊ノーツの追加
+            foreach (ButtonANote a in score_data[scoreData_index].buttonA_list)
+            {
+                //g.obj.transform.position += ReturnLittleDistance(g.time);
+                a.obj.SetActive(true);
+            }
 
+            foreach (ButtonBNote b in score_data[scoreData_index].buttonB_list)
+            {
+                //g.obj.transform.position += ReturnLittleDistance(g.time);
+                b.obj.SetActive(true);
+            }
+
+            foreach (ButtonXNote x in score_data[scoreData_index].buttonX_list)
+            {
+                //g.obj.transform.position += ReturnLittleDistance(g.time);
+                x.obj.SetActive(true);
+            }
+
+            foreach (ButtonYNote y in score_data[scoreData_index].buttonY_list)
+            {
+                //g.obj.transform.position += ReturnLittleDistance(g.time);
+                y.obj.SetActive(true);
+            }
+
+            foreach (ButtonRNote r in score_data[scoreData_index].buttonR_list)
+            {
+                //g.obj.transform.position += ReturnLittleDistance(g.time);
+                r.obj.SetActive(true);
+            }
+
+            foreach (ButtonLNote l in score_data[scoreData_index].buttonL_list)
+            {
+                //g.obj.transform.position += ReturnLittleDistance(g.time);
+                l.obj.SetActive(true);
+            }
 
             scoreData_index++;
         }
@@ -210,6 +285,48 @@ public class ScoreCtrl : MonoBehaviour
     private GameObject GenerateGeneralNote(Vector3 born_pos, float angle)
     {
         GameObject obj = Instantiate(generalNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        return obj;
+    }
+
+    private GameObject GenerateButtonANote(Vector3 born_pos, float angle)
+    {
+        GameObject obj = Instantiate(buttonANote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        return obj;
+    }
+
+    private GameObject GenerateButtonBNote(Vector3 born_pos, float angle)
+    {
+        GameObject obj = Instantiate(buttonBNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        return obj;
+    }
+
+    private GameObject GenerateButtonXNote(Vector3 born_pos, float angle)
+    {
+        GameObject obj = Instantiate(buttonXNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        return obj;
+    }
+
+    private GameObject GenerateButtonYNote(Vector3 born_pos, float angle)
+    {
+        GameObject obj = Instantiate(buttonYNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        return obj;
+    }
+
+    private GameObject GenerateButtonLNote(Vector3 born_pos, float angle)
+    {
+        GameObject obj = Instantiate(buttonRNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        return obj;
+    }
+
+    private GameObject GenerateButtonRNote(Vector3 born_pos, float angle)
+    {
+        GameObject obj = Instantiate(buttonLNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
         obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
         return obj;
     }
