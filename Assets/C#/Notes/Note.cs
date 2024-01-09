@@ -7,6 +7,7 @@ public class Note : MonoBehaviour
 {
     [Header("破片を表示する？")]
     [SerializeField] private bool isAdventFlag = true;
+    [SerializeField] private GameObject axis_obj;
     [SerializeField] private GameObject effect_obj;
     [SerializeField] private GameObject box_obj;
     [SerializeField] private GameObject broken_obj;
@@ -47,12 +48,13 @@ public class Note : MonoBehaviour
         { Destroy(this.gameObject); }
     }
 
-    public void Init(float s, ScoreCtrl s_ctrl, float effect_magni)
+    public void Init(float s, ScoreCtrl s_ctrl, float angle, float effect_magni)
     {
         speed = s;
         scoreCtrl = s_ctrl;
         Vector3 size_ori = effect_obj.transform.localScale;
         effect_obj.transform.localScale = new Vector3(size_ori.x * effect_magni, size_ori.y * effect_magni, size_ori.z * effect_magni);
+        axis_obj.transform.localEulerAngles = new Vector3(0, 0, angle);
     }
 
     //ノートを動かす(一旦真っすぐ)

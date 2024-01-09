@@ -284,50 +284,50 @@ public class ScoreCtrl : MonoBehaviour
     //ÉmÅ[ÉgÇÃê∂ê¨
     private GameObject GenerateGeneralNote(Vector3 born_pos, float angle)
     {
-        GameObject obj = Instantiate(generalNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        GameObject obj = Instantiate(generalNote_obj, born_pos, Quaternion.Euler(0,0,0), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }
 
     private GameObject GenerateButtonANote(Vector3 born_pos, float angle)
     {
-        GameObject obj = Instantiate(buttonANote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        GameObject obj = Instantiate(buttonANote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }
 
     private GameObject GenerateButtonBNote(Vector3 born_pos, float angle)
     {
-        GameObject obj = Instantiate(buttonBNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        GameObject obj = Instantiate(buttonBNote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }
 
     private GameObject GenerateButtonXNote(Vector3 born_pos, float angle)
     {
-        GameObject obj = Instantiate(buttonXNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        GameObject obj = Instantiate(buttonXNote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }
 
     private GameObject GenerateButtonYNote(Vector3 born_pos, float angle)
     {
-        GameObject obj = Instantiate(buttonYNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        GameObject obj = Instantiate(buttonYNote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }
 
     private GameObject GenerateButtonLNote(Vector3 born_pos, float angle)
     {
-        GameObject obj = Instantiate(buttonRNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        GameObject obj = Instantiate(buttonRNote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }
 
     private GameObject GenerateButtonRNote(Vector3 born_pos, float angle)
     {
-        GameObject obj = Instantiate(buttonLNote_obj, born_pos, Quaternion.Euler(0, 0, angle), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, g_manager.judge_correct_effect_magni);
+        GameObject obj = Instantiate(buttonLNote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }
 
