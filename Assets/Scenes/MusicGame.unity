@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9214,6 +9214,12 @@ MonoBehaviour:
   judge_pnt: {fileID: 1836975779}
   miss_pnt: {fileID: 240892818}
   generalNote_obj: {fileID: 6840150049720174718, guid: 5a64012223cc3594c9ea76224b1a4c6c, type: 3}
+  buttonANote_obj: {fileID: 0}
+  buttonBNote_obj: {fileID: 0}
+  buttonXNote_obj: {fileID: 0}
+  buttonYNote_obj: {fileID: 0}
+  buttonLNote_obj: {fileID: 0}
+  buttonRNote_obj: {fileID: 0}
   border_D: 0
   border_C: 750000
   border_B: 900000
