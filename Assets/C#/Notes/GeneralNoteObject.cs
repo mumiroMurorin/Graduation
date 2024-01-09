@@ -29,13 +29,13 @@ public class GeneralNoteObject : MonoBehaviour
         }
     }
 
-    /*
     //コライダーが出て行ったとき
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.CompareTag("Sword"))
         {
-           
+            if (other.name.Contains("Right")) { right_event.Invoke(); }
+            else { left_event.Invoke(); }
         }
-    }*/
+    }
 }

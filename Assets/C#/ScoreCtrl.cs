@@ -91,6 +91,9 @@ public class ScoreCtrl : MonoBehaviour
         generate_pos = generate_pnt.transform.position;
         judge_pos = judge_pnt.transform.position;
         miss_pos = miss_pnt.transform.position;
+
+        isReadDataComp = false;
+        isGenerateComp = false;
     }
 
     //スタート、リスタート時の初期化
@@ -122,6 +125,10 @@ public class ScoreCtrl : MonoBehaviour
     public void ReadStart(string file_name)
     {
         //readScore = new ReadScoreData(csvfile_name);
+        if (GetComponent<ReadScoreData>())
+        {
+            Destroy(GetComponent<ReadScoreData>());
+        }
         readScore = this.gameObject.AddComponent<ReadScoreData>();
         readScore.LoadScoreCSV(file_name);
     }

@@ -17,6 +17,7 @@ public class Note : MonoBehaviour
     private float speed = 1.0f;
     private bool isMoving = true;
     private bool isFinishVibration;
+    private bool isJudge;
 
     void Start()
     {
@@ -63,6 +64,9 @@ public class Note : MonoBehaviour
     //ノートの斬撃判定
     public void GetNoteJudgeFlag(bool isRight)
     {
+        if (isJudge) { return; }
+        isJudge = true;
+
         audioSource.PlayOneShot(audioClip);
         //コントローラの振動
         StartCoroutine(Vibration(isRight));
