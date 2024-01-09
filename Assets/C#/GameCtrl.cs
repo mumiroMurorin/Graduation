@@ -33,6 +33,14 @@ public class GameCtrl : MonoBehaviour
     [SerializeField] private ActionBox reStart_actionbox;
     [Header("バックアクションボックス")]
     [SerializeField] private ActionBox back_actionbox;
+    [Header("右スティック")]
+    [SerializeField] private GameObject stick_right_obj;
+    [Header("左スティック")]
+    [SerializeField] private GameObject stick_left_obj;
+    [Header("右剣")]
+    [SerializeField] private GameObject sword_right_obj;
+    [Header("左剣")]
+    [SerializeField] private GameObject sword_left_obj;
 
     [SerializeField] private GameManager g_manager;
     [SerializeField] private ScoreCtrl scoreCtrl;
@@ -126,6 +134,11 @@ public class GameCtrl : MonoBehaviour
         g_manager.judge_correct_effect_magni = musicDataList[now_playing_index].judge_correct_effect_magni;
         g_manager.judgeUI_magni = musicDataList[now_playing_index].judgeUI_magni;
 
+        sword_left_obj.SetActive(true);
+        sword_right_obj.SetActive(true);
+        stick_left_obj.SetActive(false);
+        stick_right_obj.SetActive(false);
+
         isFileGettingReady = true;
         isDataGettingReady = false;
         isPlayingGame = false;
@@ -184,6 +197,10 @@ public class GameCtrl : MonoBehaviour
     private void BackSelectScene()
     {
         SetActiveActionBox(false, false, false);
+        sword_left_obj.SetActive(false);
+        sword_right_obj.SetActive(false);
+        stick_left_obj.SetActive(true);
+        stick_right_obj.SetActive(true);
     }
 
     //楽曲データの読み込み

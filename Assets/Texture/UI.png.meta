@@ -177,6 +177,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_0
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 65
+        width: 356
+        height: 255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 126, y: 99, z: 127, w: 99}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14896ab661c779341ac24d9124cda75c
+      internalID: 1663414116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -190,6 +211,7 @@ TextureImporter:
     nameFileIdTable:
       TextBox_0: -522859664
       TextBox_1: -369168455
+      UI_0: 1663414116
       UI_1: 3292791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

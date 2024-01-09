@@ -10,6 +10,7 @@ public class MusicTopic : MonoBehaviour
     [Header("洗濯時背景")]
     [SerializeField] private GameObject selectBack;
 
+    private Animator animator;
     private Image thumbneil_image;
     private TextMeshProUGUI title_tmp;
     private TextMeshProUGUI composer_tmp;
@@ -22,6 +23,7 @@ public class MusicTopic : MonoBehaviour
         title_tmp = this.transform.Find("Title").GetComponent<TextMeshProUGUI>();
         composer_tmp = this.transform.Find("Composer").GetComponent<TextMeshProUGUI>();
         trigger = this.GetComponentInChildren<EventTrigger>();
+        animator = GetComponent<Animator>();
 
         musicData_index = num;
         thumbneil_image.sprite = md.thumbneil;
@@ -42,6 +44,7 @@ public class MusicTopic : MonoBehaviour
     //トピック選択
     public void SelectTopic()
     {
-        selectBack.SetActive(true);
+        //selectBack.SetActive(true);
+        animator.SetTrigger("select");
     }
 }

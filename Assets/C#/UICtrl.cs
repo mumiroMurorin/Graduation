@@ -17,6 +17,8 @@ public class UICtrl : MonoBehaviour
     [Header("上から判定4つ")]
     [SerializeField] private GameObject[] judge_obj_ori;
 
+    [Header("初期トピックX")]
+    [SerializeField] private float topic_first_x;
     [Header("トピック間隔")]
     [SerializeField] private float topic_interval;
     [Header("トピック親(Content)")]
@@ -25,6 +27,8 @@ public class UICtrl : MonoBehaviour
     [SerializeField] private GameObject topicBlock_obj;
     [Header("トピックモニタ(Image)")]
     [SerializeField] private Image[] topicMonitor_ima;
+    [Header("プレイボタン")]
+    [SerializeField] private GameObject playButton_obj;
 
     [Header("以下リザルト")]
     [SerializeField] private TextMeshProUGUI result_title;
@@ -48,6 +52,7 @@ public class UICtrl : MonoBehaviour
     void Start()
     {
         //仮
+        playButton_obj.SetActive(false);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         judge_obj = new GameObject[judge_obj_ori.Length];
         judgeUI_ori_size = new Vector3[judge_obj_ori.Length];
@@ -132,7 +137,7 @@ public class UICtrl : MonoBehaviour
         {
             GameObject g = Instantiate(topicBlock_obj, topicContent_obj.transform);
             g.GetComponent<RectTransform>().anchoredPosition =
-                new Vector3(musicTopic_maxnum * topic_interval, 0, 0);
+                new Vector3(topic_first_x + musicTopic_maxnum * topic_interval, 0, 0);
             g.GetComponent<MusicTopic>().Init(md, num);
             musicTopic_maxnum++;
         }
@@ -141,6 +146,7 @@ public class UICtrl : MonoBehaviour
     //楽曲トピックの選択
     public void SelectMusicTopic(MusicData md)
     {
+        playButton_obj.SetActive(true);
         for(int i = 0; i < topicMonitor_ima.Length; i++)
         {
             topicMonitor_ima[i].sprite = md.thumbneil;

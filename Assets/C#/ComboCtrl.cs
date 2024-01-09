@@ -56,8 +56,8 @@ public class ComboCtrl : MonoBehaviour
     {
         particle.Stop();
 
-        //コンボ0の時は非表示
-        if (combo == 0) {
+        //コンボ4以下の時は非表示
+        if (combo < 5) {
             combo_par.SetActive(false);
             combo_char_obj.SetActive(false);
             return; 

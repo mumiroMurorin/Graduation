@@ -34,8 +34,12 @@ public class GeneralNoteObject : MonoBehaviour
     {
         if (other.transform.CompareTag("Sword"))
         {
-            if (other.name.Contains("Right")) { right_event.Invoke(); }
-            else { left_event.Invoke(); }
+            //Š‚Âİ’è‚µ‚½Œ•—Í‚æ‚è‚à‘å‚«‚ÈŒ•—Í‚¾‚Á‚½‚Æ‚«
+            if (other.GetComponent<Sword>().ReturnMagni() >= judge_magni)
+            {
+                if (other.name.Contains("Right")) { right_event.Invoke(); }
+                else { left_event.Invoke(); }
+            }
         }
     }
 }
