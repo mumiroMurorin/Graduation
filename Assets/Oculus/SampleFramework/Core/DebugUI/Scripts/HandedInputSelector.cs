@@ -59,6 +59,7 @@ public class HandedInputSelector : MonoBehaviour
             t = m_CameraRig.rightHandAnchor;
         }
 
-        m_InputModule.rayTransform = t;
+        //ï|Ç¢ÇØÇ«Ç¢Ç¡ÇΩÇÒè¡Ç∑ÇÊ
+        //m_InputModule.rayTransform = t;
     }
 }

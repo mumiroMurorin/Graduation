@@ -29,13 +29,17 @@ public class GeneralNoteObject : MonoBehaviour
         }
     }
 
-    /*
     //コライダーが出て行ったとき
     private void OnTriggerExit(Collider other)
     {
         if (other.transform.CompareTag("Sword"))
         {
-           
+            //且つ設定した剣力よりも大きな剣力だったとき
+            if (other.GetComponent<Sword>().ReturnMagni() >= judge_magni)
+            {
+                if (other.name.Contains("Right")) { right_event.Invoke(); }
+                else { left_event.Invoke(); }
+            }
         }
-    }*/
+    }
 }
