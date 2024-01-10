@@ -74,6 +74,9 @@ namespace Common
 
 public class GameManager : MonoBehaviour
 {
+    [Header("ì‹Æ’†H")]
+    public bool isConstruction = false;
+
     public static GameManager instance = null;
     public float speed;
     public float sword_effect_magni;

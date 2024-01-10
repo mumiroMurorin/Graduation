@@ -6,8 +6,6 @@ using TMPro;
 
 public class UICtrl : MonoBehaviour
 {
-    [Header("作業中？")]
-    [SerializeField] private bool isConstruction = false;
     [Header("リザルトオブジェクト")]
     [SerializeField] private GameObject result_obj;
     [SerializeField] private ComboCtrl comboCtrl;
@@ -42,7 +40,7 @@ public class UICtrl : MonoBehaviour
 
     [SerializeField] private GameCtrl gameCtrl;
 
-    private GameManager gameManager;
+    private GameManager g_manager;
     private GameObject[] judge_obj;
     private Vector3[] judgeUI_ori_size;
     private int musicTopic_maxnum;
@@ -52,8 +50,8 @@ public class UICtrl : MonoBehaviour
     void Start()
     {
         //仮
-        playButton_obj.SetActive(false);
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        g_manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (g_manager.isConstruction) { playButton_obj.SetActive(false); }
         judge_obj = new GameObject[judge_obj_ori.Length];
         judgeUI_ori_size = new Vector3[judge_obj_ori.Length];
         for (int i = 0; i < judge_obj.Length; i++)
@@ -63,7 +61,7 @@ public class UICtrl : MonoBehaviour
             judgeUI_ori_size[i] = judge_obj[i].transform.Find("Canvas/Image").gameObject.GetComponent<RectTransform>().localScale;
         }
 
-        if (isConstruction)
+        if (g_manager.isConstruction)
         {
             musicTopic_maxnum = 0;
         }
@@ -85,9 +83,8 @@ public class UICtrl : MonoBehaviour
         {
             RectTransform rt = judge_obj[i].transform.Find("Canvas/Image").gameObject.GetComponent<RectTransform>();
             rt.localScale =
-                new Vector3(gameManager.judgeUI_magni * judgeUI_ori_size[i].x, 
-                gameManager.judgeUI_magni * judgeUI_ori_size[i].y, gameManager.judgeUI_magni * judgeUI_ori_size[i].z);
-            Debug.Log(rt.localScale + ", " + gameManager.judgeUI_magni);
+                new Vector3(g_manager.judgeUI_magni * judgeUI_ori_size[i].x, 
+                g_manager.judgeUI_magni * judgeUI_ori_size[i].y, g_manager.judgeUI_magni * judgeUI_ori_size[i].z);
         }
     }
 
@@ -107,7 +104,7 @@ public class UICtrl : MonoBehaviour
     public void AdventJudgeUI(int judgement_num, Vector3 pos)
     {
         GameObject g = Instantiate(judge_obj[judgement_num], pos, Quaternion.identity, judge_par.transform);
-        //g.transform.localScale = new Vector3(gameManager.judgeUI_magni, gameManager.judgeUI_magni, gameManager.judgeUI_magni);
+        //g.transform.localScale = new Vector3(g_manager.judgeUI_magni, g_manager.judgeUI_magni, g_manager.judgeUI_magni);
         g.SetActive(true);
     }
 
@@ -133,7 +130,7 @@ public class UICtrl : MonoBehaviour
     //楽曲トピックの追加
     public void AddMusicTopic(MusicData md, int num)
     {
-        if (isConstruction)
+        if (g_manager.isConstruction)
         {
             GameObject g = Instantiate(topicBlock_obj, topicContent_obj.transform);
             g.GetComponent<RectTransform>().anchoredPosition =

@@ -15,9 +15,6 @@ public class GameCtrl : MonoBehaviour
     const int BLOKEN_COLUMN = 5;
     const int JUDGE_COLUMN = 6;
 
-    [Header("çÏã∆íÜÅH")]
-    [SerializeField] private bool isConstruction = false;
-
     [Header("MusicDatañº")]
     [SerializeField] private string musicData_name;
 
@@ -42,13 +39,13 @@ public class GameCtrl : MonoBehaviour
     [Header("ç∂åï")]
     [SerializeField] private GameObject sword_left_obj;
 
-    [SerializeField] private GameManager g_manager;
     [SerializeField] private ScoreCtrl scoreCtrl;
     [SerializeField] private SoundCtrl soundCtrl;
     [SerializeField] private DirectingCtrl directingCtrl;
     [SerializeField] private UICtrl uiCtrl;
 
     private List<MusicData> musicDataList;
+    private GameManager g_manager;
     private int now_playing_index;
 
     private string musicFile_name;
@@ -70,10 +67,10 @@ public class GameCtrl : MonoBehaviour
 
     void Start()
     {
+        g_manager = GameObject.Find("GameManager").GetComponent<GameManager>();
         StartCoroutine(LoadGameData(musicData_name));
-       
 
-        if (!isConstruction)
+        if (!g_manager.isConstruction)
         {
             musicFile_name = "try";
             SetFileTrigger();   //âº
