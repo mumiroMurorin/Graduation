@@ -1433,7 +1433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAdventFlag: 0
   axis_obj: {fileID: 6943078537936799204}
-  effect_obj: {fileID: 5231268110919317193}
+  effect_obj: {fileID: 8872994170546076029}
   box_obj: {fileID: 6840150049383253533}
   broken_obj: {fileID: 8903736766090609323}
   audioSource: {fileID: 7985528117311741745}
@@ -1936,11 +1936,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d27047b6eae43244b26a790bf477c2f, type: 3}
---- !u!1 &5231268110919317193 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9070474633162843459, guid: 4d27047b6eae43244b26a790bf477c2f, type: 3}
-  m_PrefabInstance: {fileID: 3853390500345172874}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8284903088425282321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5152150172038363291, guid: 4d27047b6eae43244b26a790bf477c2f, type: 3}
@@ -2046,5 +2041,10 @@ PrefabInstance:
 --- !u!4 &4702854189868262565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1350034135309904283, guid: e190bf97c041e58448af6b043116cba0, type: 3}
+  m_PrefabInstance: {fileID: 6052745663224106302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8872994170546076029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2944396702758532163, guid: e190bf97c041e58448af6b043116cba0, type: 3}
   m_PrefabInstance: {fileID: 6052745663224106302}
   m_PrefabAsset: {fileID: 0}
