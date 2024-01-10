@@ -100,6 +100,7 @@ public class NotesData
         return true;
     }
 
+    //譜面データに特殊ノートを追加
     public bool AddButtonANote(ButtonANote a)
     {
         //既に譜面データに同じtimeのデータがある場合、挿入
