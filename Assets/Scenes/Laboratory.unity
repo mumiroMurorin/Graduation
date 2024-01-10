@@ -282,7 +282,17 @@ MonoBehaviour:
   topic_interval: 0
   topicContent_obj: {fileID: 0}
   topicBlock_obj: {fileID: 0}
+  topicMonitor_ima: []
+  result_title: {fileID: 0}
+  result_composer: {fileID: 0}
+  result_pcritical_num: {fileID: 0}
+  result_critical_num: {fileID: 0}
+  result_hit_num: {fileID: 0}
+  result_miss_num: {fileID: 0}
+  result_score: {fileID: 0}
+  result_rank: {fileID: 0}
   gameCtrl: {fileID: 0}
+  tmp_obj: {fileID: 0}
 --- !u!1001 &110531376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2543,6 +2553,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  sword_effect_magni: 0
+  judge_correct_effect_magni: 0
+  judgeUI_magni: 0
 --- !u!1 &867743826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3113,7 +3126,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isConstruction: 0
   musicData_name: _MusicData
+  selectScene_obj: {fileID: 0}
+  gameScene_obj: {fileID: 0}
   musicStart_actionbox: {fileID: 2034271683}
+  reStart_actionbox: {fileID: 0}
+  back_actionbox: {fileID: 0}
+  g_manager: {fileID: 0}
   scoreCtrl: {fileID: 1354284293}
   soundCtrl: {fileID: 736298366}
   directingCtrl: {fileID: 867743827}
@@ -3847,6 +3865,19 @@ MonoBehaviour:
   judge_pnt: {fileID: 1836975779}
   miss_pnt: {fileID: 240892818}
   generalNote_obj: {fileID: 6840150049720174718, guid: 5a64012223cc3594c9ea76224b1a4c6c, type: 3}
+  buttonANote_obj: {fileID: 6840150049720174718, guid: 0255c43a3dd43594eb54006e2ff604c5, type: 3}
+  buttonBNote_obj: {fileID: 6840150049720174718, guid: 7dda22223f1d7604590d06d0e28b64df, type: 3}
+  buttonXNote_obj: {fileID: 6840150049720174718, guid: 8ad2d07aa645a7e4db94d5fb91349724, type: 3}
+  buttonYNote_obj: {fileID: 6840150049720174718, guid: 13169418e4e739f48baff70bb7873705, type: 3}
+  buttonLNote_obj: {fileID: 6840150049720174718, guid: 7cc0090ca3f16464db1706e488715f20, type: 3}
+  buttonRNote_obj: {fileID: 6840150049720174718, guid: 98e0cd2937ed13742aca6bb33acdd1fd, type: 3}
+  border_D: 0
+  border_C: 0
+  border_B: 0
+  border_A: 0
+  border_S: 0
+  border_SS: 0
+  border_MAX: 0
   gameCtrl: {fileID: 1032284867}
   uiCtrl: {fileID: 99741685}
 --- !u!1 &1358565684
