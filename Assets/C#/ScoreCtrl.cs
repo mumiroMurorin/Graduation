@@ -21,6 +21,7 @@ public class ScoreCtrl : MonoBehaviour
     [SerializeField] private GameObject buttonYNote_obj;
     [SerializeField] private GameObject buttonLNote_obj;
     [SerializeField] private GameObject buttonRNote_obj;
+    [SerializeField] private GameObject EscapeNote_obj;
 
     [Header("Dボーダー")]
     [SerializeField] private int border_D;
@@ -204,6 +205,12 @@ public class ScoreCtrl : MonoBehaviour
                 l.obj.SetActive(false);
             }
 
+            foreach (EscapeNote e in score_data[i].escape_list)
+            {
+                e.obj = GenerateButtonLNote(generate_pos + e.pos, e.angle);
+                e.obj.SetActive(false);
+            }
+
         }
 
         isGenerateComp = true;
@@ -270,6 +277,12 @@ public class ScoreCtrl : MonoBehaviour
                 l.obj.SetActive(true);
             }
 
+            foreach (EscapeNote e in score_data[scoreData_index].escape_list)
+            {
+                //g.obj.transform.position += ReturnLittleDistance(g.time);
+                e.obj.SetActive(true);
+            }
+
             scoreData_index++;
         }
     }
@@ -327,6 +340,12 @@ public class ScoreCtrl : MonoBehaviour
     private GameObject GenerateButtonRNote(Vector3 born_pos, float angle)
     {
         GameObject obj = Instantiate(buttonLNote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
+        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
+        return obj;
+    }
+    private GameObject GenerateEscapeNote(Vector3 born_pos, float angle)
+    {
+        GameObject obj = Instantiate(EscapeNote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
         obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }

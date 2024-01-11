@@ -59,6 +59,14 @@ public class ButtonLNote
     public GameObject obj;
 }
 
+public class EscapeNote
+{
+    public float time;
+    public float angle;
+    public Vector3 pos;
+    public GameObject obj;
+}
+
 //各種ノートのリストをここに格納(ややこしいので分からんかったら聞いて)
 public class NotesBlock
 {
@@ -72,6 +80,7 @@ public class NotesBlock
     public List<ButtonYNote> buttonY_list;
     public List<ButtonLNote> buttonL_list;
     public List<ButtonRNote> buttonR_list;
+    public List<EscapeNote> escape_list;
 }
 
 public class NotesData 
@@ -191,6 +200,21 @@ public class NotesData
 
         return true;
     }
+    public bool AddEscapeNote(EscapeNote e)
+    {
+        //既に譜面データに同じtimeのデータがある場合、挿入
+        int index = ReturnExistTimeIndex(e.time);
+        if (index != -1) { score[index].escape_list.Add(e); }
+        else    //上記を満たさなかった場合、新たにそのtimeのNotesBlockを生成して譜面データに追加
+        {
+            NotesBlock notesBlock = ReturnVoidNotesBlock();
+            notesBlock.time = e.time;
+            notesBlock.escape_list = new List<EscapeNote> { e };
+            score.Add(notesBlock);
+        }
+
+        return true;
+    }
 
     //初期化されたNotesBlockを返す
     private NotesBlock ReturnVoidNotesBlock()
@@ -205,6 +229,7 @@ public class NotesData
             buttonY_list = new List<ButtonYNote>(),
             buttonL_list = new List<ButtonLNote>(),
             buttonR_list = new List<ButtonRNote>(),
+            escape_list = new List<EscapeNote>(),
         };
     }
 
