@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Common;
 
-public class EscapeNote : MonoBehaviour
+public class EscapetoNote : MonoBehaviour
 {
     [Header("îjï–Çï\é¶Ç∑ÇÈÅH")]
     [SerializeField] private bool isAdventFlag = true;

@@ -15,6 +15,7 @@ public class ReadScoreData : MonoBehaviour
     const string BUTTONY_NOTE = "y";
     const string BUTTONL_NOTE = "l";
     const string BUTTONR_NOTE = "r";
+    const string ESCAPE_NOTE = "e";
 
     private int NOTE_TIME_COLUMN;
     private int NOTE_KIND_COLUMN;
@@ -129,6 +130,10 @@ public class ReadScoreData : MonoBehaviour
                 case BUTTONR_NOTE:
                     ButtonRNote r = ConvertButtonRNote(str);
                     notesData.AddButtonRNote(r);
+                    break;
+                case ESCAPE_NOTE:
+                    EscapeNote e = ConvertEscapeNote(str);
+                    notesData.AddEscapeNote(e);
                     break;
                 default:
                     Debug.LogError("知らないやつだ:" + str[NOTE_KIND_COLUMN]);
@@ -290,6 +295,29 @@ public class ReadScoreData : MonoBehaviour
         r.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
 
         return r;
+    }
+
+    private EscapeNote ConvertEscapeNote(string[] str)
+    {
+        EscapeNote e = new EscapeNote();
+
+        //timeをfloatに変換
+        if (!float.TryParse(str[NOTE_TIME_COLUMN], out e.time))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_TIME_COLUMN]);
+            return null;
+        }
+
+        //angleをfloatに変換
+        if (!float.TryParse(str[NOTE_ANGLE_COLUMN], out e.angle))
+        {
+            Debug.LogError("time中にfloatに変換不可な文字列がありました: " + str[NOTE_ANGLE_COLUMN]);
+            return null;
+        }
+
+        e.pos = StringToVector3(str[NOTE_POSITION_COLUMN]);
+
+        return e;
     }
 
     //string「(0:0:0)」をVector3に変換
