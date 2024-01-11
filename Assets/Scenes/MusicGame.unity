@@ -543,6 +543,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69990467}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!198 &89740840 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 562923120465428073, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+  m_PrefabInstance: {fileID: 552836790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &99741683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1726,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 2621822432808760808, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 1532759621}
+    - target: {fileID: 4401896808964831184, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 589916040}
     - target: {fileID: 5225324796928195792, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4646,9 +4659,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 2621822432808760808, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 89740840}
     - target: {fileID: 4316761640217666429, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
       propertyPath: m_Name
       value: LeftCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 4401896808964831184, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 1471207534}
+    - target: {fileID: 5025119535770424881, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5225324796928195792, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4693,6 +4718,10 @@ PrefabInstance:
     - target: {fileID: 5225324796928195793, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
       propertyPath: m_Name
       value: LeftSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430803163224755584, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+      propertyPath: TrailModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6254994506668960542, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
       propertyPath: m_Name
@@ -4923,6 +4952,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588638719}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!198 &589916040 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5430803163224755584, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+  m_PrefabInstance: {fileID: 247705800}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &597705615
 GameObject:
   m_ObjectHideFlags: 0
@@ -14338,12 +14372,12 @@ MonoBehaviour:
   judge_pnt: {fileID: 1836975779}
   miss_pnt: {fileID: 240892818}
   generalNote_obj: {fileID: 6840150049720174718, guid: 5a64012223cc3594c9ea76224b1a4c6c, type: 3}
-  buttonANote_obj: {fileID: 0}
-  buttonBNote_obj: {fileID: 0}
-  buttonXNote_obj: {fileID: 0}
-  buttonYNote_obj: {fileID: 0}
-  buttonLNote_obj: {fileID: 0}
-  buttonRNote_obj: {fileID: 0}
+  buttonANote_obj: {fileID: 6840150049720174718, guid: 0255c43a3dd43594eb54006e2ff604c5, type: 3}
+  buttonBNote_obj: {fileID: 6840150049720174718, guid: 7dda22223f1d7604590d06d0e28b64df, type: 3}
+  buttonXNote_obj: {fileID: 6840150049720174718, guid: 7cc0090ca3f16464db1706e488715f20, type: 3}
+  buttonYNote_obj: {fileID: 6840150049720174718, guid: 98e0cd2937ed13742aca6bb33acdd1fd, type: 3}
+  buttonLNote_obj: {fileID: 6840150049720174718, guid: 8ad2d07aa645a7e4db94d5fb91349724, type: 3}
+  buttonRNote_obj: {fileID: 6840150049720174718, guid: 13169418e4e739f48baff70bb7873705, type: 3}
   border_D: 0
   border_C: 750000
   border_B: 900000
@@ -14872,6 +14906,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439110160}
   m_Mesh: {fileID: 4300004, guid: 94334e0a2c2838a40af65ce4378d20a6, type: 3}
+--- !u!198 &1471207534 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5430803163224755584, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+  m_PrefabInstance: {fileID: 552836790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1474236032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15680,6 +15719,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523276412}
   m_Mesh: {fileID: 4300004, guid: 94334e0a2c2838a40af65ce4378d20a6, type: 3}
+--- !u!198 &1532759621 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 562923120465428073, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}
+  m_PrefabInstance: {fileID: 247705800}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1533915481 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5225324796928195793, guid: f1d3d44539c4f394e8bf0b54b5424ae1, type: 3}

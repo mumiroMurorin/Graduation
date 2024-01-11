@@ -131,6 +131,9 @@ public class GameCtrl : MonoBehaviour
         g_manager.judge_correct_effect_magni = musicDataList[now_playing_index].judge_correct_effect_magni;
         g_manager.judgeUI_magni = musicDataList[now_playing_index].judgeUI_magni;
 
+        sword_right_obj.GetComponentInChildren<Sword>().SetSwordEffect(musicDataList[now_playing_index].sword_effect_magni, musicDataList[now_playing_index].sword_effect_magni);
+        sword_left_obj.GetComponentInChildren<Sword>().SetSwordEffect(musicDataList[now_playing_index].sword_effect_magni, musicDataList[now_playing_index].sword_effect_magni);
+
         sword_left_obj.SetActive(true);
         sword_right_obj.SetActive(true);
         stick_left_obj.SetActive(false);

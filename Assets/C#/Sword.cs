@@ -6,10 +6,13 @@ public class Sword : MonoBehaviour
 {
     private float magni;        //力の大きさ(距離依存)
     private Vector3 pos_past;
+    [SerializeField] private ParticleSystem particle;
+
+    //private ParticleSystem.Trails trails;
 
     void Start()
     {
-        
+
     }
 
     void FixedUpdate()
@@ -36,4 +39,13 @@ public class Sword : MonoBehaviour
     {
         return magni;
     }
+
+    //剣エフェクトの調整
+    public void SetSwordEffect(float _ratio,float life_time)
+    {
+        var trails = particle.trails;
+        trails.ratio = _ratio;
+        trails.lifetime = new ParticleSystem.MinMaxCurve(life_time);
+    }
+
 }
