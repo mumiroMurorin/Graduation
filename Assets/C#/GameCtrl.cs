@@ -51,8 +51,8 @@ public class GameCtrl : MonoBehaviour
     [SerializeField] private SceneTransitionParticle particle;
 
     private List<MusicData> musicDataList;
+    private MusicData now_md;
     private GameManager g_manager;
-    private int now_playing_index;
 
     //private string musicFile_name;
 
@@ -114,25 +114,24 @@ public class GameCtrl : MonoBehaviour
     //(楽曲、譜面、演出他の準備)
     private void SetFileStep()
     {
-        MusicData data = musicDataList[now_playing_index];
         Init();
         //譜面系のファイルセット
         scoreCtrl.Init();
-        scoreCtrl.ReadStart(data.score_name ?? data.file_name);
+        scoreCtrl.ReadStart(now_md.score_name ?? now_md.file_name);
         //音声系のファイルセット
         soundCtrl.Init();
-        soundCtrl.ReadStart(data.music_name ?? data.file_name);
+        soundCtrl.ReadStart(now_md.music_name ?? now_md.file_name);
         //演出系のファイルセット
         directingCtrl.Init();
-        directingCtrl.ReadStart(data.directing_name ?? data.file_name, gameScene_obj.transform);
+        directingCtrl.ReadStart(now_md.directing_name ?? now_md.file_name, gameScene_obj.transform);
 
         //設定の設定
-        g_manager.sword_effect_magni = musicDataList[now_playing_index].sword_effect_magni;
-        g_manager.judge_correct_effect_magni = musicDataList[now_playing_index].judge_correct_effect_magni;
-        g_manager.judgeUI_magni = musicDataList[now_playing_index].judgeUI_magni;
+        g_manager.sword_effect_magni = now_md.sword_effect_magni;
+        g_manager.judge_correct_effect_magni = now_md.judge_correct_effect_magni;
+        g_manager.judgeUI_magni = now_md.judgeUI_magni;
 
-        sword_right_obj.GetComponentInChildren<Sword>().SetSwordEffect(musicDataList[now_playing_index].sword_effect_magni, musicDataList[now_playing_index].sword_effect_magni);
-        sword_left_obj.GetComponentInChildren<Sword>().SetSwordEffect(musicDataList[now_playing_index].sword_effect_magni, musicDataList[now_playing_index].sword_effect_magni);
+        sword_right_obj.GetComponentInChildren<Sword>().SetSwordEffect(now_md.sword_effect_magni, now_md.sword_effect_magni);
+        sword_left_obj.GetComponentInChildren<Sword>().SetSwordEffect(now_md.sword_effect_magni, now_md.sword_effect_magni);
 
         sword_left_obj.SetActive(true);
         sword_right_obj.SetActive(true);
@@ -187,7 +186,7 @@ public class GameCtrl : MonoBehaviour
     {
         isPlayingGame = false;
         soundCtrl.StopMusic();      //楽曲停止(フェードアウト)
-        uiCtrl.SetResult(musicDataList[now_playing_index], scoreCtrl.ReturnResult());
+        uiCtrl.SetResult(now_md, scoreCtrl.ReturnResult());
         uiCtrl.AdventResultUI();    //リザルトUI出現
 
         SetActiveActionBox(false, true, true);
@@ -348,7 +347,7 @@ public class GameCtrl : MonoBehaviour
     //プレイ楽曲インデックスのセット
     public void SetPlayMusicData(int index)
     {
-        now_playing_index = index;
+        now_md = musicDataList[index];
         //musicFile_name = musicDataList[index].file_name;
         //UIのセット
         uiCtrl.SelectMusicTopic(musicDataList[index]);
