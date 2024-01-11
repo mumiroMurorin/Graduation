@@ -9,6 +9,11 @@ public class MusicData
 {
     //Šy‹Èî•ñ
     public string file_name;
+    public string music_name;
+    public string preview_name;
+    public string directing_name;
+    public string score_name;
+    public string thumbneil_name;
     public string title;
     public string composer;
     public Sprite thumbneil;

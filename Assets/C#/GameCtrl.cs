@@ -11,9 +11,14 @@ public class GameCtrl : MonoBehaviour
     const int TITLE_COLUMN = 0;
     const int COMPOSER_COLUMN = 1;
     const int FILENAME_COLUMN = 2;
-    const int SLASH_COLUMN = 4;
-    const int BLOKEN_COLUMN = 5;
-    const int JUDGE_COLUMN = 6;
+    const int MUSIC_NAME_COLUMN = 3;
+    const int PREVIEW_NAME_COLUMN = 4;
+    const int DIRECTING_NAME_COLUMN = 5;
+    const int SCORE_NAME_COLUMN = 6;
+    const int THUMBNEIL_NAME_COLUMN = 7;
+    const int SLASH_COLUMN = 8;
+    const int BLOKEN_COLUMN = 9;
+    const int JUDGE_COLUMN = 10;
 
     [Header("MusicData名")]
     [SerializeField] private string musicData_name;
@@ -49,7 +54,7 @@ public class GameCtrl : MonoBehaviour
     private GameManager g_manager;
     private int now_playing_index;
 
-    private string musicFile_name;
+    //private string musicFile_name;
 
     //ステップ系
     private bool isLoadGameData;
@@ -109,16 +114,17 @@ public class GameCtrl : MonoBehaviour
     //(楽曲、譜面、演出他の準備)
     private void SetFileStep()
     {
+        MusicData data = musicDataList[now_playing_index];
         Init();
         //譜面系のファイルセット
         scoreCtrl.Init();
-        scoreCtrl.ReadStart(musicFile_name);
+        scoreCtrl.ReadStart(data.score_name ?? data.file_name);
         //音声系のファイルセット
         soundCtrl.Init();
-        soundCtrl.ReadStart(musicFile_name);
+        soundCtrl.ReadStart(data.music_name ?? data.file_name);
         //演出系のファイルセット
         directingCtrl.Init();
-        directingCtrl.ReadStart(musicFile_name, gameScene_obj.transform);
+        directingCtrl.ReadStart(data.directing_name ?? data.file_name, gameScene_obj.transform);
 
         //設定の設定
         g_manager.sword_effect_magni = musicDataList[now_playing_index].sword_effect_magni;
@@ -227,6 +233,11 @@ public class GameCtrl : MonoBehaviour
                 title = csvDatas[i][TITLE_COLUMN],
                 composer = csvDatas[i][COMPOSER_COLUMN],
                 file_name = csvDatas[i][FILENAME_COLUMN],
+                music_name = (csvDatas[i][MUSIC_NAME_COLUMN] == "" ? null : csvDatas[i][MUSIC_NAME_COLUMN]),
+                preview_name = (csvDatas[i][PREVIEW_NAME_COLUMN] == "" ? null : csvDatas[i][PREVIEW_NAME_COLUMN]),
+                directing_name = (csvDatas[i][DIRECTING_NAME_COLUMN] == "" ? null : csvDatas[i][DIRECTING_NAME_COLUMN]),
+                score_name = (csvDatas[i][SCORE_NAME_COLUMN] == "" ? null : csvDatas[i][SCORE_NAME_COLUMN]),
+                thumbneil_name = (csvDatas[i][THUMBNEIL_NAME_COLUMN] == "" ? null : csvDatas[i][THUMBNEIL_NAME_COLUMN]),
                 sword_effect_magni = float.Parse(csvDatas[i][SLASH_COLUMN]),
                 judge_correct_effect_magni = float.Parse(csvDatas[i][BLOKEN_COLUMN]),
                 judgeUI_magni = float.Parse(csvDatas[i][JUDGE_COLUMN])
@@ -234,7 +245,8 @@ public class GameCtrl : MonoBehaviour
 
             //スプライト(サムネ)の読み込み
             Sprite sprite = null;
-            Addressables.LoadAssetAsync<Sprite>(musicDataList[i - 1].file_name + "_thumbneil").Completed += op =>
+            string f_name = musicDataList[i - 1].thumbneil_name ?? musicDataList[i - 1].file_name;
+            Addressables.LoadAssetAsync<Sprite>(f_name + "_thumbneil").Completed += op =>
             {
                 sprite = Instantiate(op.Result);
                 //Addressables.Release(op);
@@ -246,9 +258,10 @@ public class GameCtrl : MonoBehaviour
             } while (sprite == null);
             musicDataList[i - 1].thumbneil = sprite;
 
-            //スプライト(サムネ)の読み込み
+            //楽曲プレビューの読み込み
             AudioClip ac = null;
-            Addressables.LoadAssetAsync<AudioClip>(musicDataList[i - 1].file_name + "_preview").Completed += op =>
+            f_name = musicDataList[i - 1].preview_name ?? musicDataList[i - 1].file_name;
+            Addressables.LoadAssetAsync<AudioClip>(f_name + "_preview").Completed += op =>
             {
                 ac = Instantiate(op.Result);
                 //Addressables.Release(op);
@@ -333,7 +346,7 @@ public class GameCtrl : MonoBehaviour
     public void SetPlayMusicData(int index)
     {
         now_playing_index = index;
-        musicFile_name = musicDataList[index].file_name;
+        //musicFile_name = musicDataList[index].file_name;
         //UIのセット
         uiCtrl.SelectMusicTopic(musicDataList[index]);
         soundCtrl.PlayPreview(musicDataList[index].preview);
