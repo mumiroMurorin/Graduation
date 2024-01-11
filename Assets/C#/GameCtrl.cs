@@ -43,6 +43,7 @@ public class GameCtrl : MonoBehaviour
     [SerializeField] private SoundCtrl soundCtrl;
     [SerializeField] private DirectingCtrl directingCtrl;
     [SerializeField] private UICtrl uiCtrl;
+    [SerializeField] private SceneTransitionParticle particle;
 
     private List<MusicData> musicDataList;
     private GameManager g_manager;
@@ -69,17 +70,7 @@ public class GameCtrl : MonoBehaviour
     {
         g_manager = GameObject.Find("GameManager").GetComponent<GameManager>();
         StartCoroutine(LoadGameData(musicData_name));
-
-        if (!g_manager.isConstruction)
-        {
-            musicFile_name = "try";
-            SetFileTrigger();   //仮
-            SetDataTrigger();   //仮
-        }
-        else
-        {
-            TransitionSelectTrigger();//仮
-        }
+        TransitionSelectTrigger();//仮
     }
 
     void Update()
@@ -93,7 +84,10 @@ public class GameCtrl : MonoBehaviour
         //ファイル準備完了？
         else if (!isReadyComp && isDataGettingReady && scoreCtrl.IsReturnScoreReady() && soundCtrl.IsReturnLoadComp()
             && directingCtrl.IsReturnLoadComp())
-        { isReadyComp = true; }
+        { 
+            isReadyComp = true;
+            particle.FinishParticle();
+        }
         //楽曲プレイ
         else if (!isPlayingGame && isReadyComp && isGameStartTrigger)
         { StartStep(); }
@@ -305,6 +299,8 @@ public class GameCtrl : MonoBehaviour
         gameScene_obj.SetActive(false);
         selectScene_obj.SetActive(true);
         BackSelectScene();
+        particle.PlayParticle();
+        particle.FinishParticle();
     }
 
     //ゲームシーン遷移トリガー
@@ -312,6 +308,7 @@ public class GameCtrl : MonoBehaviour
     {
         gameScene_obj.SetActive(true);
         selectScene_obj.SetActive(false);
+        particle.PlayParticle();
     }
 
     //ファイル読み込みトリガー
