@@ -345,7 +345,7 @@ public class GameCtrl : MonoBehaviour
     //‰¼’u‚«
     public void tmp()
     {
-        now_md = musicDataList[0];
+        now_md = musicDataList[1];
         TransitionGameTrigger();
     }
 
