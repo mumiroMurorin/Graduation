@@ -14378,7 +14378,7 @@ MonoBehaviour:
   buttonYNote_obj: {fileID: 6840150049720174718, guid: 98e0cd2937ed13742aca6bb33acdd1fd, type: 3}
   buttonLNote_obj: {fileID: 6840150049720174718, guid: 8ad2d07aa645a7e4db94d5fb91349724, type: 3}
   buttonRNote_obj: {fileID: 6840150049720174718, guid: 13169418e4e739f48baff70bb7873705, type: 3}
-  EscapeNote_obj: {fileID: 0}
+  EscapeNote_obj: {fileID: 6840150049720174718, guid: f42646a4e395de54e9aa57ff042e9128, type: 3}
   border_D: 0
   border_C: 750000
   border_B: 900000
