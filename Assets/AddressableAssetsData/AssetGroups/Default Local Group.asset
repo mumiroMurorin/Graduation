@@ -73,7 +73,17 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c036fdbca5c9ace4eaf932d1e4fdef87
-    m_Address: test_score
+    m_Address: button_score
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 734f9a987519f8644a13f2af8af17782
+    m_Address: escape_score
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: daa86ee9857e7eb4f877b585f733e9b9
+    m_Address: both_score
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
