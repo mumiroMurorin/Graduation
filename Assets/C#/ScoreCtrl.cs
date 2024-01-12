@@ -207,7 +207,7 @@ public class ScoreCtrl : MonoBehaviour
 
             foreach (EscapeNote e in score_data[i].escape_list)
             {
-                e.obj = GenerateButtonLNote(generate_pos + e.pos, e.angle);
+                e.obj = GenerateEscapeNote(generate_pos + e.pos, e.angle);
                 e.obj.SetActive(false);
             }
 
@@ -346,7 +346,7 @@ public class ScoreCtrl : MonoBehaviour
     private GameObject GenerateEscapeNote(Vector3 born_pos, float angle)
     {
         GameObject obj = Instantiate(EscapeNote_obj, born_pos, Quaternion.Euler(0, 0, 0), note_par.transform);
-        obj.GetComponent<Note>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
+        obj.GetComponent<EscapetoNote>().Init(g_manager.speed, scoreCtrl, angle, g_manager.judge_correct_effect_magni);
         return obj;
     }
 

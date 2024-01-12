@@ -7,6 +7,7 @@ public class EscapetoNote : MonoBehaviour
 {
     [Header("破片を表示する？")]
     [SerializeField] private bool isAdventFlag = true;
+    [SerializeField] private GameObject axis_obj;
     [SerializeField] private GameObject effect_obj;
     [SerializeField] private GameObject box_obj;
     [SerializeField] private GameObject broken_obj;
@@ -17,6 +18,7 @@ public class EscapetoNote : MonoBehaviour
     private float speed = 1.0f;
     private bool isMoving = true;
     private bool isFinishVibration;
+    private bool isJudge;
 
     void Start()
     {
@@ -30,9 +32,10 @@ public class EscapetoNote : MonoBehaviour
     void Update()
     {
         //仮消滅判定
-        if (this.gameObject.transform.position.z < -2) {
+        if (this.gameObject.transform.position.z < -2)
+        {
             //ScoreCtrlに判定を渡す
-            scoreCtrl.SetNoteJudge(GrovalConst.MISS_NUMBER, this.gameObject.transform.position);
+            scoreCtrl.SetNoteJudge(GrovalConst.P_CRITICAL_NUMBER, this.gameObject.transform.position);
             //このオブジェクトを抹消
             Destroy(this.gameObject);
         }
@@ -42,14 +45,17 @@ public class EscapetoNote : MonoBehaviour
     {
         if (isMoving) { MoveObject(); }
         //このオブジェクトを抹消
-        else if (isFinishVibration && !audioSource.isPlaying && !effect_obj) 
+        else if (isFinishVibration && !audioSource.isPlaying && !effect_obj)
         { Destroy(this.gameObject); }
     }
 
-    public void Init(float s, ScoreCtrl s_ctrl)
+    public void Init(float s, ScoreCtrl s_ctrl, float angle, float effect_magni)
     {
         speed = s;
         scoreCtrl = s_ctrl;
+        Vector3 size_ori = effect_obj.transform.localScale;
+        effect_obj.transform.localScale = new Vector3(size_ori.x * effect_magni, size_ori.y * effect_magni, size_ori.z * effect_magni);
+        axis_obj.transform.localEulerAngles = new Vector3(0, 0, angle);
     }
 
     //ノートを動かす(一旦真っすぐ)
@@ -61,11 +67,14 @@ public class EscapetoNote : MonoBehaviour
     //ノートの斬撃判定
     public void GetNoteJudgeFlag(bool isRight)
     {
+        if (isJudge) { return; }
+        isJudge = true;
+
         audioSource.PlayOneShot(audioClip);
         //コントローラの振動
         StartCoroutine(Vibration(isRight));
         //ScoreCtrlに判定を渡す
-        scoreCtrl.SetNoteJudge(GrovalConst.MISS_NUMBER, this.gameObject.transform.position);//GrovalConst.P_MISS_NUMBERにすればいい
+        scoreCtrl.SetNoteJudge(GrovalConst.MISS_NUMBER, this.gameObject.transform.position);
         //ノーツボックスの非アクティブ
         box_obj.SetActive(false);
         //分割ノートのアクティブ
@@ -84,4 +93,7 @@ public class EscapetoNote : MonoBehaviour
         yield return StartCoroutine(coroutine);
         isFinishVibration = true;
     }
+
+    //判定
+
 }
