@@ -14,6 +14,7 @@ public class GeneralNoteObject : MonoBehaviour
     [Header("斬撃判定となる剣の力(距離)")]
     [SerializeField] private float judge_magni;
 
+    /*
     //剣が触れたとき、判定開始
     private void OnTriggerEnter(Collider other)
     {
@@ -27,8 +28,22 @@ public class GeneralNoteObject : MonoBehaviour
                 else { left_event.Invoke(); }
             }
         }
+    }*/
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.transform.CompareTag("Sword"))
+        {
+            //且つ設定した剣力よりも大きな剣力だったとき
+            if (other.GetComponent<Sword>().ReturnMagni() >= judge_magni)
+            {
+                if (other.name.Contains("Right")) { right_event.Invoke(); }
+                else { left_event.Invoke(); }
+            }
+        }
     }
 
+    /*
     //コライダーが出て行ったとき
     private void OnTriggerExit(Collider other)
     {
@@ -41,5 +56,5 @@ public class GeneralNoteObject : MonoBehaviour
                 else { left_event.Invoke(); }
             }
         }
-    }
+    }*/
 }
