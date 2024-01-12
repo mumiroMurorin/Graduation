@@ -10012,11 +10012,11 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          inSlope: -0
+          outSlope: 0.9435584
+          tangentMode: 69
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.21196353
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -14378,6 +14378,7 @@ MonoBehaviour:
   buttonYNote_obj: {fileID: 6840150049720174718, guid: 98e0cd2937ed13742aca6bb33acdd1fd, type: 3}
   buttonLNote_obj: {fileID: 6840150049720174718, guid: 8ad2d07aa645a7e4db94d5fb91349724, type: 3}
   buttonRNote_obj: {fileID: 6840150049720174718, guid: 13169418e4e739f48baff70bb7873705, type: 3}
+  EscapeNote_obj: {fileID: 0}
   border_D: 0
   border_C: 750000
   border_B: 900000
