@@ -63,6 +63,8 @@ public class GameCtrl : MonoBehaviour
     private bool isPlayingGame;
     
     //トリガー系
+    private bool isTransMusicSceneTrigger;
+    private bool isTransSelectSceneTrigger;
     private bool isFileLoadTrigger;
     private bool isDataPreparationTrigger;
     private bool isGameStartTrigger;
@@ -80,8 +82,11 @@ public class GameCtrl : MonoBehaviour
 
     void Update()
     {
+        //ゲームシーン遷移
+        if(isLoadGameData && isTransMusicSceneTrigger && particle.IsReturnHideScene()) 
+        { TransitionMusicSceneStep(); }
         //ファイル準備
-        if (isLoadGameData && isFileLoadTrigger)
+        else if (isLoadGameData && isFileLoadTrigger)
         { SetFileStep(); }
         //データ準備(プレイ準備)
         else if(isFileGettingReady && scoreCtrl.IsReturnReadDataComp() && isDataPreparationTrigger)
@@ -99,6 +104,9 @@ public class GameCtrl : MonoBehaviour
         //楽曲終了
         else if(isPlayingGame && !scoreCtrl.IsReturnPlaying() && !directingCtrl.IsReturnPlaying())
         { FinishGameStep(); }
+        //セレクトシーン遷移
+        else if(!isPlayingGame && isTransSelectSceneTrigger && particle.IsReturnHideScene())
+        { TransitionSelectSceneStep(); }
     }
 
     //初期化
@@ -192,14 +200,28 @@ public class GameCtrl : MonoBehaviour
         SetActiveActionBox(false, true, true);
     }
 
-    //セレクトに戻る処理
-    private void BackSelectScene()
+    //楽曲シーン遷移処理
+    private void TransitionMusicSceneStep()
     {
-        SetActiveActionBox(false, false, false);
+        SetDataTrigger();
+        SetFileTrigger();
+
+        gameScene_obj.SetActive(true);
+        selectScene_obj.SetActive(false);
+        isTransMusicSceneTrigger = false;
+    }
+
+    //セレクトに戻る処理
+    private void TransitionSelectSceneStep()
+    {
+        gameScene_obj.SetActive(false);
+        selectScene_obj.SetActive(true);
         sword_left_obj.SetActive(false);
         sword_right_obj.SetActive(false);
         stick_left_obj.SetActive(true);
         stick_right_obj.SetActive(true);
+        particle.FinishParticle();
+        isTransSelectSceneTrigger = false;
     }
 
     //楽曲データの読み込み
@@ -311,18 +333,15 @@ public class GameCtrl : MonoBehaviour
     //セレクトシーン遷移トリガー
     public void TransitionSelectTrigger()
     {
-        gameScene_obj.SetActive(false);
-        selectScene_obj.SetActive(true);
-        BackSelectScene();
+        isTransSelectSceneTrigger = true;
+        SetActiveActionBox(false, false, false);
         particle.PlayParticle();
-        particle.FinishParticle();
     }
 
     //ゲームシーン遷移トリガー
     public void TransitionGameTrigger()
     {
-        gameScene_obj.SetActive(true);
-        selectScene_obj.SetActive(false);
+        isTransMusicSceneTrigger = true;
         particle.PlayParticle();
     }
 

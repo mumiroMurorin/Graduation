@@ -156,7 +156,5 @@ public class UICtrl : MonoBehaviour
     public void PushPlayButton()
     {
         gameCtrl.TransitionGameTrigger();
-        gameCtrl.SetDataTrigger();
-        gameCtrl.SetFileTrigger();
     }
 }

@@ -22,13 +22,12 @@ public class SceneTransitionParticle : MonoBehaviour
     private ParticleSystem.EmissionModule _emissionModule;
 
     private bool isPlaying;
+    private bool isHideScene;
     private float change_time_count;
 
     void Start()
     {
-        particle = GetComponent<ParticleSystem>();
-        _mainModule = particle.main;
-        _emissionModule = particle.emission;
+
     }
 
     // Update is called once per frame
@@ -36,9 +35,9 @@ public class SceneTransitionParticle : MonoBehaviour
     {
         if (isPlaying) {
             change_time_count += Time.deltaTime;
-            if(change_time < change_time_count)
+            if(!isHideScene && change_time < change_time_count)
             {
-                change_time_count = 0;
+                isHideScene = true;
                 SetParameter();
             }
         }
@@ -72,6 +71,13 @@ public class SceneTransitionParticle : MonoBehaviour
     //çƒê∂
     public void PlayParticle()
     {
+        if (!particle)
+        {
+            particle = GetComponent<ParticleSystem>();
+            _mainModule = particle.main;
+            _emissionModule = particle.emission;
+        }
+
         _mainModule.loop = true;
         //StartLifeTime
         ParticleSystem.MinMaxCurve minMaxCurve = _mainModule.startLifetime;
@@ -83,13 +89,21 @@ public class SceneTransitionParticle : MonoBehaviour
         _emissionModule.rateOverTime = minMaxCurve;
         particle.Play();
         isPlaying = true;
+        isHideScene = false;
     }
 
     //í¡âŒ
     public void FinishParticle()
     {
         isPlaying = false;
+        isHideScene = false;
         change_time_count = 0;
         _mainModule.loop = false;
+    }
+
+    //ÉVÅ[ÉìÇ™âBÇÍÇƒÇ¢ÇÈÇ©ï‘Ç∑
+    public bool IsReturnHideScene()
+    {
+        return isHideScene;
     }
 }
