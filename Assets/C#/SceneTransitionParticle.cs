@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SceneTransitionParticle : MonoBehaviour
 {
+    public bool tmp;
     [SerializeField] private bool start;
     [SerializeField] private bool stop;
     [Header("何秒後にパラメータを変える？")]
@@ -33,6 +34,7 @@ public class SceneTransitionParticle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        tmp = particle.isPlaying;
         if (isPlaying) {
             change_time_count += Time.deltaTime;
             if(!isHideScene && change_time < change_time_count)
@@ -105,5 +107,11 @@ public class SceneTransitionParticle : MonoBehaviour
     public bool IsReturnHideScene()
     {
         return isHideScene;
+    }
+
+    //再生中か返す
+    public bool IsReturnPlaying()
+    {
+        return isPlaying || particle.isPlaying;
     }
 }

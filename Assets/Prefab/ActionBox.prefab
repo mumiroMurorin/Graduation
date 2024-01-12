@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df12a71901470e48a3ea919ae82a84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAdventFlag: 1
   isDestroy: 0
   revival_time: 0
   do_event:

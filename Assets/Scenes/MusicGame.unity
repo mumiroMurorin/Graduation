@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -302,6 +302,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!120 &49275123 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 120006741097097638, guid: a9d2de84afb308a4796cc671d3432b4d, type: 3}
+  m_PrefabInstance: {fileID: 110531376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &50563722
 GameObject:
   m_ObjectHideFlags: 0
@@ -8204,6 +8209,7 @@ MonoBehaviour:
   musicStart_actionbox: {fileID: 2034271683}
   reStart_actionbox: {fileID: 990069553}
   back_actionbox: {fileID: 1511457187}
+  ui_line: {fileID: 49275123}
   stick_right_obj: {fileID: 661166810}
   stick_left_obj: {fileID: 160523263}
   sword_right_obj: {fileID: 1030812695}
@@ -8482,7 +8488,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 5
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -8523,7 +8529,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046958793}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 3.5
   simulationSpeed: 3
   stopAction: 0
   cullingMode: 0
@@ -13268,9 +13274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e897a9d9798c4334a93050fcbe7f7a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tmp: 0
   start: 0
   stop: 0
-  change_time: 2
+  change_time: 2.1
   f_startLifeTime_aCurve:
     serializedVersion: 2
     m_Curve:

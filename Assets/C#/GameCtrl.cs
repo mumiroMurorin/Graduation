@@ -35,6 +35,8 @@ public class GameCtrl : MonoBehaviour
     [SerializeField] private ActionBox reStart_actionbox;
     [Header("バックアクションボックス")]
     [SerializeField] private ActionBox back_actionbox;
+    [Header("コントローラUIライン")]
+    [SerializeField] private LineRenderer ui_line;
     [Header("右スティック")]
     [SerializeField] private GameObject stick_right_obj;
     [Header("左スティック")]
@@ -90,13 +92,14 @@ public class GameCtrl : MonoBehaviour
         { SetFileStep(); }
         //データ準備(プレイ準備)
         else if(isFileGettingReady && scoreCtrl.IsReturnReadDataComp() && isDataPreparationTrigger)
-        { SetDataStep(); }
+        { SetDataStep(); Debug.Log("koko"); }
         //ファイル準備完了？
         else if (!isReadyComp && isDataGettingReady && scoreCtrl.IsReturnScoreReady() && soundCtrl.IsReturnLoadComp()
             && directingCtrl.IsReturnLoadComp())
         { 
             isReadyComp = true;
             particle.FinishParticle();
+            StartCoroutine(DisActionBoxLater());
         }
         //楽曲プレイ
         else if (!isPlayingGame && isReadyComp && isGameStartTrigger)
@@ -145,6 +148,7 @@ public class GameCtrl : MonoBehaviour
         sword_right_obj.SetActive(true);
         stick_left_obj.SetActive(false);
         stick_right_obj.SetActive(false);
+        ui_line.enabled = false;
 
         isFileGettingReady = true;
         isDataGettingReady = false;
@@ -166,10 +170,9 @@ public class GameCtrl : MonoBehaviour
         //UIの初期化
         uiCtrl.Init_Start();
 
-        SetActiveActionBox(true, false, false);
-
         isDataGettingReady = true;
         isPlayingGame = false;
+        isReadyComp = false;
 
         isDataPreparationTrigger = false;
     }
@@ -220,6 +223,7 @@ public class GameCtrl : MonoBehaviour
         sword_right_obj.SetActive(false);
         stick_left_obj.SetActive(true);
         stick_right_obj.SetActive(true);
+        ui_line.enabled = true;
         particle.FinishParticle();
         isTransSelectSceneTrigger = false;
     }
@@ -309,6 +313,16 @@ public class GameCtrl : MonoBehaviour
         isLoadGameData = true;
     }
 
+    //アクションボックスの表示処理
+    private IEnumerator DisActionBoxLater()
+    {
+        do
+        {
+            yield return null;
+        } while (particle.IsReturnPlaying());
+        SetActiveActionBox(true, false, false);
+    }
+
     /// <summary>
     /// アクションボックスのアクティブ関係
     /// </summary>
@@ -326,6 +340,13 @@ public class GameCtrl : MonoBehaviour
     public void OutputLog(string str)
     {
         Debug.Log(str);
+    }
+
+    //仮置き
+    public void tmp()
+    {
+        now_md = musicDataList[0];
+        TransitionGameTrigger();
     }
 
     //--------------------トリガー、セット系--------------------
