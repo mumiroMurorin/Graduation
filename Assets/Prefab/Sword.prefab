@@ -522,6 +522,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
       propertyPath: TrailModule.lifetime.scalar
       value: 0.2
       objectReference: {fileID: 0}
@@ -537,6 +541,62 @@ PrefabInstance:
       propertyPath: InitialModule.startLifetime.scalar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 15677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 46903
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime4
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime5
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key3.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key4.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key5.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_ColorSpace
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575079982831503272, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6070278565362508024, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -547,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6070278565362508024, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6070278565362508024, guid: 96f644e229a8c3a47a497ade041aac99, type: 3}
       propertyPath: m_LocalRotation.w

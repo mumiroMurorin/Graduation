@@ -1,6 +1,10 @@
 ﻿[Title],[Composer],[FileName],[MusicName,[PreviewName],[DirectingName],[ScoreName],[ThumbneilName],[Slash],[Broken],[Judge]
 Lachryma《Re:Queen'M》,かめりあ,try,,,,,,0.1,2,2
-マーシャルマキシマイザー1,柊マグネタイト,marshall,,,,,,1,1,1
+マーシャル・マキシマイザー①,柊マグネタイト,marshall,,,,,,0,1,1
+マーシャル・マキシマイザー②,柊マグネタイト,marshall,,,,,,0.25,1,1
+マーシャル・マキシマイザー③,柊マグネタイト,marshall,,,,,,0.5,1,1
+マーシャル・マキシマイザー④,柊マグネタイト,marshall,,,,,,0.75,1,1
+マーシャル・マキシマイザー⑤,柊マグネタイト,marshall,,,,,,1,1,1
 基本,Toshi,marshall,,,,,try,1,1,1
 ボタン,Toshi,marshall,,,,button,try,1,1,1
 避ける,Toshi,marshall,,,,escape,try,1,1,1
