@@ -92,7 +92,7 @@ public class GameCtrl : MonoBehaviour
         { SetFileStep(); }
         //データ準備(プレイ準備)
         else if(isFileGettingReady && scoreCtrl.IsReturnReadDataComp() && isDataPreparationTrigger)
-        { SetDataStep(); Debug.Log("koko"); }
+        { SetDataStep(); }
         //ファイル準備完了？
         else if (!isReadyComp && isDataGettingReady && scoreCtrl.IsReturnScoreReady() && soundCtrl.IsReturnLoadComp()
             && directingCtrl.IsReturnLoadComp())

@@ -22,6 +22,7 @@ public class ActionBox : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
+    private Animator anim;
     private bool isFinishVibration;
     private bool isForceSetActive = true;
 
@@ -32,6 +33,7 @@ public class ActionBox : MonoBehaviour
         //box_obj.SetActive(true);
         broken_obj.SetActive(false);
         effect_obj.SetActive(false);
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -45,6 +47,7 @@ public class ActionBox : MonoBehaviour
     public void RevivalActionBox()
     {
         box_obj.SetActive(isForceSetActive);
+        if (isForceSetActive) { anim.SetTrigger("advent"); }
     }
 
     //アクションボックスの斬撃判定
@@ -76,6 +79,7 @@ public class ActionBox : MonoBehaviour
     {
         isForceSetActive = b;
         box_obj.SetActive(b);
+        if (b) { anim.SetTrigger("advent"); }
     }
 
     //振動コルーチン

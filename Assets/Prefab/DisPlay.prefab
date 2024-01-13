@@ -137,7 +137,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 0
   m_WaitForFirstFrame: 1
@@ -152,6 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2932012297793684734}
+  - component: {fileID: 9188132665725919955}
   m_Layer: 0
   m_Name: DisPlay
   m_TagString: Untagged
@@ -176,6 +177,18 @@ Transform:
   - {fileID: 88624623893724849}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9188132665725919955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294989678630257799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f714ae6560866142b5239130efda35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100515460524743795
 PrefabInstance:
   m_ObjectHideFlags: 0

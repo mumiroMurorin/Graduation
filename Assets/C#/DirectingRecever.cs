@@ -16,5 +16,4 @@ public class DirectingRecever : MonoBehaviour
     {
         directingCtrl.SetDirectingFinish();
     }
-
 }
