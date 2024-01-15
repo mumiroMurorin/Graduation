@@ -15,6 +15,7 @@ public class Note : MonoBehaviour
     [SerializeField] private AudioClip audioClip;
 
     private ScoreCtrl scoreCtrl;
+    private int judge_num = 0;
     private float speed = 1.0f;
     private bool isMoving = true;
     private bool isFinishVibration;
@@ -73,7 +74,7 @@ public class Note : MonoBehaviour
         //コントローラの振動
         StartCoroutine(Vibration(isRight));
         //ScoreCtrlに判定を渡す
-        scoreCtrl.SetNoteJudge(GrovalConst.P_CRITICAL_NUMBER, this.gameObject.transform.position);
+        scoreCtrl.SetNoteJudge(judge_num, this.gameObject.transform.position);
         //ノーツボックスの非アクティブ
         box_obj.SetActive(false);
         //分割ノートのアクティブ
@@ -94,5 +95,24 @@ public class Note : MonoBehaviour
     }
 
     //判定
+    public void SetJudge_PCritical()
+    {
+        judge_num = GrovalConst.P_CRITICAL_NUMBER;
+    }
+
+    public void SetJudge_Critical()
+    {
+        judge_num = GrovalConst.CRITICAL_NUMBER;
+    }
+
+    public void SetJudge_Hit()
+    {
+        judge_num = GrovalConst.HIT_NUMBER;
+    }
+
+    public void SetJudge_Miss()
+    {
+        judge_num = GrovalConst.MISS_NUMBER;
+    }
 
 }

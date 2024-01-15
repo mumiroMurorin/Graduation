@@ -1387,7 +1387,69 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  judge_magni: 2
+  pCritical_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1951687657098191563}
+        m_TargetAssemblyTypeName: Note, Assembly-CSharp
+        m_MethodName: SetJudge_PCritical
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  critical_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1951687657098191563}
+        m_TargetAssemblyTypeName: Note, Assembly-CSharp
+        m_MethodName: SetJudge_Critical
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hit_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1951687657098191563}
+        m_TargetAssemblyTypeName: Note, Assembly-CSharp
+        m_MethodName: SetJudge_Hit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  miss_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1951687657098191563}
+        m_TargetAssemblyTypeName: Note, Assembly-CSharp
+        m_MethodName: SetJudge_Miss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  judge_magni_pCri: 11.5
+  judge_magni_cri: 8
+  judge_magni_hit: 4
 --- !u!1 &6840150049720174718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +2030,10 @@ PrefabInstance:
     - target: {fileID: 3891973445508218817, guid: e190bf97c041e58448af6b043116cba0, type: 3}
       propertyPath: looping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891973445508218817, guid: e190bf97c041e58448af6b043116cba0, type: 3}
+      propertyPath: stopAction
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4752544937895253658, guid: e190bf97c041e58448af6b043116cba0, type: 3}
       propertyPath: looping
